@@ -28,6 +28,11 @@ export default {
 /* use sass in this section to make everything smarter */
 
 /* opacity */
+@import url('https://fonts.googleapis.com/css?family=Lexend+Deca&display=swap');
+/* font */
+.v-application {
+   /* font-family: 'Lexend Deca', sans-serif; */
+ }
 
 
 .op100{opacity: 1}
@@ -44,6 +49,7 @@ export default {
 
 /* height  */
 .h100{height: 100%}
+.minh700{min-height:700px}
 .h90{height: 90%}
 .h80{height: 80%}
 .h70{height: 70%}

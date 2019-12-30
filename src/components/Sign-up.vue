@@ -1,6 +1,6 @@
 <template>
     
-    <v-container fluid  min-height="800" class="pa-0 ma-0 teal darken-1 h90">
+    <v-container fluid class="pa-0 ma-0 teal darken-1 h90">
         <v-row 
         no-gutters
         class=" ma-0 pa-0 h100"
@@ -60,6 +60,20 @@
                 </v-card>
                 </div>
                 <div
+                class="d-flex justify-center ma-0  pa-0">
+                    <v-card
+                    flat
+                    class="teal darken-1"
+                    width="300"
+                    height="50">
+                        <v-checkbox
+                        v-model="checkbox"
+                        color="white"
+                        label="I agree to the terms of Noor Edu"
+                        ></v-checkbox>
+                    </v-card>
+                </div> 
+                <div
                 class="d-flex justify-center ma-0 mt-6 pa-0">
                     <v-btn
                     class="blue"
@@ -68,6 +82,7 @@
                     
                     </v-btn>
                 </div> 
+ 
             </v-col>
 
             <!-- sign in btn -->

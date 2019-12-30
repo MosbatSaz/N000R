@@ -1,36 +1,34 @@
 <template>
 
-    <v-container fluid  min-height="800" class="pa-0 ma-0 teal darken-1 h80">
+    <v-container fluid  min-height="800" class="pa-0 ma-0 teal darken-1 h80 minh700">
+
         <v-row 
         no-gutters
         class=" ma-0 pa-0 h100"
         justify="center"
-        align="start"
+        align="center"
         >
             <!-- finger-print -->
             <v-col 
             cols="12"
-            class="pa-0 ma-0 mt-12"
+            class="pa-0 ma-0 mt-4"
             >   
                 <div 
                 class="d-flex justify-center">
                     <v-avatar
-                        >
-                        
-                        <v-icon  
-                        class="" 
-                        color="white" 
-                        x-large>
-                        mdi-fingerprint
-                        </v-icon>
-                    </v-avatar>    
+                    size="150">
+                    <img
+                        src="../assets/Finger-Print.png"
+                        alt="John"
+                    >
+                    </v-avatar>  
                 </div>
             </v-col>
 
             <!-- block spacer -->
             <v-col 
             cols="12"
-            class="ma-0 mb-4 pa-0">
+            class="ma-0 mb-8 pa-0">
                 <div
                 class="d-flex justify-center w100">
                     <v-card
@@ -66,7 +64,7 @@
                 </v-card>
                 </div>
                 <div
-                class="d-flex justify-center">
+                class="d-flex justify-center mb-6">
                 <v-card
                 flat
                 width="300"
@@ -79,12 +77,6 @@
                     </v-text-field>
                 </v-card>
                 </div>
-            </v-col>
-
-            <!-- sign in btn -->
-            <v-col 
-            cols="12"
-            class="ma-0 mb-n12 mt-n9 pa-0 ">
                 <div
                 class="d-flex justify-center">
                     <v-btn
@@ -93,13 +85,15 @@
                     height="50">
                     
                     </v-btn>
-                </div>    
-            </v-col>  
+                </div> 
+            </v-col>
+
+
 
             <!-- forget password -->
             <v-col 
             cols="12"
-            class="ma-0 mb-n10 mt-n5  pa-0" >
+            class="ma-0 my-n10  pa-0" >
                 <div class="text-center">
                     Forget Password?
                 </div>   
@@ -124,7 +118,7 @@
             <!-- block spacer -->
             <v-col 
             cols="12"
-            class="ma-0 my-n8 pa-0">
+            class="ma-0 mt-n3 mb-2 pa-0">
                 <div
                 class="d-flex justify-center w100">
                     <v-card
