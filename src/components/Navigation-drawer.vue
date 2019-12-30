@@ -31,26 +31,43 @@
   <!-- Navigation drawer -->
   <v-navigation-drawer width="500" class="op90" color="teal darken-1" app right v-model="toggle">
     <v-app-bar 
-    class="teal darken-1 pa-0 ma-0"
-    height="40"
+    class="teal darken-2 pa-0 ma-0 hidden-xs-only"
+    height="50"
     flat>
          <v-btn
         @click="toggle =! toggle"
-        large
         tile
         color="white"
         outlined
-        class="teal darken-1 pa-0 ma-0 w100"
-        height="40"
+        class="teal darken-2 pa-0 ma-0 w100"
+        height="50"
         >
-          <v-icon>
+          <v-icon
+          large>
             mdi-close
           </v-icon>
         </v-btn>
     </v-app-bar>
+ 
+        <component class="  ma-0 pa-0" :is="c"></component>
 
 
-        <component class=" h100 w100 ma-0 pa-0" :is="c"></component>
+         <v-btn
+        @click="toggle =! toggle"
+        tile
+        color="white"
+        outlined
+        class="teal darken-2 pa-0 ma-0 w100  hidden-sm-and-up"
+        height="50"
+        absolute
+        bottom
+        >
+          <v-icon
+          large>
+            mdi-close
+          </v-icon>
+        </v-btn>
+  
 
 
 
@@ -71,8 +88,9 @@ export default {
     
   },
   data: () => ({
-    c: SignUp,
+    c: SignIn,
     toggle: false,
+    bn:true,
   }),
 };
 </script>
