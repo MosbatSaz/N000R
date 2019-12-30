@@ -7,7 +7,6 @@
       justify="space-between"
     >
 
-
     
 
       <!-- hero image -->
