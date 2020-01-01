@@ -15,24 +15,26 @@
       <v-col 
       cols="12"
       class="ma-0 pa-0">
-        <v-parallax
-          id="inspire"
-          dark
-          src="../../public/mountain.jpg"
-          class="ma-0"
-          :height="parallaxH"
-        >
-          <!-- Slogan slide -->
-          <v-row
+           <v-row
             align="center"
             justify="center"
+            class="h100 w100 pa-0 ma-0"
           >
-            <v-col class="text-center" cols="12">
-              <h1 class="display-1 font-weight-thin mb-4">Noor Edu</h1>
-              <h4 class="subheading">enjoy our courses and classes!</h4>
-            </v-col>
+          <v-card
+          flat
+          class="w100"
+          :height="parallaxH">
+            <v-row
+            justify="center"
+            align="center"
+            class="ma-0 pa-0 h100">
+              <v-col class="text-center" cols="12">
+                <h1 class="display-1 font-weight-thin mb-4">Noor Edu</h1>
+                <h4 class="subheading">enjoy our courses and classes!</h4>
+              </v-col>
+            </v-row>
+          </v-card>  
           </v-row>
-        </v-parallax>
       </v-col>
 
 
@@ -51,7 +53,7 @@
               v-resize="onResize"
               :height="cardH"
                @click="dialog =! dialog"
-              class="yellow darken-3 ma-0 pa-0 w100"
+              class="white ma-0 pa-0 w100"
             >
               Prop based elevation
             </v-card>
@@ -164,60 +166,62 @@
             Click Me
           </v-btn>
         </template> -->
-    <v-app-bar
-    flat
-    fixed
-    class="pink pa-0 ma-0 op50"
-    height="40">
-         <v-btn
-        @click="dialog =! dialog"
-        large
-        tile
-        text
-        class="pink pa-0 ma-0 w100"
-        height="40"
-        >
-          <v-icon>
-            mdi-close
-          </v-icon>
-        </v-btn>
-    </v-app-bar>
+
 
     
 
         <v-card 
         light
         tile
-        class="op90">
-        <v-card
-        tile
-        class=""
-        height="500"
-        color="indigo darken-4">
-          <v-card-title
-            class="headline"
-            primary-title
-          >
+        class="indigo darken-2 op90">
           
-          </v-card-title>
-
-          <v-card-text>
-          </v-card-text>
-
-          <!-- <v-divider></v-divider> -->
-
-          <!-- <v-card-actions>
-            <v-spacer></v-spacer>
-            <v-btn
-              color="primary"
-              text
-              @click="dialog = false"
+        <div
+        class="d-flex justify-center"
+        absolute
+        top>
+          <v-btn
+          @click="dialog =! dialog"
+          flat
+          class="indigo darken-2 pa-0 ma-0 hidden-xs-only right"
+          text
+          icon
+          large
+          absolute
+          >
+            <v-icon
+            color="white"
             >
-              I accept
-            </v-btn>
-          </v-card-actions> -->
+              mdi-close
+            </v-icon>
+          </v-btn>
+        </div>
+                <!-- content will be here -->
+                 <component :is="1" ></component>
+        <div
+      class="d-flex justify-center">
+         <v-btn
+        @click="dialog =! dialog"
+        flat
+        class="indigo darken-2 pa-0 ma-0 hidden-sm-and-up right"
+        text
+        icon
+        large
+        absolute
+        bottom
+        height="100"
+        width="100"
+        >
+          <v-icon
+          x-large
+          height="100"
+          color="white"
+          >
+            mdi-close
+          </v-icon>
+        </v-btn>
+      </div>   
         </v-card>
-        </v-card>
+
       </v-dialog>
 
 
@@ -247,20 +251,17 @@ export default {
 
     methods: {
       onResize () {
-        if (window.innerWidth >= 960){ //xlarge & large
-          this.cardW = (20/100)*window.innerWidth-4;
-          this.cardH = (20/100)*window.innerHeight;
-          this.parallaxH = (80/100)*window.innerHeight; 
+        if (window.innerWidth >= 1264){ //xlarge & large;
+          this.cardH = 200;
+          this.parallaxH = 600; 
         }
-        else if (window.innerWidth > 600 && window.innerWidth < 960){ //medium & small
-          this.cardW = (33/100)*window.innerWidth-5
-          this.cardH = (20/100)*window.innerHeight;
-          this.parallaxH = (40/100)*window.innerHeight;  
+        else if (window.innerWidth >= 960 && window.innerWidth < 1264){ //medium & small
+          this.cardH = 180;
+          this.parallaxH = 500;  
         }
-        else{ //xsmall
-          this.cardW = (95/100)*window.innerWidth
-          this.cardH = (15/100)*window.innerHeight;
-          this.parallaxH = (50/100)*window.innerHeight; 
+        else{ //xsmall adn small
+          this.cardH =150;
+          this.parallaxH =400; 
         }
         // { x: window.innerWidth, y: window.innerHeight }
       }

@@ -1,6 +1,6 @@
 <template>
 
-    <v-container fluid  min-height="800" class="pa-0 ma-0 teal darken-1 h80 minh700">
+    <v-container fluid  min-height="800" class="pa-0 ma-0 blue darken-4 h80 minh700">
 
         <v-row 
         no-gutters
@@ -11,7 +11,7 @@
             <!-- finger-print -->
             <v-col 
             cols="12"
-            class="pa-0 ma-0 mt-4"
+            class="pa-0 ma-0 mt-10"
             >   
                 <div 
                 class="d-flex justify-center">

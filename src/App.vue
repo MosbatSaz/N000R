@@ -49,7 +49,7 @@ export default {
 
 /* height  */
 .h100{height: 100%}
-.minh700{min-height:700px}
+.minh700{min-height:700}
 .h90{height: 90%}
 .h80{height: 80%}
 .h70{height: 70%}

@@ -3,21 +3,28 @@
   
  <!-- Toolbar -->     
     <v-app-bar
-    class="pa-0 ma-0 " 
+    class="pa-0 ma-0" 
     app
+    flat
     color=""
     light
     height="60">
     
     <!-- LOGO -->
-    <v-icon id="op100" x-large color="black">mdi-home</v-icon>
+    <v-avatar
+    size="60">
+    <img
+        src="../assets/noor logo.png"
+        alt="John"
+    >
+    </v-avatar> 
 
     <!-- Spacer -->
     <v-spacer></v-spacer>
 
     <!-- Sign in Button -->
     <v-btn
-      text
+      outlined
       x-large
       color="blue darken-4"
       @click="toggle =! toggle"        
@@ -29,44 +36,59 @@
   </v-app-bar>
 
   <!-- Navigation drawer -->
-  <v-navigation-drawer width="500" class="op90" color="teal darken-1" app right v-model="toggle">
-    <v-app-bar 
-    class="teal darken-2 pa-0 ma-0 hidden-xs-only"
-    height="50"
-    flat>
+  <v-navigation-drawer 
+  width="500" 
+  class="op90" 
+  color="blue darken-4" 
+  app  
+  right
+  disable-resize-watcher 
+  v-model="toggle">
+  
+      <div
+      class="d-flex justify-center">
          <v-btn
         @click="toggle =! toggle"
-        tile
-        color="white"
-        outlined
-        class="teal darken-2 pa-0 ma-0 w100"
-        height="50"
+        flat
+        class="blue darken-4 pa-0 ma-0 right"
+        text
+        icon
+        large
+        absolute
         >
           <v-icon
-          large>
+          color="white"
+          >
             mdi-close
           </v-icon>
         </v-btn>
-    </v-app-bar>
+      </div>  
+
  
         <component class="  ma-0 pa-0" :is="c"></component>
 
-
+      <!-- <div
+      class="d-flex justify-center">
          <v-btn
         @click="toggle =! toggle"
-        tile
-        color="white"
-        outlined
-        class="teal darken-2 pa-0 ma-0 w100  hidden-sm-and-up"
-        height="50"
+        flat
+        class="blue darken-4 pa-0 ma-0 hidden-sm-and-up right"
+        text
+        icon
+        large
         absolute
         bottom
+        height="50"
+        width="50"
         >
           <v-icon
-          large>
+          x-large
+          color="white"
+          >
             mdi-close
           </v-icon>
         </v-btn>
+      </div>  -->
   
 
 
@@ -80,11 +102,13 @@
 <script>
 import SignIn from '../components/Sign-in'
 import SignUp from '../components/Sign-up'
+import UserPanel from '../components/User-Panel'
 export default {
   name: 'Home-page',
   components:{
     SignIn,
-    SignUp
+    SignUp,
+    UserPanel
     
   },
   data: () => ({
