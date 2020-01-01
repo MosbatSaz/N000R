@@ -29,7 +29,7 @@
             align="center"
             class="ma-0 pa-0 h100">
               <v-col class="text-center" cols="12">
-                <h1 class="display-1 font-weight-thin mb-4">Noor Edu</h1>
+                <h1 class="display-1 font-weight-thin mb-4">Noor Edu Abadan</h1>
                 <h4 class="subheading">enjoy our courses and classes!</h4>
               </v-col>
             </v-row>
