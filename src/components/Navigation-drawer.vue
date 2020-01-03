@@ -23,7 +23,7 @@
     <v-spacer></v-spacer>
 
     <!-- Sign in Button -->
-    <v-btn
+    <!-- <v-btn
       outlined
       x-large
       color="blue darken-4"
@@ -31,15 +31,39 @@
     >
       <span class=" mr-2">Sign in</span>
       <v-icon c x-large>mdi-account</v-icon>
-    </v-btn>
-
+    </v-btn> -->
+    <v-hover>
+      <template v-slot="{ hover }">
+        <v-fab-transition>
+        <v-btn
+        v-show="show"
+        class="mt-12"
+        :elevation="hover ? 16 : 8"
+        flat
+        fab
+        height="80">
+        <v-avatar
+        
+        @click="toggledrawer()"
+        class="elevation-24"
+          size="80">
+          <img
+              src="../assets/me.png"
+              alt="John"
+          >
+        </v-avatar>
+        </v-btn>
+        </v-fab-transition>
+      </template>
+    </v-hover>  
   </v-app-bar>
 
   <!-- Navigation drawer -->
   <v-navigation-drawer 
-  width="500" 
+  floating
+  width="350" 
   class="op90" 
-  color="blue darken-4" 
+  color="blue darken-4 black--text" 
   app  
   right
   disable-resize-watcher 
@@ -48,7 +72,7 @@
       <div
       class="d-flex justify-center">
          <v-btn
-        @click="toggle =! toggle"
+        @click="toggledrawer()"
         flat
         class="blue darken-4 pa-0 ma-0 right"
         text
@@ -66,32 +90,6 @@
 
  
         <component class="  ma-0 pa-0" :is="c"></component>
-
-      <!-- <div
-      class="d-flex justify-center">
-         <v-btn
-        @click="toggle =! toggle"
-        flat
-        class="blue darken-4 pa-0 ma-0 hidden-sm-and-up right"
-        text
-        icon
-        large
-        absolute
-        bottom
-        height="50"
-        width="50"
-        >
-          <v-icon
-          x-large
-          color="white"
-          >
-            mdi-close
-          </v-icon>
-        </v-btn>
-      </div>  -->
-  
-
-
 
 
  </v-navigation-drawer>
@@ -112,9 +110,16 @@ export default {
     
   },
   data: () => ({
-    c: SignIn,
+    c: UserPanel,
+    show: true,
     toggle: false,
     bn:true,
   }),
+  methods:{
+    toggledrawer(){
+      this.toggle = !this.toggle;
+      this.show = !this.show;
+    }
+  }
 };
 </script>

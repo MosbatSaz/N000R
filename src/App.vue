@@ -32,6 +32,7 @@ export default {
 /* font */
 .v-application {
    /* font-family: 'Lexend Deca', sans-serif; */
+   font-family:"Arabic Typesetting", serif;
  }
 
 
@@ -72,5 +73,24 @@ export default {
 .w20{width: 20%}
 .w10{width: 10%}
 
+/* animation */
+.tba{
+  animation: 5s infinite alternate MoveUpDown;
+  animation-timing-function: ease;
+}
 
+@keyframes MoveUpDown {
+    0% {
+        top: 0px;
+    }
+    50% { 
+        top: 30px;
+    }
+    50% { 
+        top: 30px;
+    }
+    100% { 
+        top: 0px;
+    }
+}
 </style>

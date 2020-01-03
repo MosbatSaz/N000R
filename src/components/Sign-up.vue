@@ -1,6 +1,6 @@
 <template>
     
-    <v-container fluid class="pa-0 ma-0 teal darken-1 h90">
+    <v-container fluid class="pa-0 ma-0 indigo lighten-1 h90">
         <v-row 
         no-gutters
         class=" ma-0 pa-0 h100"

@@ -27,11 +27,25 @@
             <v-row
             justify="center"
             align="center"
-            class="ma-0 pa-0 h100">
-              <v-col class="text-center" cols="12">
-                <h1 class="display-1 font-weight-thin mb-4">Noor Edu Abadan</h1>
-                <h4 class="subheading">enjoy our courses and classes!</h4>
+            class="ma-0 pa-0 w100 h100">
+              <v-col 
+              cols="6"
+              justify-self="start">
+                <v-img
+                contain
+                height="500"
+                class="tba"
+                src="../assets/illus/undraw_Graduation_ktn0.png">
+                <v-row>
+                  <v-col class=" mx-12" cols="6"
+                  justify-self="end">
+                    <h1 class="display-1 font-weight-thin mb-4">Noor Edu Abadan</h1>
+                    <h4 class="subheading">enjoy our courses and classes!</h4>        
+                  </v-col>
+                 </v-row>    
+                </v-img>
               </v-col>
+        
             </v-row>
           </v-card>  
           </v-row>
@@ -44,18 +58,48 @@
       <!-- section cards use for loop-->
       <v-col
       cols="6" sm="6" md="4" lg="2"
-      v-for="(section, index) in 6" :key="index"
+      v-for="(section, index) in sections" :key="index"
       class="ma-0 pa-1 pt-2">
         <v-hover>
           <template v-slot="{ hover }">
             <v-card
-              :elevation="hover ? 24 : 4"
+              :elevation="hover ? 24 : 8"
               v-resize="onResize"
+              :ripple="false"
               :height="cardH"
                @click="dialog =! dialog"
-              class="white ma-0 pa-0 w100"
+              class=" ma-0 pa-0 w100"
             >
-              Prop based elevation
+  
+                  <div
+                  class="d-flex justify-center h100 w100">
+                    <v-img
+                    contain
+                    class="h100 w100"
+                    src="../assets/illus/undraw_Graduation_ktn0 (1).png">
+                      <v-row
+                      justify="center"
+                      align="center">
+                        <v-col
+                        cols="12">
+                          <div :class="hover ? 'text--red':'text--blue'"
+                          class="text-center font-weight-black">
+                            <span >{{section.title}}</span>
+                          </div>
+                        </v-col>
+                        <v-col
+                        cols="12">
+                          <div 
+                          class="text-center font-weight-bold">
+                            <span >{{section.description}}</span>
+                          </div>
+                        </v-col>
+                      </v-row>
+                    </v-img>
+                  </div>
+             
+
+            
             </v-card>
           </template>
          </v-hover>
@@ -69,7 +113,7 @@
     > -->
 
       <!-- Description -->
-      <v-col class="blue darken-2 mt-1" 
+      <v-col class="pink lighten-2 mt-1" 
       >
         <v-row
         justify="center">
@@ -88,7 +132,9 @@
             <v-card 
             height="300" 
             class="elevation-24">
-              hey im a description
+
+
+
             </v-card>
           </v-col>
         </v-row>
@@ -99,7 +145,7 @@
 
       <!-- proud -->
       <v-col 
-      class="indigo " 
+      class="pink lighten-3" 
       cols="12">
 
         <v-row
@@ -173,7 +219,7 @@
         <v-card 
         light
         tile
-        class="indigo darken-2 op90">
+        class="blue darken-4 op90 h100">
           
         <div
         class="d-flex justify-center"
@@ -182,7 +228,7 @@
           <v-btn
           @click="dialog =! dialog"
           flat
-          class="indigo darken-2 pa-0 ma-0 hidden-xs-only right"
+          class="blue darken-4 pa-0 ma-0 hidden-xs-only right"
           text
           icon
           large
@@ -195,31 +241,7 @@
             </v-icon>
           </v-btn>
         </div>
-                <!-- content will be here -->
-                 <component :is="1" ></component>
-        <div
-      class="d-flex justify-center">
-         <v-btn
-        @click="dialog =! dialog"
-        flat
-        class="indigo darken-2 pa-0 ma-0 hidden-sm-and-up right"
-        text
-        icon
-        large
-        absolute
-        bottom
-        height="100"
-        width="100"
-        >
-          <v-icon
-          x-large
-          height="100"
-          color="white"
-          >
-            mdi-close
-          </v-icon>
-        </v-btn>
-      </div>   
+   
         </v-card>
 
       </v-dialog>
@@ -242,13 +264,18 @@ export default {
     cardH:0,
     cardW:0,
     sections:[
-      {name:''}
+      {title:'header',img:'../assets/illus/undraw_Graduation_ktn0 (1).png', description:'this is a description'},
+      {title:'header',img:'../assets/illus/undraw_Graduation_ktn0 (1).png', description:'this is a description'},
+      {title:'header',img:'../assets/illus/undraw_Graduation_ktn0 (1).png', description:'this is a description'},
+      {title:'header',img:'../assets/illus/undraw_Graduation_ktn0 (1).png', description:'this is a description'},
+      {title:'header',img:'../assets/illus/undraw_Graduation_ktn0 (1).png', description:'this is a description'},
+      {title:'header',img:'../assets/illus/undraw_Graduation_ktn0 (1).png', description:'this is a description'},
     ]
   }),
     mounted () {
       this.onResize()
     },
-
+    //use mixins here
     methods: {
       onResize () {
         if (window.innerWidth >= 1264){ //xlarge & large;
@@ -269,7 +296,6 @@ export default {
 }
 </script>
 <style scoped>
-#inspire img {
-  height: 50%
-}
+
+
 </style>
