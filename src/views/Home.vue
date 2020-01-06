@@ -131,10 +131,33 @@
           cols="12" sm="6" md="4" lg="3">
             <v-card 
             height="300" 
-            class="elevation-24">
+            class="elevation-24 ma-0 pa-0 d-flex ">
+              <v-card 
+              hover 
+              class="h100 w100 ma-5">
 
+              <!-- icon -->
+                <div
+                class="d-flex justify-center">
+                  <v-icon x-large>mdi-evernote</v-icon>
+                </div>
 
+              <!-- header -->
+                <div
+                class="d-flex justify-center">
+                  header
+                </div>
+              <!-- description -->
+                <div
+                class="d-flex justify-center text-center">
+                  Ipsum dolor eiusmod excepteur nulla enim aute aute veniam aute nostrud.
+                  Veniam ea ullamco ut laboris pariatur in.
+                  Mollit deserunt id nisi mollit ad adipisicing irure esse pariatur et consequat.
+                  Ex pariatur tempor sint sit reprehenderit non dolor. Est labore sit aute reprehenderit.
+           
+                </div>
 
+              </v-card>
             </v-card>
           </v-col>
         </v-row>
@@ -147,48 +170,114 @@
       <v-col 
       class="pink lighten-3" 
       cols="12">
+      <v-row
+      justify="center"
+      align="center"
+      >
+        <v-col
+        cols="2"
+        v-for="(medal, index) in 6" :key="index"
+        >
+          <!-- title -->
+          <div
+          class="d-flex justify-center">
+            Title
+          </div>
 
-        <v-row
-        justify="space-between">
-
-        <!-- proud title -->
-        <v-col  cols="12">
-          <div class="text-center">
-            <span>It is our honor to be with you</span>
+          <!-- medal -->
+          <div
+          class="d-flex justify-center">
+            <v-icon>
+              mdi-medal
+            </v-icon>
           </div>
         </v-col>
-          
-
-          <!-- Proud items (for loop used)-->
-          <v-col 
-          cols="4" sm="4" md="4" lg="2" 
-          v-for="(description, index) in 6" :key="index">
-            <v-card 
-            class="elevation-24"
-            >
-              <v-responsive  
-              height="100"
-              :aspect-ratio="1/1">
-              
-              hey im a medal
-              </v-responsive>
-            </v-card>
-          </v-col>
-
-        </v-row>
+      </v-row>  
       </v-col>
 
 
 
 
       <!-- Footer-->
-      <v-col cols="12">
+      <v-col
+      class="pa-0" 
+      cols="12">
         <v-card
+        class="black"
         height="300"
-        tile>
-          hello im a footer
+        tile
+        dark>
+        <!-- footer options ( fops ) -->
+        <v-app-bar
+        color="blue darken-2"
+        flat
+        >
+          <div
+          class="w100 d-flex justify-center">
+            <div
+            class="w40 d-flex mx-5 justify-space-around">
+              <v-btn
+              v-for="(fop, index) in 5" :key="index"
+              @click="sheet = !sheet"
+              rounded
+              text>
+              click
+              </v-btn>
+            </div>
+          </div>
+        </v-app-bar>  
+
+        <!-- Map -->
+        <v-hover
+        v-slot:default="{ hover }">
+            <template>
+              <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1721.7875123071194!2d48.28376717599155!3d30.334603710412743!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3fc44f3fa77efb21%3A0xce725c74ec9af253!2sSmoke.Shop!5e0!3m2!1sen!2suk!4v1578238334488!5m2!1sen!2suk"  
+              class="w100 h100" 
+              frameborder="0" 
+              style="border:0;" 
+              allowfullscreen="">
+              </iframe>
+            </template>
+        </v-hover>
+  
+
+
+          <v-footer
+            padless
+            class="w100"
+          >
+            <v-card
+              flat
+              tile
+              class="blue  darken-4 w100 white--text text-center"
+            >
+              <v-card-text>
+                <v-btn
+                  v-for="icon in icons"
+                  :key="icon"
+                  class="mx-4 white--text"
+                  icon
+                  large
+                >
+                  <v-icon size="36px">{{ icon }}</v-icon>
+                </v-btn>
+              </v-card-text>
+
+              <v-card-text class="white--text pt-0">
+              </v-card-text>
+
+              <v-divider></v-divider>
+
+              <v-card-text class="white--text">
+                {{ new Date().getFullYear() }} — <strong>Mosbat Saz</strong>
+              </v-card-text>
+            </v-card>
+          </v-footer>
+
         </v-card>
       </v-col>
+              
 
     </v-row>
 
@@ -219,7 +308,7 @@
         <v-card 
         light
         tile
-        class="blue darken-4 op90 h100">
+        class="blue darken-4 op90">
           
         <div
         class="d-flex justify-center"
@@ -241,11 +330,30 @@
             </v-icon>
           </v-btn>
         </div>
+
+        <component :is="c"></component>
    
         </v-card>
 
       </v-dialog>
 
+      <!-- Bottom sheet -->
+
+      <v-bottom-sheet 
+      v-model="sheet" 
+      :inset="false" 
+      :hide-overlay="hideOverlay"
+      >
+      <v-sheet class="text-center" height="500">
+        <v-btn
+          class="my-6"
+          depressed
+          fab
+          color="error"
+          @click="sheet = !sheet"
+        ><v-icon>mdi-close</v-icon></v-btn>
+      </v-sheet>
+    </v-bottom-sheet>
 
 
 
@@ -254,15 +362,22 @@
 </template>
 
 <script>
-
+import Archive from '../components/Archive.vue'
 export default {
   name: 'home',
+
+  components:{
+    Archive,
+  },
   data: () =>({   
     //data
+    c : Archive,
     dialog: false,
+    sheet: false,
     parallaxH:0,
     cardH:0,
     cardW:0,
+    mapFade:true,
     sections:[
       {title:'header',img:'../assets/illus/undraw_Graduation_ktn0 (1).png', description:'this is a description'},
       {title:'header',img:'../assets/illus/undraw_Graduation_ktn0 (1).png', description:'this is a description'},
@@ -270,7 +385,14 @@ export default {
       {title:'header',img:'../assets/illus/undraw_Graduation_ktn0 (1).png', description:'this is a description'},
       {title:'header',img:'../assets/illus/undraw_Graduation_ktn0 (1).png', description:'this is a description'},
       {title:'header',img:'../assets/illus/undraw_Graduation_ktn0 (1).png', description:'this is a description'},
-    ]
+    ],      
+    icons: [
+        'mdi-facebook',
+        'mdi-twitter',
+        'mdi-google-plus',
+        'mdi-linkedin',
+        'mdi-instagram',
+      ],
   }),
     mounted () {
       this.onResize()

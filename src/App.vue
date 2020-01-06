@@ -1,5 +1,5 @@
 <template>
-  <v-app>
+  <v-app dark>
 
     <navi></navi>
 
@@ -75,8 +75,8 @@ export default {
 
 /* animation */
 .tba{
-  animation: 5s infinite alternate MoveUpDown;
-  animation-timing-function: ease;
+  animation: 1s infinite alternate MoveUpDown;
+  animation-timing-function: linear;
 }
 
 @keyframes MoveUpDown {
@@ -84,10 +84,10 @@ export default {
         top: 0px;
     }
     50% { 
-        top: 30px;
+        top: 5px;
     }
     50% { 
-        top: 30px;
+        top: 5px;
     }
     100% { 
         top: 0px;
