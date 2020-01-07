@@ -1,11 +1,33 @@
 <template>
+
   <v-carousel
     cycle
     height="900"
-    class=" ma-0 pa-0 mt-12"
+    class=" ma-0 pa-0"
     hide-delimiter-background
     show-arrows-on-hover
   >
+          <div
+        class="d-flex justify-center"
+        absolute
+        top>
+          <v-btn
+          @click="dialog =! dialog"
+          flat
+          class="blue darken-4 pa-0 ma-0 hidden-xs-only right"
+          text
+          icon
+          large
+          absolute
+          >
+            <v-icon
+            color="white"
+            >
+              mdi-close
+            </v-icon>
+          </v-btn>
+        </div>
+      
     <v-carousel-item
       v-for="(slide, i) in slides"
       :key="i"

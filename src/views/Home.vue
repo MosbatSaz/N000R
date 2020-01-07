@@ -11,7 +11,7 @@
 
       <!-- hero image -->
 
-        <!-- parallax hero image -->
+        <!-- hero image -->
       <v-col 
       cols="12"
       class="ma-0 pa-0">
@@ -22,31 +22,42 @@
           >
           <v-card
           flat
-          class="w100"
-          :height="parallaxH">
-            <v-row
-            justify="center"
-            align="center"
-            class="ma-0 pa-0 w100 h100">
-              <v-col 
-              cols="6"
-              justify-self="start">
-                <v-img
-                contain
-                height="500"
-                class="tba"
-                src="../assets/illus/undraw_Graduation_ktn0.png">
-                <v-row>
-                  <v-col class=" mx-12" cols="6"
-                  justify-self="end">
-                    <h1 class="display-1 font-weight-thin mb-4">Noor Edu Abadan</h1>
-                    <h4 class="subheading">enjoy our courses and classes!</h4>        
-                  </v-col>
-                 </v-row>    
-                </v-img>
-              </v-col>
-        
-            </v-row>
+          tile
+          height="800"
+          class="w100">
+            <v-img 
+            src="../assets/illus/hero 2.png"
+            
+            class="pa-0 ma-0 h100 w100">
+              <v-row
+              justify="center"
+              align="center"
+              class="ma-0 pa-0 w100 h100">
+
+                <v-col 
+                cols="6"
+                justify-self="start">
+                  <v-img
+                  contain
+                  height="400"
+                  class=""
+                  src="../assets/illus/thinking.png">    
+                  </v-img>
+                </v-col>
+
+                <v-col 
+                class="text-right" 
+                cols="6"
+                justify-self="end">
+                <div
+                class="text-center">
+                  <h1 class="display-1 font-weight-thin mb-4">Noor Edu Abadan</h1>
+                  <h4 class="subheading">enjoy our courses and classes!</h4>        
+                </div>  
+                </v-col>
+
+              </v-row>
+            </v-img>
           </v-card>  
           </v-row>
       </v-col>
@@ -55,6 +66,7 @@
 
 
 
+    
       <!-- section cards use for loop-->
       <v-col
       cols="6" sm="6" md="4" lg="2"
@@ -70,7 +82,7 @@
                @click="dialog =! dialog"
               class=" ma-0 pa-0 w100"
             >
-  
+   
                   <div
                   class="d-flex justify-center h100 w100">
                     <v-img
@@ -217,11 +229,12 @@
             <div
             class="w40 d-flex mx-5 justify-space-around">
               <v-btn
-              v-for="(fop, index) in 5" :key="index"
+              v-for="(fop, index) in fobs" :key="index"
               @click="sheet = !sheet"
               rounded
               text>
-              click
+              <span>{{fobs.title}}</span>
+              <v-icon>{{fobs.icon}}</v-icon>
               </v-btn>
             </div>
           </div>
@@ -231,13 +244,9 @@
         <v-hover
         v-slot:default="{ hover }">
             <template>
-              <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1721.7875123071194!2d48.28376717599155!3d30.334603710412743!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3fc44f3fa77efb21%3A0xce725c74ec9af253!2sSmoke.Shop!5e0!3m2!1sen!2suk!4v1578238334488!5m2!1sen!2suk"  
-              class="w100 h100" 
-              frameborder="0" 
-              style="border:0;" 
-              allowfullscreen="">
-              </iframe>
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3443.57502456997!2d48.28267815106922!3d30.33460371167148!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3fc44f12eb39a3c7%3A0xc4ec16f6be22c4da!2sNoor%20Arvand%20Educational%20institution!5e0!3m2!1sen!2s!4v1578324126941!5m2!1sen!2s"
+              class="h100 w100"   
+              allowfullscreen=""></iframe>
             </template>
         </v-hover>
   
@@ -264,13 +273,34 @@
                 </v-btn>
               </v-card-text>
 
-              <v-card-text class="white--text pt-0">
-              </v-card-text>
-
               <v-divider></v-divider>
 
               <v-card-text class="white--text">
-                {{ new Date().getFullYear() }} — <strong>Mosbat Saz</strong>
+                <v-row
+                class="mt-n3"
+                justify="center"
+                align="center"
+                >
+                  <v-col
+                  cols="12">
+                    <v-avatar
+                    tile
+                    size="60"
+                    class="mb-n6"
+                    >
+                      <v-img
+                      src="../assets/MosbatSaz +saz-overlay-11.png">
+                      </v-img>
+                    </v-avatar> 
+                  </v-col>
+                  <v-cols
+                  cols="12">
+                    <span
+                    class="ml-5 font-weight-light">
+                    {{ new Date().getFullYear() }}
+                    </span> 
+                  </v-cols>
+                </v-row>            
               </v-card-text>
             </v-card>
           </v-footer>
@@ -310,7 +340,7 @@
         tile
         class="blue darken-4 op90">
           
-        <div
+        <!-- <div
         class="d-flex justify-center"
         absolute
         top>
@@ -329,7 +359,7 @@
               mdi-close
             </v-icon>
           </v-btn>
-        </div>
+        </div> -->
 
         <component :is="c"></component>
    
@@ -385,6 +415,12 @@ export default {
       {title:'header',img:'../assets/illus/undraw_Graduation_ktn0 (1).png', description:'this is a description'},
       {title:'header',img:'../assets/illus/undraw_Graduation_ktn0 (1).png', description:'this is a description'},
       {title:'header',img:'../assets/illus/undraw_Graduation_ktn0 (1).png', description:'this is a description'},
+    ],
+    fobs:[
+      {title:'CEO',icon:'mdi-sofa'},
+      {title:'Contact Us',icon:'mdi-phone-classic'},
+      {title:'FAQ',icon:'mdi-question'},
+      {title:'Comments',icon:'mdi-comment-multiple-outline'},
     ],      
     icons: [
         'mdi-facebook',

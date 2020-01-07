@@ -4,19 +4,18 @@
  <!-- Toolbar -->     
     <v-app-bar
     app 
-    class="blue darken-3 pa-0 ma-0 elevation-5" 
-    collapse
-    height="80">
+    flat
+    class="transparent pa-0 ma-0 w100" 
+    height="120">
     
     <!-- LOGO -->
     <div
     class="d-flex justify-center">
 
     <v-avatar
-    size="80">
+    size="120">
       <v-img
-      
-          src="../assets/noor-logo-white.png"
+          src="../assets/noor-logo-layer.png"
           alt="John"
       >
       </v-img>
@@ -27,48 +26,38 @@
     <!-- Spacer -->
     <v-spacer></v-spacer>
 
-    <!-- Sign in Button -->
-    <!-- <v-btn
-      outlined
-      x-large
-      color="blue darken-4"
-      @click="toggle =! toggle"        
-    >
-      <span class=" mr-2">Sign in</span>
-      <v-icon c x-large>mdi-account</v-icon>
-    </v-btn> -->
+    <v-hover>
+        <template v-slot="{ hover }">
+          <v-fab-transition>
+          <v-btn
+          id="#scrolling-techniques-7"
+          v-show="show"
+          class="mt-8"
+          :elevation="hover ? 12 : 4"
+          flat
+          fixed
+          absolute
+          top
+          right
+          fab
+          height="100">
+          <v-avatar
+          @click="toggledrawer()"
+          class="elevation-24"
+            size="100">
+            <img
+                src="../assets/me.png"
+                alt="John"
+            >
+          </v-avatar>
+          </v-btn>
+          </v-fab-transition>
+        </template>
+    </v-hover>  
+
    
   </v-app-bar>
 
-   <v-hover>
-      <template v-slot="{ hover }">
-        <v-fab-transition>
-        <v-btn
-        id="#scrolling-techniques-7"
-        v-show="show"
-        class="mt-8"
-        :elevation="hover ? 16 : 8"
-        flat
-        fixed
-        absolute
-        top
-        right
-        fab
-        height="80">
-        <v-avatar
-        
-        @click="toggledrawer()"
-        class="elevation-24"
-          size="80">
-          <img
-              src="../assets/me.png"
-              alt="John"
-          >
-        </v-avatar>
-        </v-btn>
-        </v-fab-transition>
-      </template>
-    </v-hover>  
 
   <!-- Navigation drawer -->
   <v-navigation-drawer 
@@ -121,7 +110,7 @@ export default {
     UserPanel
   },
   data: () => ({
-    c: UserPanel,
+    c: SignIn,
     show: true,
     toggle: false,
     bn:true,
