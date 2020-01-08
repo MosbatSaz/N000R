@@ -20,16 +20,42 @@
             justify="center"
             class="h100 w100 pa-0 ma-0"
           >
-          <v-card
-          flat
-          tile
-          height="800"
-          class="w100">
-            <v-img 
-            src="../assets/illus/hero 2.png"
-            
-            class="pa-0 ma-0 h100 w100">
-              <v-row
+            <v-card
+            flat
+            tile
+            height="800"
+            class="w100">
+
+              <!-- display on -->
+
+                <!-- lg and xl -->
+                <v-img
+                src="../assets/illus/hero-image-back-wide.png"
+                class="pa-0 ma-0 h100 w100 hidden-md-and-down">
+                </v-img>
+
+                <!-- md and sm -->
+                <div
+                class="hidden-xs-only h100 w100">
+                  <v-img 
+                  src="../assets/illus/hero-image-back-md.png"
+                  class="pa-0 ma-0 h100 w100 hidden-lg-and-up ">
+                  </v-img>
+                </div>
+
+                <!-- only xs -->
+                <v-img 
+                src="../assets/illus/hero-image-back-small.png"
+                class="pa-0 ma-0 h100 w100 hidden-sm-and-up">
+                </v-img>
+
+            </v-card>  
+          </v-row>
+      </v-col>
+
+
+          <!-- HERO QUOET -->
+              <!-- <v-row
               justify="center"
               align="center"
               class="ma-0 pa-0 w100 h100">
@@ -56,12 +82,7 @@
                 </div>  
                 </v-col>
 
-              </v-row>
-            </v-img>
-          </v-card>  
-          </v-row>
-      </v-col>
-
+              </v-row> -->
 
 
 
@@ -82,97 +103,104 @@
                @click="dialog =! dialog"
               class=" ma-0 pa-0 w100"
             >
-   
-                  <div
-                  class="d-flex justify-center h100 w100">
-                    <v-img
-                    contain
-                    class="h100 w100"
-                    src="../assets/illus/undraw_Graduation_ktn0 (1).png">
-                      <v-row
-                      justify="center"
-                      align="center">
-                        <v-col
-                        cols="12">
-                          <div :class="hover ? 'text--red':'text--blue'"
-                          class="text-center font-weight-black">
-                            <span >{{section.title}}</span>
-                          </div>
-                        </v-col>
-                        <v-col
-                        cols="12">
-                          <div 
-                          class="text-center font-weight-bold">
-                            <span >{{section.description}}</span>
-                          </div>
-                        </v-col>
-                      </v-row>
-                    </v-img>
-                  </div>
-             
-
-            
+              <div
+              class="d-flex justify-center h100 w100">
+                <v-img
+                class="h100 w100"
+                src="../assets/illus/hero full.png">
+                  <v-row
+                  justify="center"
+                  align="center">
+                    <v-col
+                    cols="12">
+                      <div :class="hover ? 'text--red':'text--blue'"
+                      class="text-center font-weight-black">
+                        <span >{{section.title}}</span>
+                      </div>
+                    </v-col>
+                    <v-col
+                    cols="12">
+                      <div 
+                      class="text-center font-weight-bold">
+                        <span >{{section.description}}</span>
+                      </div>
+                    </v-col>
+                  </v-row>
+                </v-img>
+              </div>
             </v-card>
           </template>
          </v-hover>
       </v-col>
 
 
-  <!-- <v-container  fluid fill-height class="white pa-0"> 
-    <v-row     
-      class="ma-0"
-      justify="space-between"
-    > -->
-
       <!-- Description -->
-      <v-col class="pink lighten-2 mt-1" 
+      <v-col 
+      class="pink lighten-2 pa-0 ma-0" 
       >
-        <v-row
-        justify="center">
+        <v-card
+        tile
+        class="h100 w100 pa-0 py-12 ma-0">
+         
+            <v-row
+            justify="center"
+            align="center">
 
-          <!-- description title-->
-          <v-col  cols="12">
-            <div class="text-center">
-              <span>Noor For All</span>
-            </div>
-          </v-col>
-
-          <!-- description (for loop used)-->
-          <v-col 
-          v-for="(description, index) in 3" :key="index"
-          cols="12" sm="6" md="4" lg="3">
-            <v-card 
-            height="300" 
-            class="elevation-24 ma-0 pa-0 d-flex ">
-              <v-card 
-              hover 
-              class="h100 w100 ma-5">
-
-              <!-- icon -->
-                <div
-                class="d-flex justify-center">
-                  <v-icon x-large>mdi-evernote</v-icon>
+              <!-- description title-->
+              <v-col  cols="12">
+                <div class="text-center">
+                  <span>Noor For All</span>
                 </div>
+              </v-col>
 
-              <!-- header -->
-                <div
-                class="d-flex justify-center">
-                  header
-                </div>
-              <!-- description -->
-                <div
-                class="d-flex justify-center text-center">
-                  Ipsum dolor eiusmod excepteur nulla enim aute aute veniam aute nostrud.
-                  Veniam ea ullamco ut laboris pariatur in.
-                  Mollit deserunt id nisi mollit ad adipisicing irure esse pariatur et consequat.
-                  Ex pariatur tempor sint sit reprehenderit non dolor. Est labore sit aute reprehenderit.
-           
-                </div>
+              <!-- description (for loop used)-->
 
-              </v-card>
-            </v-card>
-          </v-col>
-        </v-row>
+ 
+                <v-col 
+                v-for="(description, index) in 3" :key="index"
+                cols="12" sm="6" md="4" lg="3">
+                 <v-img
+                 class="elevation-16"
+                  height="500"
+                  src="../assets/illus/doodles-school-0.jpg"
+                  >
+                  <v-card 
+                  class="elevation-8 h80 ma-5 mt-12 pa-0 d-flex ">
+                 
+                    <v-card 
+                    hover 
+                    class="h100 w100 ma-5">
+
+                    <!-- icon -->
+                      <div
+                      class="d-flex justify-center">
+                        <v-icon x-large>mdi-evernote</v-icon>
+                      </div>
+
+                    <!-- header -->
+                      <div
+                      class="d-flex justify-center">
+                        header
+                      </div>
+                    <!-- description -->
+                      <div
+                      class="d-flex justify-center text-center">
+                        Ipsum dolor eiusmod excepteur nulla enim aute aute veniam aute nostrud.
+                        Veniam ea ullamco ut laboris pariatur in.
+                        Mollit deserunt id nisi mollit ad adipisicing irure esse pariatur et consequat.
+                        Ex pariatur tempor sint sit reprehenderit non dolor. Est labore sit aute reprehenderit.
+                
+                      </div>
+
+                    </v-card>
+                    
+                  </v-card>
+                </v-img>
+              </v-col>
+
+            </v-row>
+
+        </v-card>
       </v-col>
 
 
@@ -221,7 +249,7 @@
         dark>
         <!-- footer options ( fops ) -->
         <v-app-bar
-        color="blue darken-2"
+        color="indigo darken-2"
         flat
         >
           <div
@@ -259,7 +287,7 @@
             <v-card
               flat
               tile
-              class="blue  darken-4 w100 white--text text-center"
+              class="indigo darken-4 w100 white--text text-center"
             >
               <v-card-text>
                 <v-btn
@@ -289,7 +317,7 @@
                     class="mb-n6"
                     >
                       <v-img
-                      src="../assets/MosbatSaz +saz-overlay-11.png">
+                      src="../assets/MosbatSaz +saz-layers.png">
                       </v-img>
                     </v-avatar> 
                   </v-col>

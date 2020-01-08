@@ -11,16 +11,16 @@
     <!-- LOGO -->
     <div
     class="d-flex justify-center">
-
-    <v-avatar
-    size="120">
-      <v-img
-          src="../assets/noor-logo-layer.png"
-          alt="John"
-      >
-      </v-img>
-    </v-avatar>
-    
+    <v-expand-transition>
+      <v-avatar
+      size="120">
+        <v-img
+            src="../assets/noor-logo-layer.png"
+            alt="John"
+        >
+        </v-img>
+      </v-avatar>
+    </v-expand-transition>
     </div>
 
     <!-- Spacer -->
