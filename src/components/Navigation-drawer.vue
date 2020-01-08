@@ -3,44 +3,69 @@
   
  <!-- Toolbar -->     
     <v-app-bar
-    class="pa-0 ma-0" 
-    app
+    app 
     flat
-    color=""
-    light
-    height="60">
+    class="transparent pa-0 ma-0 w100" 
+    height="120">
     
     <!-- LOGO -->
+    <div
+    class="d-flex justify-center">
+
     <v-avatar
-    size="60">
-    <img
-        src="../assets/noor logo.png"
-        alt="John"
-    >
-    </v-avatar> 
+    size="120">
+      <v-img
+          src="../assets/noor-logo-layer.png"
+          alt="John"
+      >
+      </v-img>
+    </v-avatar>
+    
+    </div>
 
     <!-- Spacer -->
     <v-spacer></v-spacer>
 
-    <!-- Sign in Button -->
-    <v-btn
-      outlined
-      x-large
-      color="blue darken-4"
-      @click="toggle =! toggle"        
-    >
-      <span class=" mr-2">Sign in</span>
-      <v-icon c x-large>mdi-account</v-icon>
-    </v-btn>
+    <v-hover>
+        <template v-slot="{ hover }">
+          <v-fab-transition>
+          <v-btn
+          id="#scrolling-techniques-7"
+          v-show="show"
+          class="mt-8"
+          :elevation="hover ? 12 : 4"
+          flat
+          fixed
+          absolute
+          top
+          right
+          fab
+          height="100">
+          <v-avatar
+          @click="toggledrawer()"
+          class="elevation-24"
+            size="100">
+            <img
+                src="../assets/me.png"
+                alt="John"
+            >
+          </v-avatar>
+          </v-btn>
+          </v-fab-transition>
+        </template>
+    </v-hover>  
 
+   
   </v-app-bar>
+
 
   <!-- Navigation drawer -->
   <v-navigation-drawer 
-  width="500" 
+  floating
+  width="350" 
   class="op90" 
-  color="blue darken-4" 
-  app  
+  color="indigo darken-3 black--text" 
+  app   
   right
   disable-resize-watcher 
   v-model="toggle">
@@ -48,9 +73,9 @@
       <div
       class="d-flex justify-center">
          <v-btn
-        @click="toggle =! toggle"
+        @click="toggledrawer()"
         flat
-        class="blue darken-4 pa-0 ma-0 right"
+        class="indigo darken-3 pa-0 ma-0 right"
         text
         icon
         large
@@ -67,32 +92,6 @@
  
         <component class="  ma-0 pa-0" :is="c"></component>
 
-      <!-- <div
-      class="d-flex justify-center">
-         <v-btn
-        @click="toggle =! toggle"
-        flat
-        class="blue darken-4 pa-0 ma-0 hidden-sm-and-up right"
-        text
-        icon
-        large
-        absolute
-        bottom
-        height="50"
-        width="50"
-        >
-          <v-icon
-          x-large
-          color="white"
-          >
-            mdi-close
-          </v-icon>
-        </v-btn>
-      </div>  -->
-  
-
-
-
 
  </v-navigation-drawer>
 
@@ -102,19 +101,25 @@
 <script>
 import SignIn from '../components/Sign-in'
 import SignUp from '../components/Sign-up'
-import UserPanel from '../components/User-Panel'
+import UserPanel from '../components/User-panel'
 export default {
   name: 'Home-page',
   components:{
     SignIn,
     SignUp,
     UserPanel
-    
   },
   data: () => ({
     c: SignIn,
+    show: true,
     toggle: false,
     bn:true,
   }),
+  methods:{
+    toggledrawer(){
+      this.toggle = !this.toggle;
+      this.show = !this.show;
+    }
+  }
 };
 </script>
