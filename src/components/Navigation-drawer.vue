@@ -11,7 +11,7 @@
     <!-- LOGO -->
     <div
     class="d-flex justify-center">
-    <v-expand-transition>
+
       <v-avatar
       size="120">
         <v-img
@@ -20,19 +20,23 @@
         >
         </v-img>
       </v-avatar>
-    </v-expand-transition>
+  
     </div>
 
+
+      <!-- TEST  use this testing btn to toggle navigation drawer statement -->
+      <v-btn icon height="80" width="80" class="pink white--text" @click="switching()"> Toggle </v-btn>
+
+
     <!-- Spacer -->
-    <v-spacer></v-spacer>
+    <!-- <v-spacer></v-spacer> -->
 
     <v-hover>
         <template v-slot="{ hover }">
           <v-fab-transition>
           <v-btn
-          id="#scrolling-techniques-7"
           v-show="show"
-          class="mt-8"
+          class="mt-10"
           :elevation="hover ? 12 : 4"
           flat
           fixed
@@ -40,15 +44,28 @@
           top
           right
           fab
+          @click="toggledrawer()"
           height="100">
           <v-avatar
-          @click="toggledrawer()"
           class="elevation-24"
             size="100">
-            <img
-                src="../assets/me.png"
-                alt="John"
+
+            <!-- profile -->
+            <v-img
+            v-if="isSwitched == 1"
+            src="../assets/me.png"
+            alt="profile" 
+            ></v-img>
+
+            <!-- sign up / sign in -->
+            <v-icon
+            v-else
+            size="80"
+            color="indigo darken-4"
             >
+            mdi-fingerprint
+            </v-icon>
+
           </v-avatar>
           </v-btn>
           </v-fab-transition>
@@ -61,6 +78,7 @@
 
   <!-- Navigation drawer -->
   <v-navigation-drawer 
+  @drag="checkToggle()"
   floating
   width="350" 
   class="op90" 
@@ -89,8 +107,33 @@
         </v-btn>
       </div>  
 
+        <!-- 
+        +this is dynamic component which used to display
+          userpanel
+          sign-in &
+          sign-up
+          in navigation drawer
+
+          *the c is parameter to switch state of drawer
+          *the @toggle is function emitted from both 
+            SignIn and SignUp components to switch between
+            these components 
+
+          *$event is a number passed through the ToggleTo 
+            function and tell the javascript to switch to 
+            which state. 
+            ($event == 0) => ToggleTo SignIn 
+            ($event =! 0) => ToggleTo SignUp //($event == 1)
+
+          *keep alive used to pin data in each state even
+          if the drawer being closed  
+         -->
+        <component
+        class="ma-0 pa-0" 
+        :is="c"
+        @Toggle="ToggleTo($event)"
+        ></component>
  
-        <component class="  ma-0 pa-0" :is="c"></component>
 
 
  </v-navigation-drawer>
@@ -103,23 +146,48 @@ import SignIn from '../components/Sign-in'
 import SignUp from '../components/Sign-up'
 import UserPanel from '../components/User-panel'
 export default {
+
   name: 'Home-page',
+
   components:{
     SignIn,
     SignUp,
     UserPanel
   },
+
   data: () => ({
-    c: SignIn,
+    c: SignUp,
+    isSwitched: false,
     show: true,
     toggle: false,
     bn:true,
   }),
+
+
   methods:{
     toggledrawer(){
-      this.toggle = !this.toggle;
-      this.show = !this.show;
-    }
+      this.toggle =! this.toggle 
+      this.show =! this.show
+    },
+    checkToggle(){
+      (this.toggle == false) ? this.toggle = true : ''
+    },
+
+    ToggleTo(param){
+     (param == 0) ? this.c = SignIn : this.c = SignUp
+    },
+    switching(){
+
+     if (this.c == UserPanel){
+        this.isSwitched = false;
+        this.c = SignUp;
+     } 
+     else{
+        this.isSwitched = true;
+        this.c = UserPanel;
+     } 
+    },
+
   }
 };
 </script>

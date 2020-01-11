@@ -1,6 +1,6 @@
 <template>
     
-    <v-container fluid class="pa-0 ma-0 indigo lighten-1 h90">
+    <v-container fluid class="pa-0 ma-0 indigo darken-3 h90">
         <v-row 
         no-gutters
         class=" ma-0 pa-0 h100"
@@ -63,12 +63,13 @@
                 class="d-flex justify-center ma-0  pa-0">
                     <v-card
                     flat
-                    class="teal darken-1"
+                    class="transparent"
                     width="300"
                     height="50">
                         <v-checkbox
+                        dark
+                        color="pink lighten-1"
                         v-model="checkbox"
-                        color="white"
                         label="I agree to the terms of Noor Edu"
                         ></v-checkbox>
                     </v-card>
@@ -76,11 +77,30 @@
                 <div
                 class="d-flex justify-center ma-0 mt-6 pa-0">
                     <v-btn
-                    class="blue"
+                    class="pink lighten-1 white--text headline text-capitalize"
                     width="300"
                     height="50">
-                    
+                    sign up
                     </v-btn>
+                </div> 
+                <div
+                class="d-flex justify-center ma-0 mt-6 pa-0">
+                <v-divider  class="white mx-5"></v-divider>
+                </div>
+                <div
+                class="d-flex justify-center ma-0 mt-6 pa-0">
+                    <v-card
+                    flat
+                    class="transparent text-center text-capitalize subtitle-1 font-weight-lihgt"
+                    width="300"
+                    height="50">
+                    <v-btn
+                    @click="ToggleToSignIn()"
+                    color="white"
+                    outlined>
+                    Already Have an Account ?
+                    </v-btn>    
+                    </v-card>
                 </div> 
  
             </v-col>
@@ -112,7 +132,16 @@
 
 <script>
 export default {
-    
+    data : () => ({
+        return:{
+            //
+        }
+    }),
+    methods:{
+        ToggleToSignIn(){
+            this.$emit('Toggle',0)
+        }
+    }
 }
 </script>
 <style scoped>

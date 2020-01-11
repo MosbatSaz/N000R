@@ -1,6 +1,6 @@
 <template>
 
-    <v-container fluid  min-height="800" class="pa-0 ma-0 indigo lighten-1 h80 minh700">
+    <v-container fluid  min-height="800" class="pa-0 ma-0 indigo darken-3 h80 minh700">
 
         <v-row 
         no-gutters
@@ -139,14 +139,20 @@
             <v-col 
             cols="12"
             class="ma-0 my-n12 pa-0 ">
-                <div
-                class="d-flex justify-center">
-                    <v-btn
-                    class="green accent-4"
+                 <div
+                class="d-flex justify-center ma-0 mt-6 pa-0">
+                    <v-card
+                    flat
+                    class="transparent text-center text-capitalize subtitle-1 font-weight-lihgt"
                     width="300"
                     height="50">
-                    
-                    </v-btn>
+                    <v-btn
+                    @click="ToggleToSignUp()"
+                    color="white"
+                    outlined>
+                    Create a new account
+                    </v-btn>    
+                    </v-card>
                 </div>    
             </v-col>  
 
@@ -159,7 +165,11 @@
 
 <script>
 export default {
-    
+    methods:{
+        ToggleToSignUp(){
+            this.$emit('Toggle',1)
+        }
+    }
 }
 </script>
 <style scoped>

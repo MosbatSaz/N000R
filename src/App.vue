@@ -74,23 +74,15 @@ export default {
 .w10{width: 10%}
 
 /* animation */
-.tba{
-  animation: 1s infinite alternate MoveUpDown;
-  animation-timing-function: linear;
+
+.float_up{ animation: float_up infinite 6s ease-in-out }
+@keyframes float_up {
+    50% { transform: translateY(10px) }
 }
 
-@keyframes MoveUpDown {
-    0% {
-        top: 0px;
-    }
-    50% { 
-        top: 5px;
-    }
-    50% { 
-        top: 5px;
-    }
-    100% { 
-        top: 0px;
-    }
+.float_down{ animation: float_down infinite 6s ease-in-out }
+@keyframes float_down {
+    50% { transform: translateY(-10px) }
 }
+
 </style>

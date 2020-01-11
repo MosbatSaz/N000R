@@ -96,7 +96,7 @@
         <v-hover>
           <template v-slot="{ hover }">
             <v-card
-              :elevation="hover ? 24 : 8"
+              
               v-resize="onResize"
               :ripple="false"
               :height="cardH"
@@ -139,17 +139,21 @@
       class="pink lighten-2 pa-0 ma-0" 
       >
         <v-card
+        flat
         tile
-        class="h100 w100 pa-0 py-12 ma-0">
+        class="h100 w100 py-12 pa-0 ma-0">
          
             <v-row
+            class="pa-0 ma-0"
             justify="center"
             align="center">
 
               <!-- description title-->
               <v-col  cols="12">
-                <div class="text-center">
-                  <span>Noor For All</span>
+                <div class="text-center mb-4">
+                  <span
+                  class="display-1 font-weight-bold grey--text text--darken-3">
+                  Noor For All</span>
                 </div>
               </v-col>
 
@@ -160,16 +164,16 @@
                 v-for="(description, index) in 3" :key="index"
                 cols="12" sm="6" md="4" lg="3">
                  <v-img
-                 class="elevation-16"
+                 :class="`elevation-16 cssanimation ${animation[index]}`"
                   height="500"
                   src="../assets/illus/doodles-school-0.jpg"
                   >
                   <v-card 
-                  class="elevation-8 h80 ma-5 mt-12 pa-0 d-flex ">
+                  class="elevation-8 orange lighten-3 h80 ma-5 mt-12 pa-0 d-flex">
                  
                     <v-card 
                     hover 
-                    class="h100 w100 ma-5">
+                    class="h100 w100 ma-5 ">
 
                     <!-- icon -->
                       <div
@@ -208,8 +212,14 @@
 
       <!-- proud -->
       <v-col 
-      class="pink lighten-3" 
+      class="orange lighten-3 py-8" 
       cols="12">
+      <div
+      class="text-center mb-8">
+        <span
+        class="display-1 font-weight-bold grey--text text--darken-3">
+        Our Medals</span>
+      </div>
       <v-row
       justify="center"
       align="center"
@@ -218,19 +228,21 @@
         cols="2"
         v-for="(medal, index) in 6" :key="index"
         >
+        
+          <!-- medal -->
+          <div
+          class="d-flex justify-center">
+            <v-icon size="100">
+              mdi-medal
+            </v-icon>
+          </div>
+
           <!-- title -->
           <div
           class="d-flex justify-center">
             Title
           </div>
 
-          <!-- medal -->
-          <div
-          class="d-flex justify-center">
-            <v-icon>
-              mdi-medal
-            </v-icon>
-          </div>
         </v-col>
       </v-row>  
       </v-col>
@@ -247,36 +259,70 @@
         height="300"
         tile
         dark>
+
+
         <!-- footer options ( fops ) -->
         <v-app-bar
         color="indigo darken-2"
         flat
+        height="80"
         >
           <div
           class="w100 d-flex justify-center">
             <div
             class="w40 d-flex mx-5 justify-space-around">
+
               <v-btn
-              v-for="(fop, index) in fobs" :key="index"
+              height="60"
+              v-for="(fop, index) in fops" :key="index"
               @click="sheet = !sheet"
-              rounded
-              text>
-              <span>{{fobs.title}}</span>
-              <v-icon>{{fobs.icon}}</v-icon>
+              text
+              large>
+              <div
+              class="h100 w100">
+
+                <!-- fop icon -->
+                <div
+                class="d-block text-center mb-2">
+                  <v-icon
+                  size="30">
+                  {{fop.icon}}</v-icon>
+                </div>
+                
+                <!-- fob title -->
+                <div
+                class="d-block text-center">
+                  <span>{{fop.title}}</span>
+                </div>
+
+              </div>
               </v-btn>
             </div>
           </div>
         </v-app-bar>  
 
+
+
         <!-- Map -->
-        <v-hover
-        v-slot:default="{ hover }">
-            <template>
+            <v-card
+            class="d-flex justify-center ma-0 pa-0 h100"
+            tile>
+              <v-btn
+              absolute
+              bottom 
+              flat
+              :ripple="false"
+              tile
+              color="indigo darken-3"
+              >
+                Abadan - Noor edu 
+              </v-btn>
               <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3443.57502456997!2d48.28267815106922!3d30.33460371167148!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3fc44f12eb39a3c7%3A0xc4ec16f6be22c4da!2sNoor%20Arvand%20Educational%20institution!5e0!3m2!1sen!2s!4v1578324126941!5m2!1sen!2s"
-              class="h100 w100"   
-              allowfullscreen=""></iframe>
-            </template>
-        </v-hover>
+              class=" w100 h100"   
+              >
+              </iframe>
+            </v-card>  
+
   
 
 
@@ -444,17 +490,20 @@ export default {
       {title:'header',img:'../assets/illus/undraw_Graduation_ktn0 (1).png', description:'this is a description'},
       {title:'header',img:'../assets/illus/undraw_Graduation_ktn0 (1).png', description:'this is a description'},
     ],
-    fobs:[
-      {title:'CEO',icon:'mdi-sofa'},
+    animation:[
+      'float_up',
+      'float_down',
+      'float_up'
+    ],
+    fops:[
+      {title:'CEO',icon:'mdi-glasses'},
       {title:'Contact Us',icon:'mdi-phone-classic'},
-      {title:'FAQ',icon:'mdi-question'},
-      {title:'Comments',icon:'mdi-comment-multiple-outline'},
+      {title:'FAQ',icon:'mdi-frequently-asked-questions'},
+      {title:'Comments',icon:'mdi-comment-text-outline'},
     ],      
     icons: [
-        'mdi-facebook',
-        'mdi-twitter',
         'mdi-google-plus',
-        'mdi-linkedin',
+        'mdi-telegram',
         'mdi-instagram',
       ],
   }),
