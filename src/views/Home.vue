@@ -1,5 +1,19 @@
 <template>
   <div>
+
+    <!-- just for development
+    use to show viewport -->
+    <v-btn
+    depressed
+    fixed
+    absolute
+    bottom
+    fab 
+    v-resize="onResize"
+    right
+    class="mb-10 pink title white--text">
+    {{viewport}}
+    </v-btn>
 <!-- place home page in a grid system -->
   <v-container  fluid fill-height class="white pa-0"> 
     <v-row     
@@ -142,7 +156,7 @@
         flat
         tile
         class="h100 w100 py-12 pa-0 ma-0">
-         
+        
             <v-row
             class="pa-0 ma-0"
             justify="center"
@@ -225,7 +239,7 @@
       align="center"
       >
         <v-col
-        cols="2"
+        cols="6" 
         v-for="(medal, index) in 6" :key="index"
         >
         
@@ -263,6 +277,8 @@
 
         <!-- footer options ( fops ) -->
         <v-app-bar
+        v-resize="mapSize"
+        v-show="fopsHorizon"
         color="indigo darken-2"
         flat
         height="80"
@@ -305,22 +321,79 @@
 
         <!-- Map -->
             <v-card
+            height="500"
             class="d-flex justify-center ma-0 pa-0 h100"
             tile>
-              <v-btn
-              absolute
-              bottom 
-              flat
-              :ripple="false"
-              tile
-              color="indigo darken-3"
-              >
-                Abadan - Noor edu 
-              </v-btn>
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3443.57502456997!2d48.28267815106922!3d30.33460371167148!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3fc44f12eb39a3c7%3A0xc4ec16f6be22c4da!2sNoor%20Arvand%20Educational%20institution!5e0!3m2!1sen!2s!4v1578324126941!5m2!1sen!2s"
-              class=" w100 h100"   
-              >
-              </iframe>
+              <v-row
+              v-resize="mapSize"
+              class="ma-0 pa-0 h100 w100"
+              justify="center"
+              align="stretch">
+                <v-col
+                :cols="mapBP"
+                class="ma-0 pa-0">
+                  <v-btn
+                  v-resize="onResize"
+                  absolute
+                  bottom 
+                  flat
+                  :ripple="false"
+                  tile
+                  color="indigo darken-3"
+                  >
+                  </v-btn>
+                  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3443.57502456997!2d48.28267815106922!3d30.33460371167148!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3fc44f12eb39a3c7%3A0xc4ec16f6be22c4da!2sNoor%20Arvand%20Educational%20institution!5e0!3m2!1sen!2s!4v1578324126941!5m2!1sen!2s"
+                  class=" w100 h100"   
+                  >
+                  </iframe>
+                </v-col>
+
+                <!-- side fops -->
+                <v-col 
+                v-show="!fopsHorizon"
+                cols="3"
+                class="pa-0 ma-0 ">
+                  <div
+                  class="h100 indigo darken-4">
+                    <v-row
+                    class="ma-0 pa-0 h100 w100"
+                    justify="center"
+                    align="center">
+                      <v-col
+                      v-for="(fop, index) in fops" :key="index"
+                      cols="12"
+                      class="">
+                      <v-btn
+                      class="d-block"
+                      height="60"
+                      
+                      @click="sheet = !sheet"
+                      text
+                      large>
+                      <div
+                      class="h100 w100" >
+
+                        <!-- fop icon -->
+                        <div
+                        class="d-block text-center mb-2">
+                          <v-icon
+                          size="30">
+                          {{fop.icon}}</v-icon>
+                        </div>
+                        
+                        <!-- fob title -->
+                        <div
+                        class="d-block d-flex justify-center">
+                          <span>{{fop.title}}</span>
+                        </div>
+
+                      </div>
+                      </v-btn>
+                      </v-col>
+                    </v-row>
+                  </div>
+                </v-col>
+              </v-row>
             </v-card>  
 
   
@@ -388,57 +461,32 @@
 
 
 
+    
     <!-- Dialog -->
  
       <v-dialog
         fullscreen
         v-model="dialog"
-        class=""
+        class="pa-0 ma-0"
+        eager
         origin=""
       >
-        <!-- <template v-slot:activator="{ on }">
-          <v-btn
-            color="yellow darken-4"
-            dark
-            v-on="on"
-          >
-            Click Me
-          </v-btn>
-        </template> -->
 
-
-    
-
-        <v-card 
-        light
-        tile
-        class="blue darken-4 op90">
-          
-        <!-- <div
-        class="d-flex justify-center"
-        absolute
-        top>
-          <v-btn
-          @click="dialog =! dialog"
-          flat
-          class="blue darken-4 pa-0 ma-0 hidden-xs-only right"
-          text
-          icon
-          large
+      <v-sheet class="" >
+        <v-btn
+          class="my-3 mx-8"
+          fab
           absolute
-          >
-            <v-icon
-            color="white"
-            >
-              mdi-close
-            </v-icon>
-          </v-btn>
-        </div> -->
-
+          right
+          depressed
+          color="pink"
+          @click="dialog = !dialog"
+        ><v-icon color="white">mdi-close</v-icon></v-btn>
         <component :is="c"></component>
-   
-        </v-card>
+      </v-sheet>
 
+        
+   
       </v-dialog>
 
       <!-- Bottom sheet -->
@@ -453,13 +501,13 @@
           class="my-6"
           depressed
           fab
-          color="error"
+          color="pink"
           @click="sheet = !sheet"
-        ><v-icon>mdi-close</v-icon></v-btn>
+        ><v-icon color="white">mdi-close</v-icon></v-btn>
       </v-sheet>
     </v-bottom-sheet>
 
-
+    
 
   </v-container>
   </div>
@@ -467,21 +515,26 @@
 
 <script>
 import Archive from '../components/Archive.vue'
+import Konkur from '../components/Konkur'
+import Resize from '../mixins/resize'
+
 export default {
   name: 'home',
 
   components:{
     Archive,
+    Konkur
   },
   data: () =>({   
     //data
-    c : Archive,
+    c : Konkur,
     dialog: false,
     sheet: false,
     parallaxH:0,
     cardH:0,
     cardW:0,
-    mapFade:true,
+    viewport:'',
+    fopsHorizon:true,
     sections:[
       {title:'header',img:'../assets/illus/undraw_Graduation_ktn0 (1).png', description:'this is a description'},
       {title:'header',img:'../assets/illus/undraw_Graduation_ktn0 (1).png', description:'this is a description'},
@@ -497,9 +550,9 @@ export default {
     ],
     fops:[
       {title:'CEO',icon:'mdi-glasses'},
-      {title:'Contact Us',icon:'mdi-phone-classic'},
+      {title:'Contact',icon:'mdi-phone-classic'},
       {title:'FAQ',icon:'mdi-frequently-asked-questions'},
-      {title:'Comments',icon:'mdi-comment-text-outline'},
+      {title:'Comment',icon:'mdi-comment-text-outline'},
     ],      
     icons: [
         'mdi-google-plus',
@@ -508,29 +561,30 @@ export default {
       ],
   }),
     mounted () {
-      this.onResize()
+      this.onResize();
+      this.mapSize();
     },
     //use mixins here
     methods: {
-      onResize () {
-        if (window.innerWidth >= 1264){ //xlarge & large;
-          this.cardH = 200;
-          this.parallaxH = 600; 
+      mapSize(){
+        if(this.viewport == 'xs'){
+          this.fopsHorizon = false;
+          this.mapBP = 9
         }
-        else if (window.innerWidth >= 960 && window.innerWidth < 1264){ //medium & small
-          this.cardH = 180;
-          this.parallaxH = 500;  
+        else{
+          this.fopsHorizon = true;
+          this.mapBP = 12
         }
-        else{ //xsmall adn small
-          this.cardH =150;
-          this.parallaxH =400; 
-        }
-        // { x: window.innerWidth, y: window.innerHeight }
       }
-}
+  },
+  mixins:[Resize]
 }
 </script>
 <style scoped>
-
+.dialog{
+  height: 90vh;
+  min-height: 600px;
+  
+}
 
 </style>

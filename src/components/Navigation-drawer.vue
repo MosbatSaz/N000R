@@ -29,7 +29,7 @@
 
 
     <!-- Spacer -->
-    <!-- <v-spacer></v-spacer> -->
+    <v-spacer></v-spacer>
 
     <v-hover>
         <template v-slot="{ hover }">
@@ -78,6 +78,7 @@
 
   <!-- Navigation drawer -->
   <v-navigation-drawer 
+  
   @drag="checkToggle()"
   floating
   width="350" 
@@ -161,23 +162,37 @@ export default {
     show: true,
     toggle: false,
     bn:true,
+    s:'hi'
   }),
 
+  //use updated lifecycle hook to sync sign-btn (on the top right hand side)
+  //with the show/hide state of drawer, notice if you dont use updated the btn will
+  // desapear as you drag to close the drawer in the mobile viewport
+  updated(){
+    this.checkToggle();
+  },
 
   methods:{
+
+    //these methods use to control the show/hide of drawer 
+    //and the activater btn 
     toggledrawer(){
       this.toggle =! this.toggle 
       this.show =! this.show
     },
     checkToggle(){
-      (this.toggle == false) ? this.toggle = true : ''
+      (this.toggle == false) ? this.show = true : ''
     },
 
+
+    //these methods use to change the component that injected in
+    //in the drawer , and also state of the btn  Userpanel or sign-in sign-up
+    //the ToggleTo() function controled by fucntion emitted form sign-in sign-up/
+    //components
     ToggleTo(param){
      (param == 0) ? this.c = SignIn : this.c = SignUp
     },
     switching(){
-
      if (this.c == UserPanel){
         this.isSwitched = false;
         this.c = SignUp;
@@ -186,6 +201,9 @@ export default {
         this.isSwitched = true;
         this.c = UserPanel;
      } 
+
+    //create a new method here
+
     },
 
   }

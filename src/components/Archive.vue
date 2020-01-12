@@ -2,39 +2,20 @@
 
   <v-carousel
     cycle
-    height="900"
-    class=" ma-0 pa-0"
+    :height="dynamicH"
+    class=" pa-0 dialog"
     hide-delimiter-background
     show-arrows-on-hover
   >
-          <div
-        class="d-flex justify-center"
-        absolute
-        top>
-          <v-btn
-          @click="dialog =! dialog"
-          flat
-          class="blue darken-4 pa-0 ma-0 hidden-xs-only right"
-          text
-          icon
-          large
-          absolute
-          >
-            <v-icon
-            color="white"
-            >
-              mdi-close
-            </v-icon>
-          </v-btn>
-        </div>
       
     <v-carousel-item
       v-for="(slide, i) in slides"
       :key="i"
+      class="dialog"
     >
       <v-sheet
         :color="colors[i]"
-        class="h100"
+        class="dialog"
       >
         <v-row
           class="fill-height pt-12"
@@ -46,12 +27,16 @@
       </v-sheet>
     </v-carousel-item>
   </v-carousel>
+
 </template>
+
+import Resize from ''
 
 <script>
   export default {
     data () {
       return {
+        dynamicH: 0,
         colors: [
           'indigo',
           'warning',
@@ -70,3 +55,8 @@
     },
   }
 </script>
+<style scoped>
+.dialog{
+  height: 90vh;
+}
+</style>

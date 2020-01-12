@@ -80,10 +80,9 @@
                 <div
                 class="d-flex justify-center">
                     <v-btn
-                    class="blue"
+                    class="pink lighten-1"
                     width="300"
                     height="50">
-                    
                     </v-btn>
                 </div> 
             </v-col>
@@ -94,31 +93,28 @@
             <v-col 
             cols="12"
             class="ma-0 my-n10  pa-0" >
-                <div class="text-center">
-                    Forget Password?
-                </div>   
-            </v-col>
-
-            <!-- sign in with google -->
-            <v-col cols="12">
             <div
-            class="d-flex justify-center">
-                <v-card
-                width="300">
-                    <v-responsive
-                    :aspect-ratio="16/5">
-                        
-                    </v-responsive>
-                </v-card>
-            </div>
-            
-                    
+                class="d-flex justify-center ma-0 mt-0 pa-0">
+                    <v-card
+                    flat
+                    class="transparent text-center text-capitalize subtitle-1 "
+                    width="300"
+                    height="50">
+                    <v-btn
+                    @click="ToggleToSignUp()"
+                    color="white"
+                    class="font-weight-light"
+                    text>
+                    Forget PassWord?
+                    </v-btn>    
+                    </v-card>
+                </div> 
             </v-col>    
 
             <!-- block spacer -->
             <v-col 
             cols="12"
-            class="ma-0 mt-n3 mb-2 pa-0">
+            class="ma-0 mt-n5 mb-2 pa-0">
                 <div
                 class="d-flex justify-center w100">
                     <v-card
@@ -148,7 +144,7 @@
                     height="50">
                     <v-btn
                     @click="ToggleToSignUp()"
-                    color="white"
+                    color="green accent-3"
                     outlined>
                     Create a new account
                     </v-btn>    
