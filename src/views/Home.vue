@@ -113,7 +113,6 @@
               
               v-resize="onResize"
               :ripple="false"
-              :height="cardH"
                @click="dialog =! dialog"
               class=" ma-0 pa-0 w100"
             >
@@ -178,16 +177,17 @@
                 v-for="(description, index) in 3" :key="index"
                 cols="12" sm="6" md="4" lg="3">
                  <v-img
-                 :class="`elevation-16 cssanimation ${animation[index]}`"
-                  height="500"
+                 :class="`elevation-16 pa-3 pt-0 ${animation[index]}`"
+                  
                   src="../assets/illus/doodles-school-0.jpg"
                   >
                   <v-card 
-                  class="elevation-8 orange lighten-3 h80 ma-5 mt-12 pa-0 d-flex">
-                 
+                  tile
+                  class="elevation-8 orange lighten-2  op95 h80 ma-5 mt-10 float-down-fast pa-0 d-flex">
+                
                     <v-card 
-                    hover 
-                    class="h100 w100 ma-5 ">
+                    tile
+                    class="h100 w100 ma-5 op100 float-up-fast elevation-16">
 
                     <!-- icon -->
                       <div
@@ -239,7 +239,7 @@
       align="center"
       >
         <v-col
-        cols="6" 
+        cols="6" md="4" lg="3" xl="2"
         v-for="(medal, index) in 6" :key="index"
         >
         
@@ -321,11 +321,11 @@
 
         <!-- Map -->
             <v-card
-            height="500"
+            :height="mapH"
             class="d-flex justify-center ma-0 pa-0 h100"
             tile>
               <v-row
-              v-resize="mapSize"
+              v-resize="mobile"
               class="ma-0 pa-0 h100 w100"
               justify="center"
               align="stretch">
@@ -333,7 +333,7 @@
                 :cols="mapBP"
                 class="ma-0 pa-0">
                   <v-btn
-                  v-resize="onResize"
+                  v-resize="mobile"
                   absolute
                   bottom 
                   flat
@@ -341,6 +341,7 @@
                   tile
                   color="indigo darken-3"
                   >
+                    {{viewport}}
                   </v-btn>
                   <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3443.57502456997!2d48.28267815106922!3d30.33460371167148!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3fc44f12eb39a3c7%3A0xc4ec16f6be22c4da!2sNoor%20Arvand%20Educational%20institution!5e0!3m2!1sen!2s!4v1578324126941!5m2!1sen!2s"
                   class=" w100 h100"   
@@ -465,24 +466,26 @@
     <!-- Dialog -->
  
       <v-dialog
-        fullscreen
+        :height="dialogH"
         v-model="dialog"
-        class="pa-0 ma-0"
-        eager
-        origin=""
+        class="pa-0 ma-0 white"
       >
 
-      <v-sheet class="" >
+      <v-sheet class="py-10 d-flex justify-end" >
+
         <v-btn
-          class="my-3 mx-8"
+          class="my-n6 mx-n3"
           fab
           absolute
-          right
           depressed
           color="pink"
           @click="dialog = !dialog"
         ><v-icon color="white">mdi-close</v-icon></v-btn>
+
+
         <component :is="c"></component>
+
+
       </v-sheet>
 
         
@@ -514,8 +517,13 @@
 </template>
 
 <script>
-import Archive from '../components/Archive.vue'
+
+import Archive from '../components/Archive'
 import Konkur from '../components/Konkur'
+import Advicer from '../components/Advicer'
+import Classes from '../components/Classes'
+import Teachers from '../components/Teachers'
+import Exam from '../components/Exam'
 import Resize from '../mixins/resize'
 
 export default {
@@ -523,18 +531,24 @@ export default {
 
   components:{
     Archive,
-    Konkur
+    Konkur,
+    Advicer,
+    Classes,
+    Teachers,
+    Exam
   },
   data: () =>({   
     //data
-    c : Konkur,
+    c : Advicer,
     dialog: false,
     sheet: false,
     parallaxH:0,
+    dialogH:0,
     cardH:0,
     cardW:0,
     viewport:'',
     fopsHorizon:true,
+    mapH:400,
     sections:[
       {title:'header',img:'../assets/illus/undraw_Graduation_ktn0 (1).png', description:'this is a description'},
       {title:'header',img:'../assets/illus/undraw_Graduation_ktn0 (1).png', description:'this is a description'},
@@ -544,9 +558,9 @@ export default {
       {title:'header',img:'../assets/illus/undraw_Graduation_ktn0 (1).png', description:'this is a description'},
     ],
     animation:[
-      'float_up',
-      'float_down',
-      'float_up'
+      'float-up-fast',
+      'float-down-fast',
+      'float-up-fast'
     ],
     fops:[
       {title:'CEO',icon:'mdi-glasses'},
@@ -563,18 +577,25 @@ export default {
     mounted () {
       this.onResize();
       this.mapSize();
+      this.mobile();
     },
     //use mixins here
     methods: {
-      mapSize(){
+      mobile(){
         if(this.viewport == 'xs'){
           this.fopsHorizon = false;
-          this.mapBP = 9
+          this.mapBP = 9;
+          this.mapH = 500;
         }
         else{
           this.fopsHorizon = true;
-          this.mapBP = 12
+          this.mapBP = 12;
+          this.mapH = 400
         }
+      },
+
+      dialogH(){
+        this.dialogH = window.innerHeight;
       }
   },
   mixins:[Resize]

@@ -36,8 +36,8 @@ export default {
  }
 
 
-.op100{opacity: 1}
-.op90{opacity: 0.9}
+.op100{opacity: 1 !important}
+.op95{opacity: 0.95}
 .op80{opacity: 0.8}
 .op70{opacity: 0.7}
 .op60{opacity: 0.6}
@@ -75,14 +75,24 @@ export default {
 
 /* animation */
 
-.float_up{ animation: float_up infinite 6s ease-in-out }
-@keyframes float_up {
-    50% { transform: translateY(10px) }
+.float-up{ animation: float-up infinite 10s ease-in-out }
+@keyframes float-up {
+    50% { transform: translateY(-5px) }
 }
 
-.float_down{ animation: float_down infinite 6s ease-in-out }
-@keyframes float_down {
+.float-down{ animation: float-down infinite 10s ease-in-out }
+@keyframes float-down {
+    50% { transform: translateY(5px) }
+}
+
+.float-up-fast{ animation: float-down-slow infinite 10s ease-in-out }
+@keyframes float-down-slow {
     50% { transform: translateY(-10px) }
+}
+
+.float-down-fast{ animation: float-up-slow infinite 10s ease-in-out }
+@keyframes float-up-slow {
+    50% { transform: translateY(10px) }
 }
 
 </style>

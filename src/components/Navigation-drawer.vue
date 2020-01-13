@@ -25,7 +25,7 @@
 
 
       <!-- TEST  use this testing btn to toggle navigation drawer statement -->
-      <v-btn icon height="80" width="80" class="pink white--text" @click="switching()"> Toggle </v-btn>
+      <v-btn icon height="80" width="80" class="pink white--text textFade" @click="switching()"> Toggle </v-btn>
 
 
     <!-- Spacer -->
