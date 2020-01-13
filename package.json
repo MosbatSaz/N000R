@@ -28,7 +28,6 @@
     "browserstack-automate": "^1.0.2",
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",
-    "nightwatch": "^1.0.18",
     "sass": "^1.19.0",
     "sass-loader": "^8.0.0",
     "vue-cli-plugin-nightwatch-browserstack": "^1.0.3",
