@@ -353,9 +353,9 @@
                 <v-col 
                 v-show="!fopsHorizon"
                 cols="3"
-                class="pa-0 ma-0 ">
+                class="pa-0 ma-0 w100 h100">
                   <div
-                  class="h100 indigo darken-4">
+                  class="h100 w100 indigo darken-4">
                     <v-row
                     class="ma-0 pa-0 h100 w100"
                     justify="center"
@@ -363,33 +363,32 @@
                       <v-col
                       v-for="(fop, index) in fops" :key="index"
                       cols="12"
-                      class="">
-                      <v-btn
-                      class="d-block"
-                      height="60"
-                      
-                      @click="sheet = !sheet"
-                      text
-                      large>
-                      <div
-                      class="h100 w100" >
-
-                        <!-- fop icon -->
+                      class="w100 d-flex justify-center">
+                       <v-btn
+                        height="60"
+                        @click="sheet = !sheet"
+                        text
+                        class="pa-0 ma-0"
+                        large>
                         <div
-                        class="d-block text-center mb-2">
-                          <v-icon
-                          size="30">
-                          {{fop.icon}}</v-icon>
-                        </div>
-                        
-                        <!-- fob title -->
-                        <div
-                        class="d-block d-flex justify-center">
-                          <span>{{fop.title}}</span>
-                        </div>
+                        class="h100 w100 ma-0 pa-0">
 
-                      </div>
-                      </v-btn>
+                          <!-- fop icon -->
+                          <div
+                          class="d-block text-center ma-0 pa-0 mb-2 ">
+                            <v-icon
+                            size="30">
+                            {{fop.icon}}</v-icon>
+                          </div>
+                          
+                          <!-- fob title -->
+                          <div
+                          class="d-block text-center ma-0 pa-0">
+                            <span>{{fop.title}}</span>
+                          </div>
+
+                        </div>
+              </v-btn>
                       </v-col>
                     </v-row>
                   </div>
