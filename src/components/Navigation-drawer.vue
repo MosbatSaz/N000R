@@ -145,7 +145,7 @@
 <script>
 import SignIn from '../components/Sign-in'
 import SignUp from '../components/Sign-up'
-import UserPanel from '../components/User-panel'
+import UserPanel from '../views/User-Panel'
 export default {
 
   name: 'Home-page',
