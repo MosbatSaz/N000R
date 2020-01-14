@@ -45,7 +45,8 @@
           right
           fab
           @click="toggledrawer()"
-          height="100">
+          height="100"
+          width="100">
           <v-avatar
           class="elevation-24"
             size="100">
