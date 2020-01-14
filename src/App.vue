@@ -35,6 +35,10 @@ export default {
    font-family:"Arabic Typesetting", serif;
  }
 
+a{
+  text-decoration: transparent;
+}
+
 
 .op100{opacity: 1 !important}
 .op95{opacity: 0.95}
@@ -95,4 +99,31 @@ export default {
     50% { transform: translateY(10px) }
 }
 
+.float-illus{ animation: float-illus infinite 10s ease-in-out }
+@keyframes float-illus {
+    50% { transform: translateY(-20px) }
+}
+
+
+
+.float-hover {
+
+  /* HOVER OFF */
+   transform: translateY(0px)
+}
+
+.float-hover:hover {
+
+  /* HOVER ON */
+   animation: float-hover 1s ease-out
+}
+
+@keyframes float-hover {
+    50% { transform: translateY(-20px) }
+}
+
+
+.b5{
+  border-radius: 5%;
+}
 </style>

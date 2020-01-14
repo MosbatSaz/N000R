@@ -110,11 +110,11 @@
         <v-hover>
           <template v-slot="{ hover }">
             <v-card
-              
+              :elevation="hover ? 16 : 4"
               v-resize="onResize"
               :ripple="false"
                @click="dialog =! dialog"
-              class=" ma-0 pa-0 w100"
+              class="mb-12 pa-0 w100"
             >
               <div
               class="d-flex justify-center h100 w100">
@@ -466,8 +466,8 @@
     <!-- Dialog -->
  
       <v-dialog
-        :height="dialogH"
         v-model="dialog"
+        fullscreen
         class="pa-0 ma-0 white"
       >
 
@@ -539,7 +539,7 @@ export default {
   },
   data: () =>({   
     //data
-    c : Advicer,
+    c : Exam,
     dialog: false,
     sheet: false,
     parallaxH:0,
