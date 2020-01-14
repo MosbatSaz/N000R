@@ -22,7 +22,7 @@
       class="d-flex justify-center my-5">
         <span
         class="headline white--text font-weight-thin">
-        i V N O
+        i V N O 1
         </span>
       </div> 
 
