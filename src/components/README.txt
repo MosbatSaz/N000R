@@ -18,3 +18,11 @@ Notice
             + Sign-in.vue
             + Sign-in.vue   
         ```
+
+        this components load in `Bottom Sheet` ( Dialog placed in the Home.vue ) 
+        ```
+            + Ceo.vue
+            + Contact.vue
+            + Faq.vue
+            + Comment.vue 
+        ```

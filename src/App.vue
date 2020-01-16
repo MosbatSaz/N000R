@@ -4,6 +4,7 @@
     <navi></navi>
 
     <v-content class="pa-0">
+      <router-link to="/test"></router-link>
       <router-view></router-view>
     </v-content>
                 
@@ -29,10 +30,11 @@ export default {
 
 /* opacity */
 @import url('https://fonts.googleapis.com/css?family=Lexend+Deca&display=swap');
+@import url("./css/Font/font.css");
 /* font */
 .v-application {
    /* font-family: 'Lexend Deca', sans-serif; */
-   font-family:"Arabic Typesetting", serif;
+    font-family: 'BYekan', serif;
  }
 
 a{
@@ -53,6 +55,9 @@ a{
 .op0{opacity: 0}
 
 /* height  */
+.h100v{
+    height: 100vh;
+}
 .h100{height: 100%}
 .minh700{min-height:700}
 .h90{height: 90%}
@@ -99,31 +104,10 @@ a{
     50% { transform: translateY(10px) }
 }
 
-.float-illus{ animation: float-illus infinite 10s ease-in-out }
+.float-illus{ animation: float-illus infinite 5s ease-in-out }
 @keyframes float-illus {
-    50% { transform: translateY(-20px) }
+    50% { transform: translateY(-10px) }
 }
 
 
-
-.float-hover {
-
-  /* HOVER OFF */
-   transform: translateY(0px)
-}
-
-.float-hover:hover {
-
-  /* HOVER ON */
-   animation: float-hover 1s ease-out
-}
-
-@keyframes float-hover {
-    50% { transform: translateY(-20px) }
-}
-
-
-.b5{
-  border-radius: 5%;
-}
 </style>

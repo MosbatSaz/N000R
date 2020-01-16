@@ -103,10 +103,13 @@
 
     
       <!-- section cards use for loop-->
+      
+
       <v-col
-      cols="6" sm="6" md="4" lg="2"
       v-for="(section, index) in sections" :key="index"
+      cols="6" sm="6" md="4" lg="2"
       class="ma-0 pa-1 pt-2">
+      <router-link   :to='section.route'>
         <v-hover>
           <template v-slot="{ hover }">
             <v-card
@@ -114,7 +117,7 @@
               v-resize="onResize"
               :ripple="false"
                @click="dialog =! dialog"
-              class="mb-12 pa-0 w100"
+              class=" pa-0 w100"
             >
               <div
               class="d-flex justify-center h100 w100">
@@ -144,12 +147,118 @@
             </v-card>
           </template>
          </v-hover>
+        </router-link>
+      </v-col>
+
+
+      <!-- News -->
+      <v-col 
+      cols="12"
+      class="pa-0 ma-0 mt-12" 
+      >
+        <v-card
+        flat
+        tile
+        class="h100 w100 py-12 pa-0 ">
+     
+        
+            <v-row
+            class="pa-0 ma-0"
+            justify="center"
+            align="center">
+
+              <!-- news title-->
+              <v-col  cols="12">
+                <div class="text-center mb-4">
+                  <span
+                  class="display-1 font-weight-bold grey--text text--darken-3">
+                  News</span>
+                </div>
+              </v-col>
+
+              <!-- news (for loop used)-->
+
+ 
+                <v-col 
+                cols="12">
+                  <v-card
+                  outlined
+                  class=" py-12 lighten-5">
+                    <v-col 
+                      v-for="(description, index) in 3" :key="index"
+                      cols="12"
+                      class="d-flex justify-center">
+                        <v-card
+                        hover
+                        shaped
+                        flat
+                        outlined
+                        max-width="1000"
+                        class="indigo pr-2 w100">
+                        <v-card
+                        shaped
+                        flat
+                        outlined
+                        max-width="1000"
+                        class=" pr-2 w100">
+                        <v-card
+                        shaped
+                        flat
+                        outlined
+                        max-width="1000"
+                        class="pink lighten-1 pr-2 w100">
+                          <v-card 
+                          flat
+                          class="orange lighten-5 elevation-0"
+                          height="">
+                          <v-card-title
+                          class="">
+                            <v-icon size="50" class="mr-5" color="indigo">mdi-pin</v-icon> <span class="headline"> News Title</span>
+                          </v-card-title>
+                            <v-card-text
+                            class="title">
+                              The news Summary will place here
+                            </v-card-text>
+                            <v-expansion-panels
+                              :popout="true"
+                              :flat="true"
+                              :hover="true"
+                              
+                            >
+                              <v-expansion-panel
+                              class="my-5 orange lighten-5"
+                              >
+                                <v-expansion-panel-header
+                                class="headline"><span><v-icon class="mr-2" color="indigo">mdi-more</v-icon>More</span></v-expansion-panel-header>
+                                <v-expansion-panel-content
+                                >
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                </v-expansion-panel-content>
+                              </v-expansion-panel>
+                            </v-expansion-panels>
+                          </v-card>
+                        </v-card>
+                        </v-card>
+                        </v-card>
+                     </v-col>
+                     <div
+                     class="">
+
+                     </div>
+                  </v-card>
+                   
+              </v-col>
+
+            </v-row>
+        
+        </v-card>
       </v-col>
 
 
       <!-- Description -->
       <v-col 
-      class="pink lighten-2 pa-0 ma-0" 
+      cols="12"
+      class="pa-0 ma-0" 
       >
         <v-card
         flat
@@ -183,7 +292,7 @@
                   >
                   <v-card 
                   tile
-                  class="elevation-8 orange lighten-2  op95 h80 ma-5 mt-10 float-down-fast pa-0 d-flex">
+                  class="elevation-8 orange lighten-3  op95 h80 ma-5 mt-10 float-down-fast pa-0 d-flex">
                 
                     <v-card 
                     tile
@@ -294,24 +403,26 @@
               @click="sheet = !sheet"
               text
               large>
-              <div
-              class="h100 w100">
-
-                <!-- fop icon -->
+              <router-link class="white--text" :to="fop.route">
                 <div
-                class="d-block text-center mb-2">
-                  <v-icon
-                  size="30">
-                  {{fop.icon}}</v-icon>
-                </div>
-                
-                <!-- fob title -->
-                <div
-                class="d-block text-center">
-                  <span>{{fop.title}}</span>
-                </div>
+                class="h100 w100">
 
-              </div>
+                  <!-- fop icon -->
+                  <div
+                  class="d-block text-center mb-2">
+                    <v-icon
+                    size="30">
+                    {{fop.icon}}</v-icon>
+                  </div>
+                  
+                  <!-- fob title -->
+                  <div
+                  class="d-block text-center">
+                    <span>{{fop.title}}</span>
+                  </div>
+
+                </div>
+              </router-link>
               </v-btn>
             </div>
           </div>
@@ -341,7 +452,7 @@
                   tile
                   color="indigo darken-3"
                   >
-                    {{viewport}}
+                    Abadan Zand str-enqelab
                   </v-btn>
                   <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3443.57502456997!2d48.28267815106922!3d30.33460371167148!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3fc44f12eb39a3c7%3A0xc4ec16f6be22c4da!2sNoor%20Arvand%20Educational%20institution!5e0!3m2!1sen!2s!4v1578324126941!5m2!1sen!2s"
                   class=" w100 h100"   
@@ -364,31 +475,33 @@
                       v-for="(fop, index) in fops" :key="index"
                       cols="12"
                       class="w100 d-flex justify-center">
-                       <v-btn
-                        height="60"
-                        @click="sheet = !sheet"
-                        text
-                        class="pa-0 ma-0"
-                        large>
-                        <div
-                        class="h100 w100 ma-0 pa-0">
-
-                          <!-- fop icon -->
+                      <router-link class="white--text" :to="fop.route">
+                        <v-btn
+                          height="60"
+                          @click="sheet = !sheet"
+                          text
+                          class="pa-0 ma-0"
+                          large>
                           <div
-                          class="d-block text-center ma-0 pa-0 mb-2 ">
-                            <v-icon
-                            size="30">
-                            {{fop.icon}}</v-icon>
-                          </div>
-                          
-                          <!-- fob title -->
-                          <div
-                          class="d-block text-center ma-0 pa-0">
-                            <span>{{fop.title}}</span>
-                          </div>
+                          class="h100 w100 ma-0 pa-0">
 
-                        </div>
-              </v-btn>
+                            <!-- fop icon -->
+                            <div
+                            class="d-block text-center ma-0 pa-0 mb-2 ">
+                              <v-icon
+                              size="30">
+                              {{fop.icon}}</v-icon>
+                            </div>
+                            
+                            <!-- fob title -->
+                            <div
+                            class="d-block text-center ma-0 pa-0">
+                              <span>{{fop.title}}</span>
+                            </div>
+
+                          </div>
+                        </v-btn>
+                      </router-link>
                       </v-col>
                     </v-row>
                   </div>
@@ -470,19 +583,33 @@
         class="pa-0 ma-0 white"
       >
 
-      <v-sheet class="py-10 d-flex justify-end" >
+      <v-sheet
+      class="py-10 d-flex justify-end" >
 
         <v-btn
-          class="my-n6 mx-n3"
+          class="my-n6 mx-n3 hidden-xs-only"
           fab
+          fixed
           absolute
           depressed
           color="pink"
           @click="dialog = !dialog"
         ><v-icon color="white">mdi-close</v-icon></v-btn>
 
-
-        <component :is="c"></component>
+        <v-btn
+          class="my-10 mx-n3 hidden-sm-and-up"
+          fab
+          fixed
+          absolute
+          bottom
+          depressed
+          color="pink"
+          @click="dialog = !dialog"
+        ><v-icon color="white">mdi-close</v-icon></v-btn>
+         
+        <router-view></router-view>
+        
+        <!-- <component :is="c"></component> -->
 
 
       </v-sheet>
@@ -498,14 +625,27 @@
       :inset="false" 
       :hide-overlay="hideOverlay"
       >
-      <v-sheet class="text-center" height="500">
+      <v-sheet class="d-flex justify-center" height="500">
         <v-btn
-          class="my-6"
+          class="my-6 hidden-xs-only"
           depressed
+          absolute
           fab
           color="pink"
           @click="sheet = !sheet"
         ><v-icon color="white">mdi-close</v-icon></v-btn>
+        <v-btn
+          class="mb-12 hidden-sm-and-up"
+          depressed
+          absolute
+          bottom
+          fab
+          color="pink"
+          @click="sheet = !sheet"
+        ><v-icon color="white">mdi-close</v-icon></v-btn>
+
+        <router-view></router-view>
+
       </v-sheet>
     </v-bottom-sheet>
 
@@ -517,28 +657,28 @@
 
 <script>
 
-import Archive from '../components/Archive'
-import Konkur from '../components/Konkur'
-import Advicer from '../components/Advicer'
-import Classes from '../components/Classes'
-import Teachers from '../components/Teachers'
-import Exam from '../components/Exam'
+// import Archive from '../components/Archive'
+// import Konkur from '../components/Konkur'
+// import Advicer from '../components/Advicer'
+// import Classes from '../components/Classes'
+// import Teachers from '../components/Teachers'
+// import Exam from '../components/Exam'
 import Resize from '../mixins/resize'
 
 export default {
   name: 'home',
 
-  components:{
-    Archive,
-    Konkur,
-    Advicer,
-    Classes,
-    Teachers,
-    Exam
-  },
+  // components:{
+  //   Archive,
+  //   Konkur,
+  //   Advicer,
+  //   Classes,
+  //   Teachers,
+  //   Exam
+  // },
   data: () =>({   
     //data
-    c : Exam,
+    // c : Classes,
     dialog: false,
     sheet: false,
     parallaxH:0,
@@ -549,12 +689,12 @@ export default {
     fopsHorizon:true,
     mapH:400,
     sections:[
-      {title:'header',img:'../assets/illus/undraw_Graduation_ktn0 (1).png', description:'this is a description'},
-      {title:'header',img:'../assets/illus/undraw_Graduation_ktn0 (1).png', description:'this is a description'},
-      {title:'header',img:'../assets/illus/undraw_Graduation_ktn0 (1).png', description:'this is a description'},
-      {title:'header',img:'../assets/illus/undraw_Graduation_ktn0 (1).png', description:'this is a description'},
-      {title:'header',img:'../assets/illus/undraw_Graduation_ktn0 (1).png', description:'this is a description'},
-      {title:'header',img:'../assets/illus/undraw_Graduation_ktn0 (1).png', description:'this is a description'},
+      {title:'Archive',img:'../assets/illus/undraw_Graduation_ktn0 (1).png', description:'this is a description', route:'/Archive'},
+      {title:'Advicer',img:'../assets/illus/undraw_Graduation_ktn0 (1).png', description:'this is a description', route:'/Advicer'},
+      {title:'Exam',img:'../assets/illus/undraw_Graduation_ktn0 (1).png', description:'this is a description', route:'/Exam'},
+      {title:'Konkur',img:'../assets/illus/undraw_Graduation_ktn0 (1).png', description:'this is a description', route:'/Konkur'},
+      {title:'Classes',img:'../assets/illus/undraw_Graduation_ktn0 (1).png', description:'this is a description', route:'/Classes'},
+      {title:'Teachers',img:'../assets/illus/undraw_Graduation_ktn0 (1).png', description:'this is a description', route:'/Teachers'},
     ],
     animation:[
       'float-up-fast',
@@ -562,10 +702,10 @@ export default {
       'float-up-fast'
     ],
     fops:[
-      {title:'CEO',icon:'mdi-glasses'},
-      {title:'Contact',icon:'mdi-phone-classic'},
-      {title:'FAQ',icon:'mdi-frequently-asked-questions'},
-      {title:'Comment',icon:'mdi-comment-text-outline'},
+      {title:'CEO',icon:'mdi-glasses',route:'/Ceo'},
+      {title:'Contact',icon:'mdi-phone-classic',route:'/Contact'},
+      {title:'FAQ',icon:'mdi-frequently-asked-questions',route:'/Faq'},
+      {title:'Comment',icon:'mdi-comment-text-outline',route:'/Comment'},
     ],      
     icons: [
         'mdi-google-plus',

@@ -1,9 +1,10 @@
 <template>
-
+<div
+class="w100 pa-0 ma-0 red ">
   <v-carousel
     cycle
-    :height="dynamicH"
-    class=" pa-0 dialog"
+    height=""
+    class="w100 pa-0 h100v"
     hide-delimiter-background
     show-arrows-on-hover
   >
@@ -11,11 +12,11 @@
     <v-carousel-item
       v-for="(slide, i) in slides"
       :key="i"
-      class="dialog"
+      class="h100v"
     >
       <v-sheet
         :color="colors[i]"
-        class="dialog"
+        class="h100v"
       >
         <v-row
           class="fill-height pt-12"
@@ -23,14 +24,16 @@
           justify="center"
         >
           <div class="display-3">{{ slide }} Slide</div>
+          <v-image
+          src="../assets/MosbatSaz +saz-layers.png"></v-image>
         </v-row>
       </v-sheet>
     </v-carousel-item>
   </v-carousel>
-
+</div>
 </template>
 
-import Resize from ''
+
 
 <script>
   export default {
@@ -56,7 +59,4 @@ import Resize from ''
   }
 </script>
 <style scoped>
-.dialog{
-  height: 90vh;
-}
 </style>
