@@ -37,7 +37,7 @@
             <v-card
             flat
             tile
-            height="800"
+            :height="heroH"
             class="w100">
 
               <!-- display on -->
@@ -114,7 +114,8 @@
           <template v-slot="{ hover }">
             <v-card
               :elevation="hover ? 16 : 4"
-              v-resize="onResize"
+              v-resize="mobile"
+              :height="sectionH"
               :ripple="false"
                @click="dialog =! dialog"
               class=" pa-0 w100"
@@ -280,10 +281,9 @@
               </v-col>
 
               <!-- description (for loop used)-->
-
  
                 <v-col 
-                v-for="(description, index) in 3" :key="index"
+                v-for="(description, index) in descriptions" :key="index"
                 cols="12" sm="6" md="4" lg="3">
                  <v-img
                  :class="`elevation-16 pa-3 pt-0 ${animation[index]}`"
@@ -292,22 +292,43 @@
                   >
                   <v-card 
                   tile
-                  class="elevation-8 orange lighten-3  op95 h80 ma-5 mt-10 float-down-fast pa-0 d-flex">
+                  class="elevation-8 orange lighten-5  op95  ma-5 mt-10 float-down-fast pa-0 d-flex">
                 
                     <v-card 
                     tile
-                    class="h100 w100 ma-5 op100 float-up-fast elevation-16">
+                    class=" ma-5 op100 float-up-fast elevation-16">
 
                     <!-- icon -->
                       <div
-                      class="d-flex justify-center">
-                        <v-icon x-large>mdi-evernote</v-icon>
+                      class="d-flex justify-center my-5">
+                       <v-avatar
+                       tile
+                        size="100">
+                          <v-img
+                              v-show="index == 0"
+                              src="../assets/Teacher-1.png"
+                              alt="John"
+                          >
+                          </v-img>
+                           <v-img
+                              v-show="index == 1"
+                              src="../assets/parents.png"
+                              alt="John"
+                          >
+                          </v-img>
+                           <v-img
+                              v-show="index == 2"
+                              src="../assets/Organ.png"
+                              alt="John"
+                          >
+                          </v-img>
+                        </v-avatar>
                       </div>
 
                     <!-- header -->
                       <div
-                      class="d-flex justify-center">
-                        header
+                      class="d-flex justify-center display-1 mb-5">
+                        {{description.title}}
                       </div>
                     <!-- description -->
                       <div
@@ -335,7 +356,7 @@
 
       <!-- proud -->
       <v-col 
-      class="orange lighten-3 py-8" 
+      class="orange lighten-5 py-8" 
       cols="12">
       <div
       class="text-center mb-8">
@@ -385,13 +406,16 @@
 
 
         <!-- footer options ( fops ) -->
-        <v-app-bar
+        <div
         v-resize="mapSize"
         v-show="fopsHorizon"
-        color="indigo darken-2"
-        flat
+        color=""
         height="80"
         >
+        <v-img
+           height="80"
+           class="h100 pt-2"
+           src="../assets/illus/doodle-footer.png">
           <div
           class="w100 d-flex justify-center">
             <div
@@ -426,7 +450,8 @@
               </v-btn>
             </div>
           </div>
-        </v-app-bar>  
+        </v-img>
+        </div>  
 
 
 
@@ -446,16 +471,37 @@
                   <v-btn
                   v-resize="mobile"
                   absolute
-                  bottom 
                   flat
+                  hover
+                  height="100"
+                  width="100"
                   :ripple="false"
                   tile
-                  color="indigo darken-3"
+                  color=" transparent elevation-0 op80 ml-3 mt-12"
                   >
-                    Abadan Zand str-enqelab
+                  <div
+                  class="  pa-0 mt-5">
+                  <v-card
+                  hover
+                  class=" ml-6 pa-0 mt-12">
+                  <div
+                  class="ma-0 pa-0  pa-3 indigo darken-4">
+                  <v-avatar
+                    tile
+                    falt
+                    size="100"
+                    class="elevation-0 d-block"
+                  >
+                    <img src="../assets/illus/map.png" alt="map">
+                  </v-avatar>
+                  <span class="body-2">Noor Arvand</span>
+                  </div>
+                  </v-card>
+                  </div>
                   </v-btn>
                   <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3443.57502456997!2d48.28267815106922!3d30.33460371167148!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3fc44f12eb39a3c7%3A0xc4ec16f6be22c4da!2sNoor%20Arvand%20Educational%20institution!5e0!3m2!1sen!2s!4v1578324126941!5m2!1sen!2s"
-                  class=" w100 h100"   
+                  class=" w100 h100 orange lighten-5"   
+                  color=""
                   >
                   </iframe>
                 </v-col>
@@ -465,8 +511,12 @@
                 v-show="!fopsHorizon"
                 cols="3"
                 class="pa-0 ma-0 w100 h100">
-                  <div
-                  class="h100 w100 indigo darken-4">
+                <v-img
+                :height="mapH"
+                class="h100"
+                src="../assets/illus/doodle-footer-v.png">
+                <div
+                  class="h100 w100">
                     <v-row
                     class="ma-0 pa-0 h100 w100"
                     justify="center"
@@ -505,23 +555,26 @@
                       </v-col>
                     </v-row>
                   </div>
+                </v-img>
                 </v-col>
               </v-row>
             </v-card>  
 
   
 
-
-          <v-footer
-            padless
-            class="w100"
+          <v-card
+          tile
+          height=""
           >
-            <v-card
-              flat
-              tile
-              class="indigo darken-4 w100 white--text text-center"
-            >
-              <v-card-text>
+          <div
+            
+            class="indigo  darken-4 w100 h100 white--text text-center"
+          >
+           <v-img
+           height="150"
+           class="h100 py-5"
+           src="../assets/illus/doodle-footer.png">
+             
                 <v-btn
                   v-for="icon in icons"
                   :key="icon"
@@ -529,13 +582,13 @@
                   icon
                   large
                 >
-                  <v-icon size="36px">{{ icon }}</v-icon>
+                  <v-icon size="36">{{ icon }}</v-icon>
                 </v-btn>
-              </v-card-text>
+           
 
-              <v-divider></v-divider>
+              <v-divider class="my-2"></v-divider>
 
-              <v-card-text class="white--text">
+              
                 <v-row
                 class="mt-n3"
                 justify="center"
@@ -545,11 +598,11 @@
                   cols="12">
                     <v-avatar
                     tile
-                    size="60"
+                    size="50"
                     class="mb-n6"
                     >
                       <v-img
-                      src="../assets/MosbatSaz +saz-layers.png">
+                      src="../assets/MosbatSaz +saz-overlay-11.png">
                       </v-img>
                     </v-avatar> 
                   </v-col>
@@ -561,9 +614,10 @@
                     </span> 
                   </v-cols>
                 </v-row>            
-              </v-card-text>
-            </v-card>
-          </v-footer>
+   
+          </v-img>
+          </div>
+          </v-card>
 
         </v-card>
       </v-col>
@@ -681,10 +735,8 @@ export default {
     // c : Classes,
     dialog: false,
     sheet: false,
-    parallaxH:0,
-    dialogH:0,
-    cardH:0,
-    cardW:0,
+    heroH:0,
+    sectionH:0,
     viewport:'',
     fopsHorizon:true,
     mapH:400,
@@ -695,6 +747,11 @@ export default {
       {title:'Konkur',img:'../assets/illus/undraw_Graduation_ktn0 (1).png', description:'this is a description', route:'/Konkur'},
       {title:'Classes',img:'../assets/illus/undraw_Graduation_ktn0 (1).png', description:'this is a description', route:'/Classes'},
       {title:'Teachers',img:'../assets/illus/undraw_Graduation_ktn0 (1).png', description:'this is a description', route:'/Teachers'},
+    ],
+    descriptions:[
+      {title:'Teachers',img:'../assets/Teacher-1.png',color:'orange'},
+      {title:'Parents',img:'../assets/parents.png',color:'indigo'},
+      {title:'Organizition',img:'../assets/Organ.png',color:'pink'},
     ],
     animation:[
       'float-up-fast',
@@ -714,30 +771,44 @@ export default {
       ],
   }),
     mounted () {
-      this.onResize();
-      this.mapSize();
-      this.mobile();
+      this.onResize(); // this function is mixin thats indicate the viewport
+      this.mobile();  // this function makes the page responsive (horizontally)
     },
     //use mixins here
     methods: {
       mobile(){
-        if(this.viewport == 'xs'){
+        if(this.viewport == 'xs'){ //xs
+          this.heroH = (window.innerHeight)*50/100
+          this.sectionH = (window.innerHeight)*15/100
           this.fopsHorizon = false;
           this.mapBP = 9;
           this.mapH = 500;
         }
-        else{
+        else if(this.viewport == 'sm'){ //sm
+          this.heroH = (window.innerHeight)*40/100
+          this.sectionH = (window.innerHeight)*18/100
           this.fopsHorizon = true;
           this.mapBP = 12;
           this.mapH = 400
         }
-      },
+        else if(this.viewport == 'md'){ //sm
+          this.heroH = (window.innerHeight)*55/100
+          this.sectionH = (window.innerHeight)*20/100
+          this.fopsHorizon = true;
+          this.mapBP = 12;
+          this.mapH = 400
+        }
+        else{ //lg and xl
+          this.heroH = (window.innerHeight)*70/100
+          this.sectionH = (window.innerHeight)*25/100
+          this.fopsHorizon = true;
+          this.mapBP = 12;
+          this.mapH = 400
+        }
 
-      dialogH(){
-        this.dialogH = window.innerHeight;
-      }
+      },
   },
-  mixins:[Resize]
+  mixins:[Resize] // viewport indicator mixin
 }
 </script>
 <style scoped>

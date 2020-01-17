@@ -2,39 +2,46 @@
 <div>
   
  <!-- Toolbar -->     
-    <v-app-bar
+    <!-- <v-app-bar
+    v-resize="mobile"
     app 
     flat
-    class="transparent pa-0 ma-0 w100" 
-    height="120">
+    class=" red pa-0 ma-0 w100" 
+    :height="navH"> -->
     
     <!-- LOGO -->
-    <div
-    class="d-flex justify-center">
 
-      <v-avatar
-      size="120">
-        <v-img
-            src="../assets/noor-logo-layer.png"
-            alt="John"
-        >
-        </v-img>
-      </v-avatar>
-  
-    </div>
-
+     <v-btn
+          v-resize="mobile"
+          class="mt-8"
+          flat
+          text
+          disabled
+          fixed
+          absolute
+          top
+          left
+          fab
+          :height="navH"
+          :width ="navH">
+            <v-avatar
+            :size="logoH">
+            <v-img
+                src="../assets/noor-logo-layer.png"
+                alt="John"
+            >
+            </v-img>
+          </v-avatar>
+          </v-btn>
 
       <!-- TEST  use this testing btn to toggle navigation drawer statement -->
       <!-- <v-btn icon height="80" width="80" class="pink white--text textFade" @click="switching()"> Toggle </v-btn> -->
 
-
-    <!-- Spacer -->
-    <v-spacer></v-spacer>
-
-    <v-hover>
+    <v-hover v-resize="onResize">
         <template v-slot="{ hover }">
           <v-fab-transition>
           <v-btn
+          v-resize="mobile"
           v-show="show"
           class="mt-10"
           :elevation="hover ? 12 : 4"
@@ -45,11 +52,11 @@
           right
           fab
           @click="toggledrawer()"
-          height="100"
-          width="100">
+          :height="navH"
+          :width ="navH">
           <v-avatar
           class="elevation-24"
-            size="100">
+            :size="navH">
 
             <!-- profile -->
             <v-img
@@ -61,7 +68,7 @@
             <!-- sign up / sign in -->
             <v-icon
             v-else
-            size="80"
+            :size="fingerH"
             color="indigo darken-4"
             >
             mdi-fingerprint
@@ -74,7 +81,7 @@
     </v-hover>  
 
    
-  </v-app-bar>
+  <!-- </v-app-bar> -->
 
 
   <!-- Navigation drawer -->
@@ -147,6 +154,7 @@
 import SignIn from '../components/Sign-in'
 import SignUp from '../components/Sign-up'
 import UserPanel from '../views/User-Panel'
+import Resize from '../mixins/resize'
 export default {
 
   name: 'Home-page',
@@ -163,7 +171,10 @@ export default {
     show: true,
     toggle: false,
     bn:true,
-    s:'hi'
+    viewport:'',
+    navH:100,
+    logoH:120,
+    fingerH:80,
   }),
 
   //use updated lifecycle hook to sync sign-btn (on the top right hand side)
@@ -172,8 +183,27 @@ export default {
   updated(){
     this.checkToggle();
   },
+   mounted () {
+      this.onResize(); // this function is mixin thats indicate the viewport
+      this.mobile();  // this function makes the page responsive (horizontally)
+    },
 
   methods:{
+    
+    //this method use make the drawer vertically responsive
+    mobile(){
+    if(this.viewport == 'xs'){ //xs
+      this.navH = 60;
+      this.logoH = 72;
+      this.fingerH = 48
+    }
+    else{ //lg and xl
+      this.navH = 100;
+      this.logoH = 120;
+      this.fingerH = 80;
+    }
+
+    },
 
     //these methods use to control the show/hide of drawer 
     //and the activater btn 
@@ -206,7 +236,10 @@ export default {
     //create a new method here
 
     },
+    
 
-  }
+  },
+  mixins:[Resize] 
+  
 };
 </script>
