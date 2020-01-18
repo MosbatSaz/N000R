@@ -1,5 +1,5 @@
-<template>
-<div>
+<template >
+<div v-resize="onResize">
   
  <!-- Toolbar -->     
     <!-- <v-app-bar
@@ -34,10 +34,28 @@
           </v-avatar>
           </v-btn>
 
-      <!-- TEST  use this testing btn to toggle navigation drawer statement -->
-      <!-- <v-btn icon height="80" width="80" class="pink white--text textFade" @click="switching()"> Toggle </v-btn> -->
 
-    <v-hover v-resize="onResize">
+        <!-- use in dev mode -->
+
+         <v-btn
+         v-show="true"
+          depressed
+          fixed
+          absolute
+          bottom
+          left
+          fab 
+          right
+          @click="switching()"
+          class="mb-10 pink title white--text">
+          {{viewport}}
+          </v-btn>
+
+
+      <!-- TEST  use this testing btn to toggle navigation drawer statement -->
+      <v-btn  fixed icon height="80" width="80" class="pink white--text textFade" @click="switching()"> Toggle </v-btn>
+
+    <v-hover>
         <template v-slot="{ hover }">
           <v-fab-transition>
           <v-btn
@@ -78,7 +96,8 @@
           </v-btn>
           </v-fab-transition>
         </template>
-    </v-hover>  
+    </v-hover> 
+  
 
    
   <!-- </v-app-bar> -->
@@ -99,14 +118,13 @@
   
       <div
       class="d-flex justify-center">
-         <v-btn
+        <v-btn
         @click="toggledrawer()"
         flat
         class="indigo darken-3 pa-0 ma-0 right"
         text
         icon
         large
-        absolute
         >
           <v-icon
           color="white"
@@ -182,11 +200,9 @@ export default {
   // desapear as you drag to close the drawer in the mobile viewport
   updated(){
     this.checkToggle();
+    this.onResize(); // this function is mixin thats indicate the viewport
+    this.mobile();  // this function makes the page responsive (horizontally)
   },
-   mounted () {
-      this.onResize(); // this function is mixin thats indicate the viewport
-      this.mobile();  // this function makes the page responsive (horizontally)
-    },
 
   methods:{
     

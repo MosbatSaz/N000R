@@ -15,7 +15,7 @@
     {{viewport}}
     </v-btn>
 <!-- place home page in a grid system -->
-  <v-container  fluid fill-height class="white pa-0"> 
+    <v-container  fluid fill-height class="white pa-0"> 
     <v-row     
       class="ma-0"
       justify="space-between"
@@ -43,60 +43,29 @@
               <!-- display on -->
 
                 <!-- lg and xl -->
+
+
+
+
                 <v-img
-                src="../assets/illus/hero-image-back-wide.png"
-                class="pa-0 ma-0 h100 w100 hidden-md-and-down">
-                </v-img>
-
-                <!-- md and sm -->
-                <div
-                class="hidden-xs-only h100 w100">
-                  <v-img 
-                  src="../assets/illus/hero-image-back-md.png"
-                  class="pa-0 ma-0 h100 w100 hidden-lg-and-up ">
+                src="../assets/Hero.svg"
+                class="pa-0 ma-0 h100 w100">
+                  <v-img
+                  src="../assets/Hero-quote.svg"
+                  class="pa-0 ma-0 h100 w100 float-illus">
                   </v-img>
-                </div>
 
-                <!-- only xs -->
-                <v-img 
-                src="../assets/illus/hero-image-back-small.png"
-                class="pa-0 ma-0 h100 w100 hidden-sm-and-up">
                 </v-img>
 
-            </v-card>  
+            
+                
+         
+
+             </v-card>  
           </v-row>
       </v-col>
 
 
-          <!-- HERO QUOET -->
-              <!-- <v-row
-              justify="center"
-              align="center"
-              class="ma-0 pa-0 w100 h100">
-
-                <v-col 
-                cols="6"
-                justify-self="start">
-                  <v-img
-                  contain
-                  height="400"
-                  class=""
-                  src="../assets/illus/thinking.png">    
-                  </v-img>
-                </v-col>
-
-                <v-col 
-                class="text-right" 
-                cols="6"
-                justify-self="end">
-                <div
-                class="text-center">
-                  <h1 class="display-1 font-weight-thin mb-4">Noor Edu Abadan</h1>
-                  <h4 class="subheading">enjoy our courses and classes!</h4>        
-                </div>  
-                </v-col>
-
-              </v-row> -->
 
 
 
@@ -137,9 +106,22 @@
                     </v-col>
                     <v-col
                     cols="12">
-                      <div 
-                      class="text-center font-weight-bold">
-                        <span >{{section.description}}</span>
+
+                    <!-- illus -->
+                      <div
+                      class="d-flex justify-center">
+                        <v-avatar
+                        :size="illusH"
+                        tile>
+
+                          <v-img v-show="index == 0" src="../assets/archive.png"></v-img>
+                          <v-img v-show="index == 1" src="../assets/advisor.png"></v-img>
+                          <v-img v-show="index == 2" src="../assets/exam.png"></v-img>
+                          <v-img v-show="index == 3" src="../assets/konkur-0.png"></v-img>
+                          <v-img v-show="index == 4" src="../assets/classes.png"></v-img>
+                          <v-img v-show="index == 5" src="../assets/teacher.png"></v-img>
+                            
+                        </v-avatar>
                       </div>
                     </v-col>
                   </v-row>
@@ -740,9 +722,10 @@ export default {
     viewport:'',
     fopsHorizon:true,
     mapH:400,
+    illusH:50,
     sections:[
       {title:'Archive',img:'../assets/illus/undraw_Graduation_ktn0 (1).png', description:'this is a description', route:'/Archive'},
-      {title:'Advicer',img:'../assets/illus/undraw_Graduation_ktn0 (1).png', description:'this is a description', route:'/Advicer'},
+      {title:'Advicor',img:'../assets/illus/undraw_Graduation_ktn0 (1).png', description:'this is a description', route:'/Advicer'},
       {title:'Exam',img:'../assets/illus/undraw_Graduation_ktn0 (1).png', description:'this is a description', route:'/Exam'},
       {title:'Konkur',img:'../assets/illus/undraw_Graduation_ktn0 (1).png', description:'this is a description', route:'/Konkur'},
       {title:'Classes',img:'../assets/illus/undraw_Graduation_ktn0 (1).png', description:'this is a description', route:'/Classes'},
@@ -783,6 +766,7 @@ export default {
           this.fopsHorizon = false;
           this.mapBP = 9;
           this.mapH = 500;
+          this.illusH = 50
         }
         else if(this.viewport == 'sm'){ //sm
           this.heroH = (window.innerHeight)*40/100
@@ -790,20 +774,23 @@ export default {
           this.fopsHorizon = true;
           this.mapBP = 12;
           this.mapH = 400
+           this.illusH = 60
         }
         else if(this.viewport == 'md'){ //sm
           this.heroH = (window.innerHeight)*55/100
           this.sectionH = (window.innerHeight)*20/100
           this.fopsHorizon = true;
           this.mapBP = 12;
-          this.mapH = 400
+          this.mapH = 400;
+          this.illusH = 80
         }
         else{ //lg and xl
           this.heroH = (window.innerHeight)*70/100
           this.sectionH = (window.innerHeight)*25/100
           this.fopsHorizon = true;
           this.mapBP = 12;
-          this.mapH = 400
+          this.mapH = 400;
+           this.illusH = 100
         }
 
       },
