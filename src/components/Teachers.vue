@@ -8,11 +8,11 @@
 
         <!-- back card -->
         <v-card
-        class="indigo elevation-24 my-5 pl-4 mx-5">
+        class="indigo elevation-24 my-5  pl-4 mx-5">
         <v-card
         tile
         flat
-        class=" py-5">
+        class=" py-12">
           <v-row
           class="h100 pa-0 ma-0"
           justify="center"
@@ -30,31 +30,33 @@
             </v-col>
 
           <!-- text -->
-            <v-col
+           <v-col
             cols="12" md="7"
-            class="d-flex justify-center f">
+            class="d-flex justify-center">
               <v-card
-              outlined
+              tile
               max-width="600"
-              class="pr-2 indigo elevation-1">
-                <v-card 
+              class="pr-2 indigo elevation-0">
+                <v-card
+                tile 
                 flat
-                class="orange lighten-5"
+                class="white elevation-0"
                 height="">
                   <v-card-text
                   class="indigo--text text--darken-3 title">
                     Ad exercitation elit laboris deserunt proident voluptate laboris ut consequat. Elit occaecat qui magna do. Ex qui elit eiusmod ut voluptate. Aute incididunt laboris enim ipsum ea laboris amet qui nulla.
                     Ad culpa commodo minim in ut cillum excepteur id minim adipisicing. Voluptate nostrud labore deserunt dolore minim ipsum pariatur est. Fugiat ut duis voluptate ea Lorem elit. Enim proident dolor enim sint minim do voluptate eu irure occaecat aliqua.
                     Ad culpa commodo minim in ut cillum excepteur id minim adipisicing. Voluptate nostrud labore deserunt dolore minim ipsum pariatur est. Fugiat ut duis voluptate ea Lorem elit. Enim proident dolor enim sint minim do voluptate eu irure occaecat aliqua.
-
                   </v-card-text>
                 </v-card>
               </v-card>
             </v-col>
+            
           </v-row>
           </v-card>
         </v-card>
         <v-divider class=" indigo mt-12"></v-divider>
+
         <div 
         class="text-center w100 display-3 my-12">
           Noor Teachers
@@ -62,30 +64,73 @@
 
             <div
             v-for="(teacher, index) in teachers" :key="index"
-            class="d-flex justify-center">
+            class="d-flex justify-center mx-5">
               <v-card
-              hover
-              shaped
-              flat
-              outlined
-              max-width="1000"
-              :class="`pr-2 ma-5 ${teacher.color}`">
-                <v-card 
-                flat
-                class=" elevation-0"
-                height="">
-                <v-card-title
-                class="">
-                  <v-icon size="100" class="mr-5" :color="teacher.color">mdi-school</v-icon> <span class="headline">{{teacher.title}}</span>
-                </v-card-title>
-                  <v-card-text
-                  class="title">
-                    Ad exercitation elit laboris deserunt proident voluptate laboris ut consequat. Elit occaecat qui magna do. Ex qui elit eiusmod ut voluptate. Aute incididunt laboris enim ipsum ea laboris amet qui nulla.
-                    Ad culpa commodo minim in ut cillum excepteur id minim adipisicing. Voluptate nostrud labore deserunt dolore minim ipsum pariatur est. Fugiat ut duis voluptate ea Lorem elit. Enim proident dolor enim sint minim do voluptate eu irure occaecat aliqua.
-                    Ad culpa commodo minim in ut cillum excepteur id minim adipisicing. Voluptate nostrud labore deserunt dolore minim ipsum pariatur est. Fugiat ut duis voluptate ea Lorem elit. Enim proident dolor enim sint minim do voluptate eu irure occaecat aliqua.
+                max-width="800"
+                class=" my-5 w100 elevation-16"
+                
+                >
+                <v-list-item>
+                <v-avatar size="80" class="mr-3 my-3">
+                <v-icon size="80" :color="teacher.color">mdi-school</v-icon>
+                </v-avatar>
+                <v-list-item-content>
+                <v-list-item-title class="headline">{{teacher.title}} Teachers</v-list-item-title>
+                <v-list-item-subtitle></v-list-item-subtitle>
+                </v-list-item-content>
+                </v-list-item>
+
+                <v-img
+                src="../assets/illus/hero full.png"
+                height="194"
+                ></v-img>
+
+                <v-card-text>
+                Visit ten places on our planet that are undergoing the biggest changes today.
+                </v-card-text>
+
+
+                <v-expansion-panels
+                :flat="true"
+                :hover="true"
+
+                >
+                <v-expansion-panel
+                class=""
+                >
+                <v-expansion-panel-header
+                class="headline"><span><v-icon class="mr-2 mb-1" :color="teacher.color">mdi-more</v-icon>Teachers</span></v-expansion-panel-header>
+                <v-expansion-panel-content
+                >
+
+
+                <div
+                v-for="(i ,index)  in teacher.number" :key="index">
+                  <v-list-item>
+                  <v-avatar size="100" class="mr-3 my-3">
+                  <v-img src="../assets/No-Buddy.jpg"></v-img>
+                  </v-avatar>
+                  <v-list-item-content>
+                  <v-list-item-title class="headline"> Mr No Buddy</v-list-item-title>
+                  <v-list-item-subtitle>Noor {{teacher.title}} Teacher</v-list-item-subtitle>
+                  </v-list-item-content>
+                  </v-list-item>
+
+                  <v-card-text>
+                  I am Mr No Buddy , im the noor arvand advicer ,
+                  Visit ten places on our planet that are undergoing the biggest changes today.
+                  Visit ten places on our planet that are undergoing the biggest changes today.
+                  Visit ten places on our planet that are undergoing the biggest changes today.
                   </v-card-text>
+                  <v-divider v-show="index+1 < teacher.number"></v-divider>
+                </div>
+
+
+
+                </v-expansion-panel-content>
+                </v-expansion-panel>
+                </v-expansion-panels>
                 </v-card>
-              </v-card>
             </div>  
         
     </div>
@@ -99,9 +144,9 @@ export default {
 
   data: () => ({
       teachers:[
-        {title:'Math',color:'orange'},
-        {title:'physics ',color:'indigo'},
-        {title:'Chemistry',color:'pink'},
+        {title:'Math',color:'orange',number:2},
+        {title:'Physics ',color:'indigo',number:3},
+        {title:'Chemistry',color:'pink',number:1},
 
       ]   
   }),

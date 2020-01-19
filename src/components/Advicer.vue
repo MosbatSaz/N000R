@@ -3,16 +3,16 @@
     class="  pa-0 ma-0  w100">
         <div 
         class="text-center w100 display-3 mb-12">
-          Advicer
+          Advicor
         </div>
 
         <!-- back card -->
         <v-card
-        class="indigo elevation-24 mt-5 pl-4 mx-5 mb-12">
+        class="indigo elevation-24 my-5 pl-4 mx-5">
         <v-card
         tile
         flat
-        class=" py-5">
+        class=" py-12">
           <v-row
           class="h100 pa-0 ma-0"
           justify="center"
@@ -21,25 +21,26 @@
           <!-- illus -->
             <v-col
             cols="12" md="4"
-            class="d-flex justify-center float-illus  align-center ">
+            class="d-flex justify-center float-illus mx-5  align-center ">
               <v-img
               contain
               class=""
-              src="../assets/illus/advicer.png">  
+              src="../assets/Advicor-0.png">  
               </v-img>
             </v-col>
 
           <!-- text -->
-            <v-col
-            cols="12" md="8"
-            class="d-flex justify-center f">
+           <v-col
+            cols="12" md="7"
+            class="d-flex justify-center">
               <v-card
-              outlined
+              tile
               max-width="600"
-              class="pr-2 indigo elevation-1">
-                <v-card 
+              class="pr-2 indigo elevation-0">
+                <v-card
+                tile 
                 flat
-                class="orange lighten-5 elevation-16"
+                class="white elevation-0"
                 height="">
                   <v-card-text
                   class="indigo--text text--darken-3 title">
@@ -50,41 +51,60 @@
                 </v-card>
               </v-card>
             </v-col>
+
           </v-row>
           </v-card>
         </v-card>
-
         <v-divider class=" indigo mt-12"></v-divider>
-
         <div 
         class="text-center w100 display-3 my-12">
-          About Advicer
+          Noor Advicer
         </div>
-
             <div
-            class="d-flex justify-center">
-               <v-card
-               outlined
-               shaped
-               flat
-               hover
-               max-width="600"
-              class="pr-2 indigo mx-5">
-                <v-card 
-                flat
-                class="orange lighten-5"
-                height="">
-                  <v-card-text
-                  class="indigo--text text--darken-3 title">
-                    Ad exercitation elit laboris deserunt proident voluptate laboris ut consequat. Elit occaecat qui magna do. Ex qui elit eiusmod ut voluptate. Aute incididunt laboris enim ipsum ea laboris amet qui nulla.
-                    Ad culpa commodo minim in ut cillum excepteur id minim adipisicing. Voluptate nostrud labore deserunt dolore minim ipsum pariatur est. Fugiat ut duis voluptate ea Lorem elit. Enim proident dolor enim sint minim do voluptate eu irure occaecat aliqua.
-                    Ad culpa commodo minim in ut cillum excepteur id minim adipisicing. Voluptate nostrud labore deserunt dolore minim ipsum pariatur est. Fugiat ut duis voluptate ea Lorem elit. Enim proident dolor enim sint minim do voluptate eu irure occaecat aliqua.
+            class="d-flex justify-center mx-5">
+                <v-card
+                max-width="800"
+                class="w100 my-5 elevation-16"
+                
+                >
+                <v-list-item>
+                <v-avatar size="200" class="mr-3 my-3">
+                <v-img src="../assets/No-Buddy.jpg"></v-img>
+                </v-avatar>
+                <v-list-item-content>
+                <v-list-item-title class="headline"> Mr No Buddy</v-list-item-title>
+                <v-list-item-subtitle>Noor Advicer</v-list-item-subtitle>
+                </v-list-item-content>
+                </v-list-item>
 
-                  </v-card-text>
+                <v-card-text>
+                I am Mr No Buddy , im the noor arvand advicer ,
+                Visit ten places on our planet that are undergoing the biggest changes today.
+                Visit ten places on our planet that are undergoing the biggest changes today.
+                Visit ten places on our planet that are undergoing the biggest changes today.
+                </v-card-text>
+
+
+                <v-expansion-panels
+                :flat="true"
+                :hover="true"
+
+                >
+                <v-expansion-panel
+                class=""
+                >
+                <v-expansion-panel-header
+                class="title"><span><v-icon class="mr-2 mb-1" color="indigo">mdi-more</v-icon>More About Me</span></v-expansion-panel-header>
+                <v-expansion-panel-content
+                >
+                
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                </v-expansion-panel-content>
+                </v-expansion-panel>
+                </v-expansion-panels>
                 </v-card>
-              </v-card>
             </div>  
-        
     </div>
 </template>
 
@@ -95,7 +115,12 @@ export default {
   components:{ },
 
   data: () => ({
-      
+      teachers:[
+        {title:'Math',color:'orange'},
+        {title:'Physics ',color:'indigo'},
+        {title:'Chemistry',color:'pink'},
+
+      ]   
   }),
 
  

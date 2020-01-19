@@ -3,17 +3,18 @@
 
     <!-- just for development
     use to show viewport -->
-    <!-- <v-btn
+    <v-btn
     depressed
     fixed
     absolute
     bottom
     fab 
     v-resize="onResize"
+    v-show="vp"
     right
     class="mb-10 pink title white--text">
     {{viewport}}
-    </v-btn> -->
+    </v-btn>
 <!-- place home page in a grid system -->
     <v-container  fluid fill-height class="white pa-0"> 
     <v-row     
@@ -209,7 +210,7 @@
                 class=""
                 >
                 <v-expansion-panel-header
-                class="headline"><span><v-icon class="mr-2" color="indigo">mdi-more</v-icon>More</span></v-expansion-panel-header>
+                class="title"><span><v-icon class="mr-2" color="indigo">mdi-more</v-icon>More</span></v-expansion-panel-header>
                 <v-expansion-panel-content
                 >
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
@@ -233,7 +234,6 @@
       >
         <v-card
         flat
-        tile
         class="h100 w100 py-12 pa-0 ma-0 section">
         
             <v-row
@@ -258,22 +258,18 @@
                 >
                  <v-img
                  :class="`elevation-16 pa-3 pt-0 ${animation[index]}`"
-                  
                   src="../assets/illus/doodles-school-0.jpg"
                   >
                   <v-card 
-                  tile
                   class="elevation-8 orange lighten-5  op95  ma-5 mt-10 float-down-fast pa-0 d-flex">
-                
                     <v-card 
-                    tile
                     class=" ma-5 op100 float-up-fast elevation-16">
 
                     <!-- icon -->
                       <div
                       class="d-flex justify-center my-5">
                        <v-avatar
-                       tile
+                         tile
                         size="100">
                           <v-img
                               v-show="index == 0"
@@ -391,14 +387,14 @@
           class="w100 d-flex justify-center">
             <div
             class="w40 d-flex mx-5 justify-space-around">
-
+              <router-link v-for="(fop, index) in fops" :key="index" class="white--text" :to="fop.route">
               <v-btn
               height="60"
-              v-for="(fop, index) in fops" :key="index"
+              
               @click="sheet = !sheet"
               text
               large>
-              <router-link class="white--text" :to="fop.route">
+              
                 <div
                 class="h100 w100">
 
@@ -417,8 +413,9 @@
                   </div>
 
                 </div>
-              </router-link>
+              
               </v-btn>
+              </router-link>
             </div>
           </div>
         </v-img>
@@ -605,11 +602,11 @@
       <v-dialog
         v-model="dialog"
         fullscreen
-        class="pa-0 ma-0 white"
+        class="pa-0 ma-0 back"
       >
 
       <v-sheet
-      class="py-10 d-flex justify-end" >
+      class="py-10 d-flex justify-end back" >
 
         <v-btn
           class="my-n6 mx-n3 hidden-xs-only"
@@ -712,7 +709,7 @@ export default {
     fopsHorizon:true,
     mapH:400,
     illusH:50,
-    margin:'',
+    margin:'mx-12',
     sections:[
       {title:'Archive',img:'../assets/illus/undraw_Graduation_ktn0 (1).png', description:'this is a description', route:'/Archive'},
       {title:'Advicor',img:'../assets/illus/undraw_Graduation_ktn0 (1).png', description:'this is a description', route:'/Advicer'},

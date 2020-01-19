@@ -122,9 +122,9 @@
       class="d-flex justify-center">
         <v-btn
         @click="toggledrawer()"
-        flat
-        class="indigo darken-3 pa-0 ma-0 right"
         text
+        outlined
+        class="indigo darken-3 pa-0 ma-0 right"
         icon
         large
         >

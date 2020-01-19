@@ -7,12 +7,12 @@
         </div>
 
         <!-- back card -->
-        <v-card
+                <v-card
         class="indigo elevation-24 my-5 pl-4 mx-5">
         <v-card
         tile
         flat
-        class=" py-5">
+        class=" py-12">
           <v-row
           class="h100 pa-0 ma-0"
           justify="center"
@@ -30,31 +30,31 @@
             </v-col>
 
           <!-- text -->
-            <v-col
+           <v-col
             cols="12" md="7"
-            class="d-flex justify-center f">
+            class="d-flex justify-center">
               <v-card
-              outlined
+              tile
               max-width="600"
-              class="pr-2 indigo elevation-1">
-                <v-card 
+              class="pr-2 indigo elevation-0">
+                <v-card
+                tile 
                 flat
-                class="orange lighten-5"
+                class="white elevation-0"
                 height="">
                   <v-card-text
                   class="indigo--text text--darken-3 title">
                     Ad exercitation elit laboris deserunt proident voluptate laboris ut consequat. Elit occaecat qui magna do. Ex qui elit eiusmod ut voluptate. Aute incididunt laboris enim ipsum ea laboris amet qui nulla.
                     Ad culpa commodo minim in ut cillum excepteur id minim adipisicing. Voluptate nostrud labore deserunt dolore minim ipsum pariatur est. Fugiat ut duis voluptate ea Lorem elit. Enim proident dolor enim sint minim do voluptate eu irure occaecat aliqua.
                     Ad culpa commodo minim in ut cillum excepteur id minim adipisicing. Voluptate nostrud labore deserunt dolore minim ipsum pariatur est. Fugiat ut duis voluptate ea Lorem elit. Enim proident dolor enim sint minim do voluptate eu irure occaecat aliqua.
-
                   </v-card-text>
                 </v-card>
               </v-card>
             </v-col>
+            
           </v-row>
           </v-card>
         </v-card>
-
         <v-divider class=" indigo my-12"></v-divider>
 
         <!-- exam cards -->
@@ -69,10 +69,8 @@
             <v-card 
             flat
             height=""
-            class=" h100 indigo elevation-16 w100 pr-2">
-            <v-card
-            flat
-            class="ma-0 pa-0 h100 w100 pa-1 py-3">
+            class=" h100  elevation-16 w100  pa-1  py-3">
+
             <div
             class="text-center display-2">{{exam.title}}</div>
                 <v-row
@@ -100,28 +98,34 @@
                     <!-- exam text -->
                     <v-col>
                     <v-card
+                    class="indigo pr-1"
+                    flat
+                    tile>
+                    <v-card
                     class=""
-                    flat>
+                    flat
+                    tile>
                         <v-card-text
-                        class="indigo--text text--darken-4 orange lighten-3 body-1">
+                        class="indigo--text text--darken-4 back body-1">
                             {{exam.description}}
                         </v-card-text>
+                    </v-card>
                     </v-card>
                     </v-col>
                 </v-row>
 
-                <div
-                class="ma-0 pa-0 w100 d-flex justify-start">
+                <v-card-actions
+                class="ma-0 pa-0 w100">
                     <a
                     target="_blank"
                     :href="exam.readMore">
                         <v-btn
-                        class="indigo orange--text text--lighten-1 ml-3 darken-3">
+                        class="indigo back--text text--lighten-1 ml-3 darken-3">
                             read more
                         </v-btn>
                     </a>
-                </div>
-            </v-card>
+                </v-card-actions>
+
             </v-card>
 
           </v-col>

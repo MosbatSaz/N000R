@@ -1,13 +1,13 @@
 <template>
     <div
-    class="  d-flex justify-center w100 pa-0 ma-0">
+    class="  d-flex justify-center w100 pa-0 ma-0 back">
     
         <!-- back card -->
         <v-card
         tile
         flat
         max-width="800"
-        class=" w100 align-center elevarion-0">
+        class=" w100 align-center elevarion-0 back">
         <v-row
         class="pa-0 ma-0 "
         justify="center"
@@ -32,7 +32,7 @@
           cols="12"
           class="h100">
           <v-timeline
-          class="w100  pa-0 ma-0 elevation-0"
+          class="w100 back pa-0 ma-0 elevation-0"
             :align-top="alignTop"
             :dense="dense"
             :reverse="reverse"
@@ -57,13 +57,6 @@
                 <v-card-text>
                   Lorem ipsum dolor sit amet, no nam oblique veritus.
                 </v-card-text>
-                <v-card-actions>
-                  <v-btn
-                  class="indigo text-center  orange--text text--lighten-1"
-                  flat>
-                   More
-                  </v-btn>
-                </v-card-actions>
               </v-card>
             </v-timeline-item>
           </v-timeline>
