@@ -62,7 +62,7 @@
           v-resize="mobile"
           v-show="show"
           class="mt-10"
-          :elevation="hover ? 12 : 4"
+          :elevation="hover ? 12 : 5"
           flat
           fixed
           absolute
@@ -73,8 +73,9 @@
           :height="navH"
           :width ="navH">
           <v-avatar
-          class="elevation-24"
+          class="indigo darken-3"
             :size="navH">
+ 
 
             <!-- profile -->
             <v-img
@@ -87,12 +88,13 @@
             <v-icon
             v-else
             :size="fingerH"
-            color="indigo darken-4"
+            color="white darken-4"
             >
             mdi-fingerprint
             </v-icon>
 
-          </v-avatar>
+
+           </v-avatar>
           </v-btn>
           </v-fab-transition>
         </template>

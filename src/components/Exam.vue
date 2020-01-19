@@ -8,10 +8,11 @@
 
         <!-- back card -->
         <v-card
+        class="indigo elevation-24 my-5 pl-4 mx-5">
+        <v-card
         tile
         flat
-        
-        class=" my-5 py-5">
+        class=" py-5">
           <v-row
           class="h100 pa-0 ma-0"
           justify="center"
@@ -19,34 +20,42 @@
 
           <!-- illus -->
             <v-col
-            cols="12" md="5"
-            class="d-flex justify-center float-illus align-center mx-12">
+            cols="12" md="4"
+            class="d-flex justify-center float-illus mx-5  align-center ">
               <v-img
               contain
-              class="float_down_slow mx-12"
+              class=""
               src="../assets/illus/konkur.png">  
               </v-img>
             </v-col>
 
           <!-- text -->
             <v-col
-            cols="12" md="6"
-            class="d-flex justify-center">
+            cols="12" md="7"
+            class="d-flex justify-center f">
               <v-card
-              max-width="500"
-              class="orange lighten-2 pr-3 elevation-24 w90"
-              height="">
-                <v-card>
-                    <v-card-text
-                    class="indigo--text text--darken-4 title">
-                        Ad exercitation elit laboris deserunt proident voluptate laboris ut consequat. Elit occaecat qui magna do. Ex qui elit eiusmod ut voluptate. Aute incididunt laboris enim ipsum ea laboris amet qui nulla.
-                        Ad culpa commodo minim in ut cillum excepteur id minim adipisicing. Voluptate nostrud labore deserunt dolore minim ipsum pariatur est. Fugiat ut duis voluptate ea Lorem elit. Enim proident dolor enim sint minim do voluptate eu irure occaecat aliqua.
-                    </v-card-text>
+              outlined
+              max-width="600"
+              class="pr-2 indigo elevation-1">
+                <v-card 
+                flat
+                class="orange lighten-5"
+                height="">
+                  <v-card-text
+                  class="indigo--text text--darken-3 title">
+                    Ad exercitation elit laboris deserunt proident voluptate laboris ut consequat. Elit occaecat qui magna do. Ex qui elit eiusmod ut voluptate. Aute incididunt laboris enim ipsum ea laboris amet qui nulla.
+                    Ad culpa commodo minim in ut cillum excepteur id minim adipisicing. Voluptate nostrud labore deserunt dolore minim ipsum pariatur est. Fugiat ut duis voluptate ea Lorem elit. Enim proident dolor enim sint minim do voluptate eu irure occaecat aliqua.
+                    Ad culpa commodo minim in ut cillum excepteur id minim adipisicing. Voluptate nostrud labore deserunt dolore minim ipsum pariatur est. Fugiat ut duis voluptate ea Lorem elit. Enim proident dolor enim sint minim do voluptate eu irure occaecat aliqua.
+
+                  </v-card-text>
                 </v-card>
               </v-card>
             </v-col>
           </v-row>
+          </v-card>
         </v-card>
+
+        <v-divider class=" indigo my-12"></v-divider>
 
         <!-- exam cards -->
         <v-row 

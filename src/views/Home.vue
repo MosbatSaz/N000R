@@ -3,7 +3,7 @@
 
     <!-- just for development
     use to show viewport -->
-    <v-btn
+    <!-- <v-btn
     depressed
     fixed
     absolute
@@ -13,12 +13,12 @@
     right
     class="mb-10 pink title white--text">
     {{viewport}}
-    </v-btn>
+    </v-btn> -->
 <!-- place home page in a grid system -->
     <v-container  fluid fill-height class="white pa-0"> 
     <v-row     
       class="ma-0"
-      justify="space-between"
+      justify="space-between back"
     >
 
 
@@ -32,13 +32,14 @@
            <v-row
             align="center"
             justify="center"
-            class="h100 w100 pa-0 ma-0"
+            class="h100 w100 pa-0 ma-0 hero"
           >
             <v-card
             flat
             tile
             :height="heroH"
-            class="w100">
+            
+            class="w100 hero">
 
               <!-- display on -->
 
@@ -73,11 +74,17 @@
     
       <!-- section cards use for loop-->
       
-
+      <v-col
+      cols="12"
+      class="ma-0 pa-1 pt-2 back ">
+      <v-row     
+      :class="`ma-0 pa-0 ${margin}`"
+      justify="space-between back"
+       >
       <v-col
       v-for="(section, index) in sections" :key="index"
       cols="6" sm="6" md="4" lg="2"
-      class="ma-0 pa-1 pt-2">
+      class="ma-0 pa-1 pt-2 back">
       <router-link   :to='section.route'>
         <v-hover>
           <template v-slot="{ hover }">
@@ -91,25 +98,26 @@
             >
               <div
               class="d-flex justify-center h100 w100">
-                <v-img
-                class="h100 w100"
-                src="../assets/illus/hero full.png">
+                
                   <v-row
                   justify="center"
-                  align="center">
+                  align="center"
+                  class="ma-0 pa-0">
                     <v-col
-                    cols="12">
-                      <div :class="hover ? 'text--red':'text--blue'"
-                      class="text-center font-weight-black">
+                    cols="12"
+                    class="pa-0 ma-0">
+                      <div 
+                      class="text-center font-weight-black pa-0">
                         <span >{{section.title}}</span>
                       </div>
                     </v-col>
                     <v-col
-                    cols="12">
+                    cols="12"
+                    class="ma-0 pa-0">
 
                     <!-- illus -->
                       <div
-                      class="d-flex justify-center">
+                      class="d-flex justify-center pa-0 ma-0">
                         <v-avatar
                         :size="illusH"
                         tile>
@@ -125,28 +133,30 @@
                       </div>
                     </v-col>
                   </v-row>
-                </v-img>
+               
               </div>
             </v-card>
           </template>
          </v-hover>
         </router-link>
       </v-col>
+      </v-row>
+      </v-col>
 
 
       <!-- News -->
       <v-col 
       cols="12"
-      class="pa-0 ma-0 mt-12" 
+      class="pa-0 ma-0 mt-12 back" 
       >
         <v-card
         flat
         tile
-        class="h100 w100 py-12 pa-0 ">
+        class="h100 w100 py-12 pa-0 back">
      
         
             <v-row
-            class="pa-0 ma-0"
+            class="pa-0 ma-0 back"
             justify="center"
             align="center">
 
@@ -161,75 +171,53 @@
 
               <!-- news (for loop used)-->
 
- 
-                <v-col 
-                cols="12">
-                  <v-card
-                  outlined
-                  class=" py-12 lighten-5">
-                    <v-col 
-                      v-for="(description, index) in 3" :key="index"
-                      cols="12"
-                      class="d-flex justify-center">
-                        <v-card
-                        hover
-                        shaped
-                        flat
-                        outlined
-                        max-width="1000"
-                        class="indigo pr-2 w100">
-                        <v-card
-                        shaped
-                        flat
-                        outlined
-                        max-width="1000"
-                        class=" pr-2 w100">
-                        <v-card
-                        shaped
-                        flat
-                        outlined
-                        max-width="1000"
-                        class="pink lighten-1 pr-2 w100">
-                          <v-card 
-                          flat
-                          class="orange lighten-5 elevation-0"
-                          height="">
-                          <v-card-title
-                          class="">
-                            <v-icon size="50" class="mr-5" color="indigo">mdi-pin</v-icon> <span class="headline"> News Title</span>
-                          </v-card-title>
-                            <v-card-text
-                            class="title">
-                              The news Summary will place here
-                            </v-card-text>
-                            <v-expansion-panels
-                              :popout="true"
-                              :flat="true"
-                              :hover="true"
-                              
-                            >
-                              <v-expansion-panel
-                              class="my-5 orange lighten-5"
-                              >
-                                <v-expansion-panel-header
-                                class="headline"><span><v-icon class="mr-2" color="indigo">mdi-more</v-icon>More</span></v-expansion-panel-header>
-                                <v-expansion-panel-content
-                                >
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                                </v-expansion-panel-content>
-                              </v-expansion-panel>
-                            </v-expansion-panels>
-                          </v-card>
-                        </v-card>
-                        </v-card>
-                        </v-card>
-                     </v-col>
-                     <div
-                     class="">
 
-                     </div>
-                  </v-card>
-                   
+              <v-col
+              cols="12"
+              v-for="i in 3" :key="i">
+               <v-card
+                max-width="800"
+                class="mx-auto elevation-16"
+                
+                >
+                <v-list-item>
+                <v-avatar class="mr-3">
+                <v-img src="../assets/noor-logo-layer.png"></v-img>
+                </v-avatar>
+                <v-list-item-content>
+                <v-list-item-title class="headline">Our Changing Planet</v-list-item-title>
+                <v-list-item-subtitle>by Noor</v-list-item-subtitle>
+                </v-list-item-content>
+                </v-list-item>
+
+                <v-img
+                src="../assets/illus/hero full.png"
+                height="194"
+                ></v-img>
+
+                <v-card-text>
+                Visit ten places on our planet that are undergoing the biggest changes today.
+                </v-card-text>
+
+
+                <v-expansion-panels
+                :flat="true"
+                :hover="true"
+
+                >
+                <v-expansion-panel
+                class=""
+                >
+                <v-expansion-panel-header
+                class="headline"><span><v-icon class="mr-2" color="indigo">mdi-more</v-icon>More</span></v-expansion-panel-header>
+                <v-expansion-panel-content
+                >
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                </v-expansion-panel-content>
+                </v-expansion-panel>
+                </v-expansion-panels>
+                </v-card>
+
               </v-col>
 
             </v-row>
@@ -246,7 +234,7 @@
         <v-card
         flat
         tile
-        class="h100 w100 py-12 pa-0 ma-0">
+        class="h100 w100 py-12 pa-0 ma-0 section">
         
             <v-row
             class="pa-0 ma-0"
@@ -266,7 +254,8 @@
  
                 <v-col 
                 v-for="(description, index) in descriptions" :key="index"
-                cols="12" sm="6" md="4" lg="3">
+                cols="12" sm="6" md="4" lg="3"
+                >
                  <v-img
                  :class="`elevation-16 pa-3 pt-0 ${animation[index]}`"
                   
@@ -338,7 +327,7 @@
 
       <!-- proud -->
       <v-col 
-      class="orange lighten-5 py-8" 
+      class="medal py-8" 
       cols="12">
       <div
       class="text-center mb-8">
@@ -723,6 +712,7 @@ export default {
     fopsHorizon:true,
     mapH:400,
     illusH:50,
+    margin:'',
     sections:[
       {title:'Archive',img:'../assets/illus/undraw_Graduation_ktn0 (1).png', description:'this is a description', route:'/Archive'},
       {title:'Advicor',img:'../assets/illus/undraw_Graduation_ktn0 (1).png', description:'this is a description', route:'/Advicer'},
@@ -766,23 +756,26 @@ export default {
           this.fopsHorizon = false;
           this.mapBP = 9;
           this.mapH = 500;
-          this.illusH = 50
+          this.illusH = 60;
+          this.margin ='mx-0';
         }
         else if(this.viewport == 'sm'){ //sm
           this.heroH = (window.innerHeight)*40/100
           this.sectionH = (window.innerHeight)*18/100
           this.fopsHorizon = true;
           this.mapBP = 12;
-          this.mapH = 400
-           this.illusH = 60
+          this.mapH = 400;
+          this.illusH = 70;
+          this.margin ='mx-4';
         }
-        else if(this.viewport == 'md'){ //sm
+        else if(this.viewport == 'md'){ //md
           this.heroH = (window.innerHeight)*55/100
           this.sectionH = (window.innerHeight)*20/100
           this.fopsHorizon = true;
           this.mapBP = 12;
           this.mapH = 400;
-          this.illusH = 80
+          this.illusH = 90;
+          this.margin ='mx-6';
         }
         else{ //lg and xl
           this.heroH = (window.innerHeight)*70/100
@@ -790,7 +783,8 @@ export default {
           this.fopsHorizon = true;
           this.mapBP = 12;
           this.mapH = 400;
-           this.illusH = 100
+          this.illusH = 110;
+          this.margin ='mx-12';
         }
 
       },
@@ -799,10 +793,18 @@ export default {
 }
 </script>
 <style scoped>
-.dialog{
-  height: 90vh;
-  min-height: 600px;
-  
+
+.hero{
+  background-image: linear-gradient(to bottom,white, #f2f1f0);
+}
+
+.section{
+  background-image: linear-gradient(to bottom,#f2f1f0, #fff3e0);
+}
+
+.medal{
+  background-image: linear-gradient(to bottom,#fff3e0, #fcdca8);
 }
 
 </style>
+fff3e0
