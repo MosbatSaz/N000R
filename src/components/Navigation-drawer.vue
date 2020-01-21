@@ -14,7 +14,6 @@
      <v-btn
           v-resize="mobile"
           class="mt-8"
-          flat
           text
           disabled
           fixed
@@ -63,7 +62,7 @@
           v-show="show"
           class="mt-10"
           :elevation="hover ? 12 : 5"
-          flat
+          text
           fixed
           absolute
           top

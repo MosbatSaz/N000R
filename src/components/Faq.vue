@@ -1,12 +1,84 @@
 <template>
     <div
-    class="ma-0 pa-0 h100 w100">
+    class="back ma-0 pa-0  w100 d-flex justify-center align-center">
+                <v-card
+                height="550"
+                tile
+                class="  mx-5 elevation-16 mb-n12 float-illus"
+                >
+                <v-img
+                src="../assets/illus/space-contact.jpg"
+                class="h100 d-flex justify-center align-center "
+                >
+                <v-list-item class="">
+
+                <v-list-item-content>
+                <!-- <v-list-item-title class="display-1 text-center pt-5">Contact</v-list-item-title> -->
+                <v-list-item-subtitle
+                class="pb-12 pt-5">
+
+                    <div 
+                    v-for="i in 2" :key="i"
+                    class="text-center">
+                       <v-icon size="50 " color="green accent-3" class="mb-4 mr-2">mdi-phone</v-icon>
+                       <span class="headline font-weight-light">+98 937 1710 729</span>
+                    </div>
+
+                            <!-- <div
+                            class="d-flex justify-center mx-12">
+                            <v-divider class="my-5 mx-12" ></v-divider>
+                            </div> -->
+
+                    <div 
+                    class="text-center py-5">
+                       <v-icon size="50 " color="pink" class=" mr-2">mdi-instagram</v-icon>
+                       <span class="headline font-weight-light"> <span class="font-weight-bold">@</span> Noor_Arvand</span>
+                    </div>
+
+                            <!-- <div
+                            class="d-flex justify-center mx-12">
+                            <v-divider class="my-5 mx-12" ></v-divider>
+                            </div> -->
+
+                    <div 
+                    class="text-center pb-5">
+                       <v-icon size="50 " color="indigo" class=" mr-2">mdi-telegram</v-icon>
+                       <span class="headline font-weight-light"> <span class="font-weight-bold">@</span> Noor_Arvand</span>
+                    </div>
+
+                            <!-- <div
+                            class="d-flex justify-center mx-12">
+                            <v-divider class="my-5 mx-12" ></v-divider>
+                            </div> -->
+
+                    <div 
+                    class="text-center pb-5">
+                       <v-icon size="50 " color="deep-orange accent-3" class="mb-2 mr-2">mdi-gmail</v-icon>
+                       <span class="headline font-weight-light">NoorArvand <span class="font-weight-bold">@</span> gmail.com</span>
+                    </div>
+                </v-list-item-subtitle>
+                </v-list-item-content>
+                </v-list-item>
+
+
+                </v-img>
+                </v-card>
 
     </div>
+
 </template>
 
 <script>
 export default {
-    
+    data :  () => ({
+        return :{
+            //
+        }
+    }),
+
+    methods:{
+        //
+    },
+
 }
 </script>

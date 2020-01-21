@@ -4,13 +4,13 @@
     <!-- just for development
     use to show viewport -->
     <v-btn
+    v-show="dev"
     depressed
     fixed
     absolute
     bottom
     fab 
     v-resize="onResize"
-    v-show="vp"
     right
     class="mb-10 pink title white--text">
     {{viewport}}
@@ -374,7 +374,6 @@
 
         <!-- footer options ( fops ) -->
         <div
-        v-resize="mapSize"
         v-show="fopsHorizon"
         color=""
         height="80"
@@ -439,7 +438,7 @@
                   <v-btn
                   v-resize="mobile"
                   absolute
-                  flat
+                  text
                   hover
                   height="100"
                   width="100"
@@ -448,7 +447,7 @@
                   color=" transparent elevation-0 op80 ml-3 mt-12"
                   >
                   <div
-                  class="  pa-0 mt-5">
+                  class="  pa-0 mt-12">
                   <v-card
                   hover
                   class=" ml-6 pa-0 mt-12">
@@ -574,13 +573,13 @@
                       </v-img>
                     </v-avatar> 
                   </v-col>
-                  <v-cols
+                  <v-col
                   cols="12">
                     <span
                     class="ml-5 font-weight-light">
                     {{ new Date().getFullYear() }}
                     </span> 
-                  </v-cols>
+                  </v-col>
                 </v-row>            
    
           </v-img>
@@ -645,13 +644,13 @@
       <v-bottom-sheet 
       v-model="sheet" 
       :inset="false" 
-      :hide-overlay="hideOverlay"
       >
       <v-sheet class="d-flex justify-center" height="500">
         <v-btn
           class="my-6 hidden-xs-only"
           depressed
           absolute
+          right
           fab
           color="pink"
           @click="sheet = !sheet"
@@ -661,6 +660,7 @@
           depressed
           absolute
           bottom
+          right
           fab
           color="pink"
           @click="sheet = !sheet"
@@ -710,6 +710,8 @@ export default {
     mapH:400,
     illusH:50,
     margin:'mx-12',
+    mapBP:12, 
+    dev:false,
     sections:[
       {title:'Archive',img:'../assets/illus/undraw_Graduation_ktn0 (1).png', description:'this is a description', route:'/Archive'},
       {title:'Advicor',img:'../assets/illus/undraw_Graduation_ktn0 (1).png', description:'this is a description', route:'/Advicer'},
@@ -755,6 +757,7 @@ export default {
           this.mapH = 500;
           this.illusH = 60;
           this.margin ='mx-0';
+
         }
         else if(this.viewport == 'sm'){ //sm
           this.heroH = (window.innerHeight)*40/100

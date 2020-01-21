@@ -58,7 +58,7 @@
         <v-divider class=" indigo mt-12"></v-divider>
         <div 
         class="text-center w100 display-3 my-12">
-          Noor Advicer
+          Noor Advicor
         </div>
             <div
             class="d-flex justify-center mx-5">
@@ -73,12 +73,12 @@
                 </v-avatar>
                 <v-list-item-content>
                 <v-list-item-title class="headline"> Mr No Buddy</v-list-item-title>
-                <v-list-item-subtitle>Noor Advicer</v-list-item-subtitle>
+                <v-list-item-subtitle>Noor Advicor</v-list-item-subtitle>
                 </v-list-item-content>
                 </v-list-item>
 
                 <v-card-text>
-                I am Mr No Buddy , im the noor arvand advicer ,
+                I am Mr No Buddy , im the noor arvand advicor ,
                 Visit ten places on our planet that are undergoing the biggest changes today.
                 Visit ten places on our planet that are undergoing the biggest changes today.
                 Visit ten places on our planet that are undergoing the biggest changes today.

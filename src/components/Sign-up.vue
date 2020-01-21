@@ -60,6 +60,17 @@
 
                 </div>
 
+                <!-- selector -->
+                <div
+                class="d-flex justify-center">
+                    <v-select
+                    :items="items"
+                    label="select your level"
+                    class="mx-8"
+                    solo
+                    ></v-select>
+                </div>
+
                 <!-- checkbox -->
                 <div
                 class="d-flex justify-center ma-0  pa-0">
@@ -144,17 +155,20 @@
 export default {
     data () {
 
+
     const defaultForm = Object.freeze({
         first: '',
         last: '',
         bio: '',
+        
         favoriteAnimal: '',
         age: null,
         terms: false,
       })
 
         return{
-
+            items: ['level 2', 'level 3', 'level 4', 'level 5'],
+            checkbox: false,
             inputs:[
                 {label:'First Name',require:true},
                 {label:'Last Name',require:true},

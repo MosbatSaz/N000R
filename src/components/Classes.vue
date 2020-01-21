@@ -97,7 +97,7 @@
                 class=""
                 >
                 <v-expansion-panel-header
-                class="title"><span><v-icon class="mr-2 mb-1" color="indigo">mdi-clock</v-icon>Time</span></v-expansion-panel-header>
+                class="title"><span><v-icon class="mr-2 mb-1" :color="teacher.color">mdi-clock</v-icon>Time</span></v-expansion-panel-header>
                 <v-expansion-panel-content
                 >
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.

@@ -1,35 +1,31 @@
 <template>
 <div
-class="w100 pa-0 ma-0 red ">
-  <v-carousel
-    cycle
-    height=""
-    class="w100 pa-0 h100v"
-    hide-delimiter-background
-    show-arrows-on-hover
+class="w100 h100 pa-0 ma-0 back d-flex justify-center align-center">
+  <v-card
+  class="h70 w90 elevation-24"
   >
-      
+
+  <v-carousel 
+  hide-delimiter-background
+  height="900"
+  cycle
+  show-arrows-on-hover 
+  >
     <v-carousel-item
-      v-for="(slide, i) in slides"
+
+      v-for="(item,i) in 6"
       :key="i"
-      class="h100v"
+      src="../assets/illus/hero full.png"
+      
     >
-      <v-sheet
-        :color="colors[i]"
-        class="h100v"
-      >
-        <v-row
-          class="fill-height pt-12"
-          align="start"
-          justify="center"
-        >
-          <div class="display-3">{{ slide }} Slide</div>
-          <v-image
-          src="../assets/MosbatSaz +saz-layers.png"></v-image>
-        </v-row>
-      </v-sheet>
+
+    <div class="text-center mt-12 display-3"> This Is The Noor </div>
+
     </v-carousel-item>
   </v-carousel>
+      
+  </v-card>
+
 </div>
 </template>
 
@@ -37,25 +33,24 @@ class="w100 pa-0 ma-0 red ">
 
 <script>
   export default {
-    data () {
-      return {
-        dynamicH: 0,
-        colors: [
-          'indigo',
-          'warning',
-          'pink darken-2',
-          'red lighten-1',
-          'deep-purple accent-4',
+    data : () => ({
+      return:{
+      items: [
+          {
+            src: '../assets/illus/hero full.png',
+          },
+          {
+            src: '../assets/illus/hero full.png',
+          },
+          {
+            src: '../assets/illus/hero full.png',
+          },
+          {
+            src: '../assets/illus/hero full.png',
+          },
         ],
-        slides: [
-          'First',
-          'Second',
-          'Third',
-          'Fourth',
-          'Fifth',
-        ],
-      }
     },
+  })
   }
 </script>
 <style scoped>
