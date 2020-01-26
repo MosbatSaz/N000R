@@ -2,82 +2,107 @@
     <div
     class="back ma-0 pa-0  w100 d-flex justify-center align-center">
                 <v-card
-                height="550"
+                v-resize="onResize"
+                :height="(viewport == 'xs') ? 650 : 550"
                 tile
-                class="  mx-5 elevation-16 mb-n12 float-illus"
+                class=" d-flex justify-center align-center  mx-5 elevation-16 mb-n12 float-illus"
                 >
                 <v-img
                 src="../assets/illus/space-contact.jpg"
                 class="h100 d-flex justify-center align-center "
                 >
-                <v-list-item class="">
+                <div class="text-center mt-n12 mb-12 display-2">Faq</div>
+                <div
+                class=" w100  d-flex justify-center align-center">
+                    <div
+                    class="w80">
+                    
+                        <v-expansion-panels
+                        >  
+                        
+                            <v-expansion-panel
+                            active-class="white--text deep-purple lighten elevation-24"
+                            v-for=" (faq, index) in faqs "
+                            :key="index"
+                            class="elevation-16"
+                            >
+                                <v-expansion-panel-header class="text-center" disable-icon-rotate expan>
+                                    <span class="">{{index+1}}.{{messege}} {{faq.question}}</span> 
+                                    
+                                    <template v-slot:actions>
+                                        <v-icon color="white">mdi-comment-question</v-icon>
+                                    </template>
+                                </v-expansion-panel-header>
 
-                <v-list-item-content>
-                <!-- <v-list-item-title class="display-1 text-center pt-5">Contact</v-list-item-title> -->
-                <v-list-item-subtitle
-                class="pb-12 pt-5">
+                                <v-expansion-panel-content class="white--text">
+                                    {{faq.answer}}
+                                </v-expansion-panel-content>
 
-                    <div 
-                    v-for="i in 2" :key="i"
-                    class="text-center">
-                       <v-icon size="50 " color="green accent-3" class="mb-4 mr-2">mdi-phone</v-icon>
-                       <span class="headline font-weight-light">+98 937 1710 729</span>
-                    </div>
+                            </v-expansion-panel>
+                        </v-expansion-panels>
+                    </div > 
+                </div>   
 
-                            <!-- <div
-                            class="d-flex justify-center mx-12">
-                            <v-divider class="my-5 mx-12" ></v-divider>
-                            </div> -->
-
-                    <div 
-                    class="text-center py-5">
-                       <v-icon size="50 " color="pink" class=" mr-2">mdi-instagram</v-icon>
-                       <span class="headline font-weight-light"> <span class="font-weight-bold">@</span> Noor_Arvand</span>
-                    </div>
-
-                            <!-- <div
-                            class="d-flex justify-center mx-12">
-                            <v-divider class="my-5 mx-12" ></v-divider>
-                            </div> -->
-
-                    <div 
-                    class="text-center pb-5">
-                       <v-icon size="50 " color="indigo" class=" mr-2">mdi-telegram</v-icon>
-                       <span class="headline font-weight-light"> <span class="font-weight-bold">@</span> Noor_Arvand</span>
-                    </div>
-
-                            <!-- <div
-                            class="d-flex justify-center mx-12">
-                            <v-divider class="my-5 mx-12" ></v-divider>
-                            </div> -->
-
-                    <div 
-                    class="text-center pb-5">
-                       <v-icon size="50 " color="deep-orange accent-3" class="mb-2 mr-2">mdi-gmail</v-icon>
-                       <span class="headline font-weight-light">NoorArvand <span class="font-weight-bold">@</span> gmail.com</span>
-                    </div>
-                </v-list-item-subtitle>
-                </v-list-item-content>
-                </v-list-item>
 
 
                 </v-img>
                 </v-card>
+                
+               
+
 
     </div>
 
 </template>
 
 <script>
+import Resize from '../mixins/resize'
+
 export default {
+
     data :  () => ({
-        return :{
-            //
-        }
+            viewport:'',
+            WH:800,
+            faqs:[
+            {
+                question:'How to Noor Arvand?',
+                answer:'Veniam minim aliqua ullamco irure laborum minim ea laborum adipisicing in pariatur nisi laborum id. In irure nulla nulla irure. Consequat excepteur ea anim nisi esse deserunt cillum amet sit id ipsum. Esse mollit duis adipisicing cillum.'
+            },
+                {
+                question:'How to Noor Arvand?',
+                answer:'Veniam minim aliqua ullamco irure laborum minim ea laborum adipisicing in pariatur nisi laborum id. In irure nulla nulla irure. Consequat excepteur ea anim nisi esse deserunt cillum amet sit id ipsum. Esse mollit duis adipisicing cillum.'
+            },
+                {
+                question:'How to Noor Arvand?',
+                answer:'Veniam minim aliqua ullamco irure laborum minim ea laborum adipisicing in pariatur nisi laborum id. In irure nulla nulla irure. Consequat excepteur ea anim nisi esse deserunt cillum amet sit id ipsum. Esse mollit duis adipisicing cillum.'
+            },
+                {
+                question:'How to Noor Arvand?',
+                answer:'Veniam minim aliqua ullamco irure laborum minim ea laborum adipisicing in pariatur nisi laborum id. In irure nulla nulla irure. Consequat excepteur ea anim nisi esse deserunt cillum amet sit id ipsum. Esse mollit duis adipisicing cillum.'
+            },
+                {
+                question:'How to Noor Arvand?',
+                answer:'Veniam minim aliqua ullamco irure laborum minim ea laborum adipisicing in pariatur nisi laborum id. In irure nulla nulla irure. Consequat excepteur ea anim nisi esse deserunt cillum amet sit id ipsum. Esse mollit duis adipisicing cillum.'
+            },
+            ],
+
     }),
 
+    mixins:[Resize],
+
+    mounted () {
+      this.onResize(); // this function is mixin thats indicate the viewport
+      this.getWH();
+    },
+
     methods:{
-        //
+        openDialog(index){
+            this.toggle =! this.toggle;
+            this.j = index;
+        },
+        getWH(){
+            this.WH = window.innerHeight
+        }
     },
 
 }

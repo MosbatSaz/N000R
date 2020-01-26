@@ -1,6 +1,6 @@
 <template>
     <div
-    class="  d-flex justify-center w100 pa-0 ma-0 back">
+    class=" ltr d-flex justify-center w100 pa-0 ma-0 back">
     
         <!-- back card -->
         <v-card
@@ -50,9 +50,9 @@
               :right="false"
               :small="false"
             >
-              <span slot="opposite">Tus eu perfecto</span>
+              <span slot="opposite"></span>
               <v-card
-              class="elevation-24 orange lighten-3 float-illus">
+              class="rtl elevation-24 orange lighten-3 float-illus">
                 <v-card-title class="headline">Lorem ipsum</v-card-title>
                 <v-card-text>
                   Lorem ipsum dolor sit amet, no nam oblique veritus.

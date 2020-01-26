@@ -72,32 +72,23 @@
           :height="navH"
           :width ="navH">
           <v-avatar
-          class="indigo darken-3"
+          class="purple"
             :size="navH">
  
 
             <!-- profile -->
             <v-img
-            v-if="isSwitched == 1"
-            src="../assets/me.png"
+            src="../assets/comment.png"
             alt="profile" 
             ></v-img>
 
             <!-- sign up / sign in -->
-            <v-icon
-            v-else
-            :size="fingerH"
-            color="white darken-4"
-            >
-            mdi-fingerprint
-            </v-icon>
-
 
            </v-avatar>
           </v-btn>
           </v-fab-transition>
         </template>
-    </v-hover> 
+    </v-hover>
   
 
    
@@ -110,12 +101,16 @@
   @drag="checkToggle()"
   floating
   width="350" 
-  class="op90" 
-  color="indigo darken-3 black--text" 
+  class="" 
+  color=" black--text" 
   app   
   right
   disable-resize-watcher 
   v-model="toggle">
+
+  <v-img
+  src="../assets/illus/nav.png"
+  class="h100 w100 pa-0 ma-0">
   
       <div
       class="d-flex justify-center">
@@ -123,12 +118,12 @@
         @click="toggledrawer()"
         text
         outlined
-        class="indigo darken-3 pa-0 ma-0 right"
+        class=" pa-0 ma-0 mt-1 right"
         icon
         large
         >
           <v-icon
-          color="white"
+          color="deep-purple darken-4"
           >
             mdi-close
           </v-icon>
@@ -163,7 +158,7 @@
         ></component>
  
 
-
+  </v-img>
  </v-navigation-drawer>
 
  </div>
@@ -173,6 +168,7 @@
 import SignIn from '../components/Sign-in'
 import SignUp from '../components/Sign-up'
 import UserPanel from '../views/User-Panel'
+import Comment from '../components/Comment'
 import Resize from '../mixins/resize'
 export default {
 
@@ -181,11 +177,12 @@ export default {
   components:{
     SignIn,
     SignUp,
-    UserPanel
+    UserPanel,
+    Comment
   },
 
   data: () => ({
-    c: SignUp,
+    c: Comment,
     isSwitched: false,
     show: true,
     toggle: false,

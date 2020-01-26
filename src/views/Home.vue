@@ -148,7 +148,7 @@
       <!-- News -->
       <v-col 
       cols="12"
-      class="pa-0 ma-0 mt-12 back" 
+      class="pa-0 ma-0 mt-12 back rtl" 
       >
         <v-card
         flat
@@ -182,7 +182,7 @@
                 
                 >
                 <v-list-item>
-                <v-avatar class="mr-3">
+                <v-avatar class="ml-3">
                 <v-img src="../assets/noor-logo-layer.png"></v-img>
                 </v-avatar>
                 <v-list-item-content>
@@ -193,7 +193,7 @@
 
                 <v-img
                 src="../assets/illus/hero full.png"
-                height="194"
+                height="200"
                 ></v-img>
 
                 <v-card-text>
@@ -210,7 +210,7 @@
                 class=""
                 >
                 <v-expansion-panel-header
-                class="title"><span><v-icon class="mr-2" color="indigo">mdi-more</v-icon>More</span></v-expansion-panel-header>
+                class="title"><span>More</span></v-expansion-panel-header>
                 <v-expansion-panel-content
                 >
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
@@ -294,12 +294,12 @@
 
                     <!-- header -->
                       <div
-                      class="d-flex justify-center display-1 mb-5">
+                      class=" d-flex justify-center display-1 mb-5">
                         {{description.title}}
                       </div>
                     <!-- description -->
                       <div
-                      class="d-flex justify-center text-center">
+                      class=" text-center ma-2">
                         Ipsum dolor eiusmod excepteur nulla enim aute aute veniam aute nostrud.
                         Veniam ea ullamco ut laboris pariatur in.
                         Mollit deserunt id nisi mollit ad adipisicing irure esse pariatur et consequat.
@@ -435,37 +435,6 @@
                 <v-col
                 :cols="mapBP"
                 class="ma-0 pa-0">
-                  <v-btn
-                  v-resize="mobile"
-                  absolute
-                  text
-                  hover
-                  height="100"
-                  width="100"
-                  :ripple="false"
-                  tile
-                  color=" transparent elevation-0 op80 ml-3 mt-12"
-                  >
-                  <div
-                  class="  pa-0 mt-12">
-                  <v-card
-                  hover
-                  class=" ml-6 pa-0 mt-12">
-                  <div
-                  class="ma-0 pa-0  pa-3 indigo darken-4">
-                  <v-avatar
-                    tile
-                    falt
-                    size="100"
-                    class="elevation-0 d-block"
-                  >
-                    <img src="../assets/illus/map.png" alt="map">
-                  </v-avatar>
-                  <span class="body-2">Noor Arvand</span>
-                  </div>
-                  </v-card>
-                  </div>
-                  </v-btn>
                   <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3443.57502456997!2d48.28267815106922!3d30.33460371167148!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3fc44f12eb39a3c7%3A0xc4ec16f6be22c4da!2sNoor%20Arvand%20Educational%20institution!5e0!3m2!1sen!2s!4v1578324126941!5m2!1sen!2s"
                   class=" w100 h100 orange lighten-5"   
                   color=""
@@ -553,7 +522,7 @@
                 </v-btn>
            
 
-              <v-divider class="my-2"></v-divider>
+              <!-- <v-divider class="my-2"></v-divider> -->
 
               
                 <v-row
@@ -566,7 +535,7 @@
                     <v-avatar
                     tile
                     size="50"
-                    class="mb-n6"
+                    class="mb-n10"
                     >
                       <v-img
                       src="../assets/MosbatSaz +saz-overlay-11.png">
@@ -601,7 +570,7 @@
       <v-dialog
         v-model="dialog"
         fullscreen
-        class="pa-0 ma-0 back"
+        class="pa-0 ma-0 back "
       >
 
       <v-sheet
@@ -628,7 +597,7 @@
           @click="dialog = !dialog"
         ><v-icon color="white">mdi-close</v-icon></v-btn>
          
-        <router-view></router-view>
+        <router-view class="rtl"></router-view>
         
         <!-- <component :is="c"></component> -->
 
@@ -643,9 +612,8 @@
 
       <v-bottom-sheet 
       v-model="sheet" 
-      :inset="false" 
       >
-      <v-sheet class="d-flex justify-center" height="500">
+      <v-sheet class="d-flex justify-center" :height="(viewport == 'xs') ? 600 : 500">
         <v-btn
           class="my-6 hidden-xs-only"
           depressed
@@ -666,7 +634,7 @@
           @click="sheet = !sheet"
         ><v-icon color="white">mdi-close</v-icon></v-btn>
 
-        <router-view></router-view>
+        <router-view ></router-view>
 
       </v-sheet>
     </v-bottom-sheet>
@@ -712,6 +680,7 @@ export default {
     margin:'mx-12',
     mapBP:12, 
     dev:false,
+
     sections:[
       {title:'Archive',img:'../assets/illus/undraw_Graduation_ktn0 (1).png', description:'this is a description', route:'/Archive'},
       {title:'Advicor',img:'../assets/illus/undraw_Graduation_ktn0 (1).png', description:'this is a description', route:'/Advicer'},
@@ -720,33 +689,37 @@ export default {
       {title:'Classes',img:'../assets/illus/undraw_Graduation_ktn0 (1).png', description:'this is a description', route:'/Classes'},
       {title:'Teachers',img:'../assets/illus/undraw_Graduation_ktn0 (1).png', description:'this is a description', route:'/Teachers'},
     ],
+
     descriptions:[
       {title:'Teachers',img:'../assets/Teacher-1.png',color:'orange'},
       {title:'Parents',img:'../assets/parents.png',color:'indigo'},
       {title:'Organizition',img:'../assets/Organ.png',color:'pink'},
     ],
+
     animation:[
       'float-up-fast',
       'float-down-fast',
       'float-up-fast'
     ],
+
     fops:[
       {title:'CEO',icon:'mdi-glasses',route:'/Ceo'},
       {title:'Contact',icon:'mdi-phone-classic',route:'/Contact'},
       {title:'FAQ',icon:'mdi-frequently-asked-questions',route:'/Faq'},
-      {title:'Comment',icon:'mdi-comment-text-outline',route:'/Comment'},
     ],      
+
     icons: [
         'mdi-google-plus',
         'mdi-telegram',
         'mdi-instagram',
       ],
+      
   }),
     mounted () {
       this.onResize(); // this function is mixin thats indicate the viewport
       this.mobile();  // this function makes the page responsive (horizontally)
     },
-    //use mixins here
+ 
     methods: {
       mobile(){
         if(this.viewport == 'xs'){ //xs
@@ -807,4 +780,3 @@ export default {
 }
 
 </style>
-fff3e0

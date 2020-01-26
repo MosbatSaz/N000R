@@ -2,7 +2,8 @@
     <div
     class="back ma-0 pa-0  w100 d-flex justify-center align-center">
                 <v-card
-                height="550"
+                v-resize="onResize"
+                :height="(viewport == 'xs') ? 650 : 550"
                 tile
                 class="  mx-5 elevation-16 mb-n12 float-illus"
                 >
@@ -69,16 +70,20 @@
 </template>
 
 <script>
+import Resize from '../mixins/resize'
 export default {
-    data :  () => ({
-        return :{
-            //
-        }
+    data :  () => ({    
+        viewport:'',
     }),
 
     methods:{
         //
     },
+    mixins:[Resize],
 
+    mounted () {
+      this.onResize(); // this function is mixin thats indicate the viewport
+      this.getWH();
+    },
 }
 </script>

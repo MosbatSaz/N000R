@@ -27,7 +27,12 @@ export default {
 <style>
 
 /* use sass in this section to make everything smarter */
-
+.rtl{
+  direction: rtl;
+}
+.ltr{
+  direction: ltr;
+}
 /* opacity */
 @import url('https://fonts.googleapis.com/css?family=Lexend+Deca&display=swap');
 @import url("./css/Font/font.css");
@@ -35,6 +40,11 @@ export default {
 .v-application {
    /* font-family: 'Lexend Deca', sans-serif; */
     font-family: 'BYekan', serif;
+ }
+
+ .txt{
+   text-align: center;
+  text-align: justify; 
  }
 
 a{
