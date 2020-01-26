@@ -1,20 +1,24 @@
 <template>
-<div
-class="w100 h100 pa-0 ma-0 back d-flex justify-center align-center">
+<v-card
+flat
+class="w100 h100 pa-0 ma-0 py-2 back d-flex justify-center align-center">
   <v-card
-  class="h70 w90 elevation-24"
+  v-resize="setH"
+  tile
+  falt
+  class=" w80 h100 elevation-24"
   >
 
   <v-carousel 
   hide-delimiter-background
-  height="900"
+  :height="H"
   cycle
   show-arrows-on-hover 
   >
     <v-carousel-item
 
-      v-for="(item,i) in 6"
-      :key="i"
+      v-for="(item,index) in items"
+      :key="index"
       src="../assets/illus/hero full.png"
       
     >
@@ -26,15 +30,16 @@ class="w100 h100 pa-0 ma-0 back d-flex justify-center align-center">
       
   </v-card>
 
-</div>
+</v-card>
 </template>
 
 
 
 <script>
+
   export default {
     data : () => ({
-      return:{
+      H:0,
       items: [
           {
             src: '../assets/illus/hero full.png',
@@ -49,8 +54,19 @@ class="w100 h100 pa-0 ma-0 back d-flex justify-center align-center">
             src: '../assets/illus/hero full.png',
           },
         ],
-    },
-  })
+
+  }),
+
+  updated(){
+    this.setH();
+  },
+
+  methods:{
+    setH(){
+      this.H = (window.innerHeight)*90/100;
+    }
+  }
+
   }
 </script>
 <style scoped>

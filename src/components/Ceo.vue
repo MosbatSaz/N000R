@@ -14,7 +14,7 @@
                     <v-card
                     flat
                     shaped
-                    class="transparent op80 h100 w100 d-flex justify-center align-center">
+                    class="transparent op95 h100 w100 d-flex justify-center align-center">
                         <v-card
                         max-width="800"
                         class="w100 rtl teal lighten-1 mt-n12 mx-5 elevation-16"
