@@ -11,6 +11,8 @@ import Ceo from '../components/Ceo'
 import Contact from '../components/Contact'
 import Faq from '../components/Faq'
 import Comment from '../components/Comment'
+import Admin from '../views/Admin.vue'
+import AdminPanel from '../views/Admin-panel.vue'
 
 Vue.use(VueRouter)
 
@@ -68,12 +70,14 @@ const routes = [
   ]
   },
   {
-    path: '/test',
-    name: 'test',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/Test.vue')
+    path: '/Admin',
+    name: 'Admin',
+    component:Admin
+  },
+  {
+    path: '/AdminPanel',
+    name: 'AdminPanel',
+    component:AdminPanel
   }
 ]
 

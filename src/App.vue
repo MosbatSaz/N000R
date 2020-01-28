@@ -1,22 +1,23 @@
 <template>
   <v-app dark>
 
-    <navi></navi>
+    <!-- <navi></navi> -->
 
     <v-content class="pa-0">
-      <router-link to="/test"></router-link>
+
       <router-view></router-view>
+
     </v-content>
                 
   </v-app>
 </template>
 
 <script>
-import Navi from './components/Navigation-drawer'
+// import Navi from './components/Navigation-drawer'
 export default {
   name: 'App',
   components:{
-    'navi':Navi
+    // 'navi':Navi
   },
   data: () => ({
 
@@ -38,14 +39,10 @@ export default {
 @import url("./css/Font/font.css");
 /* font */
 .v-application {
-   /* font-family: 'Lexend Deca', sans-serif; */
-    font-family: 'BYekan', serif;
+   font-family: 'Lexend Deca', sans-serif;
+    /* font-family: 'BYekan', serif; */
  }
 
- .txt{
-   text-align: center;
-  text-align: justify; 
- }
 
 a{
   text-decoration: transparent;
@@ -54,6 +51,7 @@ a{
 
 .op100{opacity: 1 !important}
 .op95{opacity: 0.95}
+.op90{opacity: 0.90}
 .op80{opacity: 0.8}
 .op70{opacity: 0.7}
 .op60{opacity: 0.6}
