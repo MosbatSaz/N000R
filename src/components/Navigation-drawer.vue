@@ -26,7 +26,7 @@
             <v-avatar
             :size="logoH">
             <v-img
-                src="../assets/noor-logo-layer.png"
+                src="../assets/noor-colorful.png"
                 alt="John"
             >
             </v-img>

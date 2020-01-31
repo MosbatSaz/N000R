@@ -1,7 +1,7 @@
 <template>
   <v-app dark>
 
-    <!-- <navi></navi> -->
+    <navi></navi>
 
     <v-content class="pa-0">
 
@@ -13,11 +13,11 @@
 </template>
 
 <script>
-// import Navi from './components/Navigation-drawer'
+import Navi from './components/Navigation-drawer'
 export default {
   name: 'App',
   components:{
-    // 'navi':Navi
+    'navi':Navi
   },
   data: () => ({
 

@@ -1,5 +1,5 @@
 <template>
-  <div class="back ma-0 pa-0 h100 w100">
+  <div class="back rtl ma-0 pa-0 h100 w100">
 
   <!-- Content -->
 
@@ -8,7 +8,7 @@
 
   <!-- News -->
 
-  <div v-if="news" class="back ma-0 pa-0 h100 w100">
+  <div v-show="news" class="back ma-0 pa-0 h100 w100">
 
 
               <!-- create a new post -->
@@ -82,7 +82,7 @@
               </div>
 
               <!-- posts -->
-              <div v-for="(item, index) in 10" :key="index" class="w100 d-flex justify-center">
+              <div v-for="(post, index) in posts" :key="index" class="w100 d-flex justify-center">
                 <v-card
                 max-width="800"
                 class="h00 w90 elevation-16 ma-2 mb-4">
@@ -100,6 +100,19 @@
                     </v-avatar></v-btn>
 
                     <v-btn
+                    class="mt-3 mr-12 hidden-xs-only "
+                    fab
+                    right
+                    text
+                    absolute
+                    depressed
+                    color="indigo"
+                    @click="hide(index)"
+                    ><v-avatar size="35" tile class="">
+                    <v-img src="../assets/hide.png"></v-img>
+                    </v-avatar></v-btn>
+
+                    <v-btn
                     class="mt-12 hidden-sm-and-up elevation-16 float-illus"
                     fab
                     right
@@ -111,6 +124,22 @@
                     <v-img src="../assets/bin.png"></v-img>
                     </v-avatar></v-btn>
 
+                    <v-btn
+                    class="mt-12 mr-12 hidden-sm-and-up"
+                    fab
+                    right
+                    text
+                    absolute
+                    depressed
+                    color="indigo"
+                    @click="hide(index)"
+                    ><v-avatar size="35" tile class="">
+                    <v-img src="../assets/hide.png"></v-img>
+                    </v-avatar></v-btn>
+
+                    
+
+
 
                 
                 <v-list-item>
@@ -119,7 +148,7 @@
                 </v-avatar>
                 <v-list-item-content>
                 <v-list-item-title class="headline">Our Changing Planet</v-list-item-title>
-                <v-list-item-subtitle>by Noor</v-list-item-subtitle>
+                <v-list-item-subtitle>by Noor Post Number {{post.number}}</v-list-item-subtitle>
                 </v-list-item-content>
                 </v-list-item>
 
@@ -158,8 +187,13 @@
 
   <!-- comments -->
 
-  <div v-else class="back ma-0 pa-0 h100 w100">
-    <span class="display-1"> This is Comments</span>
+  <div v-show="!news" class="back ma-0 pa-0 h100 w100">
+    <div class="d-flex justify-center">
+      <v-avatar 
+      size="">
+        <v-img src=""></v-img>
+      </v-avatar>
+    </div>
   </div>
 
 
@@ -189,7 +223,7 @@
       fixed
       permanent
       right
-      class="hidden-xs-only nav elevation-1"
+      class="hidden-xs-only nav elevation-1 ltr"
       width="200"
     >
     <div
@@ -199,7 +233,7 @@
       size="80"
       class="ml-2"
       >
-        <img src="../assets/noor-logo-layer.png">
+        <img src="../assets/noor-colorful.png">
       </v-avatar>
     </div>
 
@@ -366,6 +400,14 @@ export default {
     news:true,
     sheet:false,
     logout:false,
+    posts:[
+      {number:1,hidden:false},
+      {number:2,hidden:false},
+      {number:3,hidden:false},
+      {number:4,hidden:false},
+      {number:5,hidden:false},
+      {number:6,hidden:false},
+    ]
   }),
 
   methods:{
@@ -378,7 +420,10 @@ export default {
 
     },
     remove(index){
-      index//
+      this.posts.splice(index,1);
+    },
+    hide(index){
+      this.posts[index].hidden = true;
     }
   }
 }
