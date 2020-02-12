@@ -1,17 +1,18 @@
 <template>
     <div
-    class="back ma-0 pa-0  w100 d-flex justify-center align-center">
+    class="transparent ma-0 pa-0  w100 d-flex justify-center align-center">
                 <v-card
                 v-resize="onResize"
                 :height="(viewport == 'xs') ? 650 : 550"
                 tile
-                class=" d-flex justify-center align-center  mx-5 elevation-16 mb-n12 float-illus"
+                flat
+                class="h100 transparent  d-flex justify-center align-center   mb-n12"
                 >
                 <v-img
-                src="../assets/illus/space-contact.jpg"
-                class="h100 d-flex justify-center align-center "
+                src=""
+                class="transparent h100 d-flex justify-center align-center "
                 >
-                <div class="text-center mt-n12 mb-12 display-2">Faq</div>
+                <!-- <div class="text-center mt-n12 mb-12 display-2">Faq</div> -->
                 <div
                 class=" w100  d-flex justify-center align-center">
                     <div
@@ -21,10 +22,10 @@
                         >  
                         
                             <v-expansion-panel
-                            active-class="white--text deep-purple lighten elevation-24"
+                            active-class="white--text pink lighten-2 lighten elevation-24"
                             v-for=" (faq, index) in faqs "
                             :key="index"
-                            class="elevation-16"
+                            class=""
                             >
                                 <v-expansion-panel-header class="text-center" disable-icon-rotate expan>
                                     <span class="">{{index+1}}.{{messege}} {{faq.question}}</span> 

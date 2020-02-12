@@ -1,7 +1,7 @@
 <template>
     <!-- use this div as container of user panel -->
     <div
-    class="pa-0 ma-0 w100 ">
+    class="pa-0 ma-0 w100 rtl">
 
       <!-- place avatar and the name below in a div to center it -->
       <div

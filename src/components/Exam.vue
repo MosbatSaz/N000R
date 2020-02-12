@@ -87,9 +87,9 @@
                         tile
                         class=""
                     >
-                        <img v-if="index == 0" src="../assets/gaj-log.png" alt="alt">
-                        <img v-else-if="index == 1" src="../assets/maz-logo.png" alt="alt">
-                        <img v-else src="../assets/sanjesh.png" alt="alt">
+                        <img v-if="index == 0" src="../assets/gaj-log-min.png" alt="alt">
+                        <img v-else-if="index == 1" src="../assets/maz-logo-min.png" alt="alt">
+                        <img v-else src="../assets/sanjesh-min.png" alt="alt">
                         
                     </v-avatar>
 

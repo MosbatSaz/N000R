@@ -19,7 +19,7 @@ class="w100 h100 pa-0 ma-0 py-2 back d-flex justify-center align-center">
 
       v-for="(item,index) in items"
       :key="index"
-      src="../assets/illus/hero full.png"
+      src="../assets/illus/hero full-min.png"
       
     >
 

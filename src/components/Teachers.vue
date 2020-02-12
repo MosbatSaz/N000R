@@ -25,7 +25,7 @@
               <v-img
               contain
               class=""
-              src="../assets/illus/hat.png">  
+              src="../assets/illus/hat-min.png">  
               </v-img>
             </v-col>
 
@@ -81,7 +81,7 @@
                 </v-list-item>
 
                 <v-img
-                src="../assets/illus/hero full.png"
+                src="../assets/illus/hero full-min.png"
                 height="194"
                 ></v-img>
 
@@ -108,7 +108,7 @@
                 v-for="(i ,index)  in teacher.number" :key="index">
                   <v-list-item>
                   <v-avatar size="100" class="mr-3 my-3">
-                  <v-img src="../assets/No-Buddy.jpg"></v-img>
+                  <v-img src="../assets/No-Buddy-min.jpg"></v-img>
                   </v-avatar>
                   <v-list-item-content>
                   <v-list-item-title class="headline"> Mr No Buddy</v-list-item-title>

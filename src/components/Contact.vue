@@ -1,22 +1,20 @@
 <template>
     <div
-    class="back ma-0 pa-0  w100 d-flex justify-center align-center">
+    class="transparent ma-0 pa-0 mt-12  w100 d-flex justify-center align-center">
                 <v-card
                 v-resize="onResize"
-                :height="(viewport == 'xs') ? 650 : 550"
+
                 tile
-                class="  mx-5 elevation-16 mb-n12 float-illus"
+                falt
+                class=" transparent mx-5 mb-n12 "
                 >
-                <v-img
-                src="../assets/illus/space-contact.jpg"
-                class="h100 d-flex justify-center align-center "
-                >
+
                 <v-list-item class="">
 
                 <v-list-item-content>
                 <!-- <v-list-item-title class="display-1 text-center pt-5">Contact</v-list-item-title> -->
                 <v-list-item-subtitle
-                class="pb-12 pt-5">
+                class="pb-12 pt-5 white--text">
 
                     <div 
                     v-for="i in 2" :key="i"
@@ -62,7 +60,6 @@
                 </v-list-item>
 
 
-                </v-img>
                 </v-card>
 
     </div>
@@ -70,16 +67,16 @@
 </template>
 
 <script>
-import Resize from '../mixins/resize'
+
 export default {
     data :  () => ({    
-        viewport:'',
+
     }),
 
     methods:{
         //
     },
-    mixins:[Resize],
+
 
     mounted () {
       this.onResize(); // this function is mixin thats indicate the viewport

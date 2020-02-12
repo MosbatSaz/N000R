@@ -1,28 +1,27 @@
 <template>
     <div
-    class="back ma-0 pa-0  w100 d-flex justify-center align-center">
+    class="transparent ma-0 pa-0 mt-12 w100 d-flex justify-center align-center">
                 <v-card
                 v-resize="onResize"
                 :height="(viewport == 'xs') ? 650 : 550"
-                tile
-                class="  mx-5 elevation-16 mb-n12 float-illus"
+                
+                flat
+                class="transparent  mx-5 "
                 >
-                <v-img
-                src="../assets/illus/space-contact.jpg"
-                class="h100 d-flex justify-center align-center"
-                >
+
                     <v-card
                     flat
-                    shaped
-                    class="transparent op95 h100 w100 d-flex justify-center align-center">
+                    
+                    class="transparent op95 h100 w100 d-flex justify-center align-start">
                         <v-card
                         max-width="800"
-                        class="w100 rtl teal lighten-1 mt-n12 mx-5 elevation-16"
+                        shaped
+                        class="w100 rtl  accent-2 lighten-1 mx-5 elevation-16"
                         
                         >
                         <v-list-item>
                         <v-avatar size="100" class="ml-3 my-3">
-                        <v-img src="../assets/ceo.png"></v-img>
+                        <v-img src="../assets/ceo-min.png"></v-img>
                         </v-avatar>
                         <v-list-item-content>
                         <v-list-item-title class="headline">Mis Mir Hoseini</v-list-item-title>
@@ -36,7 +35,7 @@
                         dark
                         color="black"
                         slider-color="white"
-                        background-color="teal lighten-1"
+                        background-color=" grey  "
                         
                         class="elevation-2"
                         >
@@ -46,7 +45,6 @@
                             width="100"
                             v-for="(tab, index) in tabs"
                             :key="index"
-                            
                             >
                             {{ tab.title }}
                             <v-icon v-if="icons">{{tab.icon}}</v-icon>
@@ -59,6 +57,7 @@
                             <v-card
                             flat
                             tile
+                            class="back"
                             >
                             <v-card-text
                             class="">
@@ -83,7 +82,7 @@
                         </v-card>
                     </v-card>
 
-                    </v-img>
+
                    
                 </v-card>
 

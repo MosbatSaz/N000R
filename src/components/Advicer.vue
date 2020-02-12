@@ -25,7 +25,7 @@
               <v-img
               contain
               class=""
-              src="../assets/Advicor-0.png">  
+              src="../assets/Advicor-0-min.png">  
               </v-img>
             </v-col>
 
@@ -69,7 +69,7 @@
                 >
                 <v-list-item>
                 <v-avatar size="200" class="mr-3 my-3">
-                <v-img src="../assets/No-Buddy.jpg"></v-img>
+                <v-img src="../assets/No-Buddy-min.jpg"></v-img>
                 </v-avatar>
                 <v-list-item-content>
                 <v-list-item-title class="headline"> Mr No Buddy</v-list-item-title>

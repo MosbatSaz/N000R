@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="back">
 
     <!-- just for development
     use to show viewport -->
@@ -16,10 +16,10 @@
     {{viewport}}
     </v-btn>
 <!-- place home page in a grid system -->
-    <v-container  fluid fill-height class="white pa-0"> 
+    <v-container  fluid fill-height class="back pa-0"> 
     <v-row     
-      class="ma-0"
-      justify="space-between back"
+      class="ma-0 pa-0 back"
+      justify="space-between"
     >
 
 
@@ -29,34 +29,31 @@
         <!-- hero image -->
       <v-col 
       cols="12"
-      class="ma-0 pa-0">
+      class="back ma-0 pa-0 back">
            <v-row
             align="center"
             justify="center"
-            class="h100 w100 pa-0 ma-0 hero"
+            class="h100 w100 pa-0 ma-0 hero back"
           >
             <v-card
             flat
             tile
             :height="heroH"
             
-            class="w100 hero">
+            class="w100 hero back">
 
               <!-- display on -->
 
                 <!-- lg and xl -->
 
 
-
-
                 <v-img
-                src="../assets/Hero.svg"
-                class="pa-0 ma-0 h100 w100">
-                  <v-img
-                  src="../assets/Hero-quote.svg"
-                  class="pa-0 ma-0 h100 w100 float-illus">
-                  </v-img>
-
+                lazy-src="../assets/loading.png"
+                src="../assets/heros.png"
+                class="pa-0 ma-0 h100 w100 d-flex justify-end align-end">
+                  <div>
+                    Officia eiusmod eiusmod sunt irure. Sit id fugiat amet sunt ut qui elit labore aliqua adipisicing exercitation aute nostrud. Ea id irure in reprehenderit ex qui excepteur consectetur proident eu officia esse amet eu. Tempor cupidatat consectetur ullamco eiusmod consectetur commodo.
+                  </div>
                 </v-img>
 
             
@@ -77,7 +74,7 @@
       
       <v-col
       cols="12"
-      class="ma-0 pa-1 pt-2 back ">
+      class="ma-0 pa-1 pt-5 back ">
       <v-row     
       :class="`ma-0 pa-0 ${margin}`"
       justify="space-between back"
@@ -86,6 +83,7 @@
       v-for="(section, index) in sections" :key="index"
       cols="6" sm="6" md="4" lg="2"
       class="ma-0 pa-1 pt-2 back">
+      <v-lazy>
       <router-link   :to='section.route'>
         <v-hover>
           <template v-slot="{ hover }">
@@ -123,12 +121,12 @@
                         :size="illusH"
                         tile>
 
-                          <v-img v-show="index == 0" src="../assets/archive.png"></v-img>
-                          <v-img v-show="index == 1" src="../assets/advisor.png"></v-img>
-                          <v-img v-show="index == 2" src="../assets/exam.png"></v-img>
-                          <v-img v-show="index == 3" src="../assets/konkur-0.png"></v-img>
-                          <v-img v-show="index == 4" src="../assets/classes.png"></v-img>
-                          <v-img v-show="index == 5" src="../assets/teacher.png"></v-img>
+                          <v-img v-show="index == 0" src="../assets/archive-min.png"></v-img>
+                          <v-img v-show="index == 1" src="../assets/advisor-min.png"></v-img>
+                          <v-img v-show="index == 2" src="../assets/exam-min.png"></v-img>
+                          <v-img v-show="index == 3" src="../assets/konkur-0-min.png"></v-img>
+                          <v-img v-show="index == 4" src="../assets/classes-min.png"></v-img>
+                          <v-img v-show="index == 5" src="../assets/teacher-min.png"></v-img>
                             
                         </v-avatar>
                       </div>
@@ -140,6 +138,7 @@
           </template>
          </v-hover>
         </router-link>
+        </v-lazy>
       </v-col>
       </v-row>
       </v-col>
@@ -177,13 +176,12 @@
               cols="12"
               v-for="i in 3" :key="i">
                <v-card
-                max-width="800"
+                max-width="1000"
                 class="mx-auto elevation-16"
-                
                 >
                 <v-list-item>
                 <v-avatar class="ml-3">
-                <v-img src="../assets/noor-logo-layer.png"></v-img>
+                <v-img src="../assets/noor-logo-layer-min.png"></v-img>
                 </v-avatar>
                 <v-list-item-content>
                 <v-list-item-title class="headline">Our Changing Planet</v-list-item-title>
@@ -192,11 +190,11 @@
                 </v-list-item>
 
                 <v-img
-                src="../assets/illus/hero full.png"
-                height="200"
+                src="../assets/illus/hero full-min.png"
+                height="300"
                 ></v-img>
 
-                <v-card-text>
+                <v-card-text >
                 Visit ten places on our planet that are undergoing the biggest changes today.
                 </v-card-text>
 
@@ -212,6 +210,7 @@
                 <v-expansion-panel-header
                 class="title"><span>More</span></v-expansion-panel-header>
                 <v-expansion-panel-content
+                class="back"
                 >
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                 </v-expansion-panel-content>
@@ -232,10 +231,17 @@
       cols="12"
       class="pa-0 ma-0" 
       >
+       <v-lazy 
+        v-model="isActive"
+        :options="{
+          threshold: .5
+        }"
+        min-height="200"
+        transition="fade-transition">
         <v-card
         flat
         class="h100 w100 py-12 pa-0 ma-0 section">
-        
+
             <v-row
             class="pa-0 ma-0"
             justify="center"
@@ -251,19 +257,19 @@
               </v-col>
 
               <!-- description (for loop used)-->
- 
+             
                 <v-col 
                 v-for="(description, index) in descriptions" :key="index"
                 cols="12" sm="6" md="4" lg="3"
                 >
                  <v-img
-                 :class="`elevation-16 pa-3 pt-0 ${animation[index]}`"
-                  src="../assets/illus/doodles-school-0.jpg"
+                 class="elevation-16 pa-3 pt-0 float-illus-reverse"
+                  src="../assets/doodles-school-0-min.jpg"
                   >
                   <v-card 
-                  class="elevation-8 orange lighten-5  op95  ma-5 mt-10 float-down-fast pa-0 d-flex">
+                  class="elevation-8 orange lighten-5  op95  ma-5 mt-10  pa-0 d-flex">
                     <v-card 
-                    class=" ma-5 op100 float-up-fast elevation-16">
+                    class=" ma-5 op100 float-illus  elevation-16">
 
                     <!-- icon -->
                       <div
@@ -273,19 +279,19 @@
                         size="100">
                           <v-img
                               v-show="index == 0"
-                              src="../assets/Teacher-1.png"
+                              src="../assets/Teacher-1-min.png"
                               alt="John"
                           >
                           </v-img>
                            <v-img
                               v-show="index == 1"
-                              src="../assets/parents.png"
+                              src="../assets/parents-min.png"
                               alt="John"
                           >
                           </v-img>
                            <v-img
                               v-show="index == 2"
-                              src="../assets/Organ.png"
+                              src="../assets/Organ-min.png"
                               alt="John"
                           >
                           </v-img>
@@ -312,11 +318,13 @@
                   </v-card>
                 </v-img>
               </v-col>
-
+            
             </v-row>
 
         </v-card>
+        </v-lazy>
       </v-col>
+      
 
 
 
@@ -336,16 +344,19 @@
       align="center"
       >
         <v-col
-        cols="6" md="4" lg="3" xl="2"
-        v-for="(medal, index) in 6" :key="index"
+        cols="12" md="4" lg="3" xl="2"
+        v-for="(medal, index) in 4" :key="index"
         >
         
           <!-- medal -->
           <div
           class="d-flex justify-center">
-            <v-icon size="100">
-              mdi-medal
-            </v-icon>
+            <v-avatar size="300" tile>
+              <v-img v-if="index == 0" src="../assets/medal0-min.png"></v-img>
+              <v-img v-else-if="index == 1" src="../assets/medal1-min.png"></v-img>
+              <v-img v-else-if="index == 2" src="../assets/medal2-min.png"></v-img>
+              <v-img v-else src="../assets/medal3-min.png"></v-img>
+            </v-avatar>
           </div>
 
           <!-- title -->
@@ -373,59 +384,15 @@
 
 
         <!-- footer options ( fops ) -->
-        <div
-        v-show="fopsHorizon"
-        color=""
-        height="80"
-        >
-        <v-img
-           height="80"
-           class="h100 pt-2"
-           src="../assets/illus/doodle-footer.png">
-          <div
-          class="w100 d-flex justify-center">
-            <div
-            class="w40 d-flex mx-5 justify-space-around">
-              <router-link v-for="(fop, index) in fops" :key="index" class="white--text" :to="fop.route">
-              <v-btn
-              height="60"
-              
-              @click="sheet = !sheet"
-              text
-              large>
-              
-                <div
-                class="h100 w100">
 
-                  <!-- fop icon -->
-                  <div
-                  class="d-block text-center mb-2">
-                    <v-icon
-                    size="30">
-                    {{fop.icon}}</v-icon>
-                  </div>
-                  
-                  <!-- fob title -->
-                  <div
-                  class="d-block text-center">
-                    <span>{{fop.title}}</span>
-                  </div>
-
-                </div>
-              
-              </v-btn>
-              </router-link>
-            </div>
-          </div>
-        </v-img>
-        </div>  
 
 
 
         <!-- Map -->
             <v-card
             :height="mapH"
-            class="d-flex justify-center ma-0 pa-0 h100"
+            class="d-flex justify-center orange lighten-4 ma-0 pa-0 h100"
+            flat
             tile>
               <v-row
               v-resize="mobile"
@@ -433,66 +400,16 @@
               justify="center"
               align="stretch">
                 <v-col
-                :cols="mapBP"
+                :cols="12"
                 class="ma-0 pa-0">
                   <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3443.57502456997!2d48.28267815106922!3d30.33460371167148!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3fc44f12eb39a3c7%3A0xc4ec16f6be22c4da!2sNoor%20Arvand%20Educational%20institution!5e0!3m2!1sen!2s!4v1578324126941!5m2!1sen!2s"
-                  class=" w100 h100 orange lighten-5"   
-                  color=""
+                  class=" w100 h100 deep-purple darken-4"   
                   >
                   </iframe>
                 </v-col>
 
                 <!-- side fops -->
-                <v-col 
-                v-show="!fopsHorizon"
-                cols="3"
-                class="pa-0 ma-0 w100 h100">
-                <v-img
-                :height="mapH"
-                class="h100"
-                src="../assets/illus/doodle-footer-v.png">
-                <div
-                  class="h100 w100">
-                    <v-row
-                    class="ma-0 pa-0 h100 w100"
-                    justify="center"
-                    align="center">
-                      <v-col
-                      v-for="(fop, index) in fops" :key="index"
-                      cols="12"
-                      class="w100 d-flex justify-center">
-                      <router-link class="white--text" :to="fop.route">
-                        <v-btn
-                          height="60"
-                          @click="sheet = !sheet"
-                          text
-                          class="pa-0 ma-0"
-                          large>
-                          <div
-                          class="h100 w100 ma-0 pa-0">
-
-                            <!-- fop icon -->
-                            <div
-                            class="d-block text-center ma-0 pa-0 mb-2 ">
-                              <v-icon
-                              size="30">
-                              {{fop.icon}}</v-icon>
-                            </div>
-                            
-                            <!-- fob title -->
-                            <div
-                            class="d-block text-center ma-0 pa-0">
-                              <span>{{fop.title}}</span>
-                            </div>
-
-                          </div>
-                        </v-btn>
-                      </router-link>
-                      </v-col>
-                    </v-row>
-                  </div>
-                </v-img>
-                </v-col>
+                
               </v-row>
             </v-card>  
 
@@ -509,7 +426,7 @@
            <v-img
            height="150"
            class="h100 py-5"
-           src="../assets/illus/doodle-footer.png">
+           src="../assets/doodle-footer-min.png">
              
                 <v-btn
                   v-for="icon in icons"
@@ -538,7 +455,7 @@
                     class="mb-n10"
                     >
                       <v-img
-                      src="../assets/MosbatSaz +saz-overlay-11.png">
+                      src="../assets/MosbatSaz +saz-overlay-11-min.png">
                       </v-img>
                     </v-avatar> 
                   </v-col>
@@ -575,7 +492,7 @@
 
       <v-sheet
       class="py-10 d-flex justify-end back" >
-
+        
         <v-btn
           class="my-n6 mx-n3 hidden-xs-only"
           fab
@@ -585,7 +502,9 @@
           color="pink"
           @click="dialog = !dialog"
         ><v-icon color="white">mdi-close</v-icon></v-btn>
+        
 
+        
         <v-btn
           class="my-10 mx-n3 hidden-sm-and-up"
           fab
@@ -596,7 +515,7 @@
           color="pink"
           @click="dialog = !dialog"
         ><v-icon color="white">mdi-close</v-icon></v-btn>
-         
+        
         <router-view class="rtl"></router-view>
         
         <!-- <component :is="c"></component> -->
@@ -680,6 +599,8 @@ export default {
     margin:'mx-12',
     mapBP:12, 
     dev:false,
+    isActive:false,
+    loading:true,
 
     sections:[
       {title:'Archive',img:'../assets/illus/undraw_Graduation_ktn0 (1).png', description:'this is a description', route:'/Archive'},
@@ -696,17 +617,7 @@ export default {
       {title:'Organizition',img:'../assets/Organ.png',color:'pink'},
     ],
 
-    animation:[
-      'float-up-fast',
-      'float-down-fast',
-      'float-up-fast'
-    ],
-
-    fops:[
-      {title:'CEO',icon:'mdi-glasses',route:'/Ceo'},
-      {title:'Contact',icon:'mdi-phone-classic',route:'/Contact'},
-      {title:'FAQ',icon:'mdi-frequently-asked-questions',route:'/Faq'},
-    ],      
+   
 
     icons: [
         'mdi-google-plus',
@@ -718,13 +629,17 @@ export default {
     mounted () {
       this.onResize(); // this function is mixin thats indicate the viewport
       this.mobile();  // this function makes the page responsive (horizontally)
+      this.loaded();
     },
  
     methods: {
+      loaded(){
+        this.loading = false;
+      },
       mobile(){
         if(this.viewport == 'xs'){ //xs
-          this.heroH = (window.innerHeight)*50/100
-          this.sectionH = (window.innerHeight)*15/100
+          this.heroH = (window.innerWidth)
+          this.sectionH = (window.innerWidth)/2
           this.fopsHorizon = false;
           this.mapBP = 9;
           this.mapH = 500;
@@ -733,8 +648,8 @@ export default {
 
         }
         else if(this.viewport == 'sm'){ //sm
-          this.heroH = (window.innerHeight)*40/100
-          this.sectionH = (window.innerHeight)*18/100
+          this.heroH = (950)*40/100
+          this.sectionH = (950)*18/100
           this.fopsHorizon = true;
           this.mapBP = 12;
           this.mapH = 400;
@@ -742,8 +657,8 @@ export default {
           this.margin ='mx-4';
         }
         else if(this.viewport == 'md'){ //md
-          this.heroH = (window.innerHeight)*55/100
-          this.sectionH = (window.innerHeight)*20/100
+          this.heroH = (950)*55/100
+          this.sectionH = (950)*20/100
           this.fopsHorizon = true;
           this.mapBP = 12;
           this.mapH = 400;
@@ -751,8 +666,8 @@ export default {
           this.margin ='mx-6';
         }
         else{ //lg and xl
-          this.heroH = (window.innerHeight)*70/100
-          this.sectionH = (window.innerHeight)*25/100
+          this.heroH = (950)*70/100
+          this.sectionH = (950)*25/100
           this.fopsHorizon = true;
           this.mapBP = 12;
           this.mapH = 400;

@@ -25,7 +25,7 @@
               <v-img
               contain
               class=""
-              src="../assets/illus/class.png">  
+              src="../assets/illus/class-min.png">  
               </v-img>
             </v-col>
 
@@ -79,7 +79,7 @@
                 </v-list-item>
 
                 <v-img
-                src="../assets/illus/hero full.png"
+                src="../assets/illus/hero full-min.png"
                 height="194"
                 ></v-img>
 
