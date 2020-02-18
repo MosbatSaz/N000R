@@ -1,27 +1,35 @@
 <template>
     <div
-    class="transparent ma-0 pa-0 mt-12 w100 d-flex justify-center align-center">
+    class="transparent ma-0 pa-0 py-12 w100 ">
+                <div class="d-flex justify-center"
+                >
+                <v-avatar
+                size="250">
+                    <v-img
+                    class="float-illus"
+                    src="../assets/ceo.png">
+
+                    </v-img>
+                </v-avatar>
+                </div>
                 <v-card
-                v-resize="onResize"
-                :height="(viewport == 'xs') ? 650 : 550"
-                
                 flat
-                class="transparent  mx-5 "
+                class="transparent mx-5 mt-5"
                 >
 
                     <v-card
                     flat
-                    
                     class="transparent op95 h100 w100 d-flex justify-center align-start">
                         <v-card
+                        width="500"
                         max-width="800"
                         shaped
-                        class="w100 rtl  accent-2 lighten-1 mx-5 elevation-16"
+                        class="w100 rtl  accent-2 lighten-1 mx-5 elevation-24"
                         
                         >
                         <v-list-item>
-                        <v-avatar size="100" class="ml-3 my-3">
-                        <v-img src="../assets/ceo-min.png"></v-img>
+                        <v-avatar size="80" class="ml-3 my-3">
+                        <v-img src="../assets/noor-colorful-min.png"></v-img>
                         </v-avatar>
                         <v-list-item-content>
                         <v-list-item-title class="headline">Mis Mir Hoseini</v-list-item-title>
@@ -32,12 +40,10 @@
                         <v-tabs
                         v-model="toggle"
                         vertical
+                        flat
                         dark
-                        color="black"
-                        slider-color="white"
-                        background-color=" grey  "
-                        
-                        class="elevation-2"
+                        color="white"
+                        background-color=" teal  "
                         >
                             <v-tabs-slider></v-tabs-slider>
 
@@ -65,6 +71,10 @@
                                 <span class="body-1 txt black--text" v-if="index == 0">
                                     Amet exercitation magna enim laborum qui in reprehenderit cupidatat elit.
                                     Amet exercitation magna enim laborum qui in reprehenderit cupidatat elit.
+                                     Amet exercitation magna enim laborum qui in reprehenderit cupidatat elit.
+                                    Amet exercitation magna enim laborum qui in reprehenderit cupidatat elit.
+                                     Amet exercitation magna enim laborum qui in reprehenderit cupidatat elit.
+                                    Amet exercitation magna enim laborum qui in reprehenderit cupidatat elit.
                                 </span>
                                 <span class="ltr" v-else>
                                     <div class="my-3" v-for="(icon, index) in icons" :key="index">
@@ -91,7 +101,6 @@
 </template>
 
 <script>
-import Resize from '../mixins/resize'
 export default {
     data :  () => ({
         toggle:null,
@@ -112,12 +121,7 @@ export default {
         //
     },
     
-    mixins:[Resize],
 
-    mounted () {
-      this.onResize(); // this function is mixin thats indicate the viewport
-      this.getWH();
-    },
 
 }
 </script>

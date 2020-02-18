@@ -11,8 +11,8 @@ import Ceo from '../components/Ceo'
 import Contact from '../components/Contact'
 import Faq from '../components/Faq'
 import Comment from '../components/Comment'
-// import Admin from '../views/Admin.vue'
-// import AdminPanel from '../views/Admin-panel.vue'
+import Admin from '../views/Admin.vue'
+import AdminPanel from '../views/Admin-panel.vue'
 
 Vue.use(VueRouter)
 
@@ -69,16 +69,16 @@ const routes = [
     }  
   ]
   },
-  // {
-  //   path: '/Admin',
-  //   name: 'Admin',
-  //   component:Admin
-  // },
-  // {
-  //   path: '/AdminPanel',
-  //   name: 'AdminPanel',
-  //   component:AdminPanel
-  // }
+  {
+    path: '/Admin',
+    name: 'Admin',
+    component:Admin
+  },
+  {
+    path: '/AdminPanel',
+    name: 'AdminPanel',
+    component:AdminPanel
+  }
 ]
 
 
