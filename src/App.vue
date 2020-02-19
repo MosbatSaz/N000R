@@ -55,11 +55,8 @@ a{
 
 
 /* height  */
-.h100v{
-    height: 100vh;
-}
+.h100v{ height: 100vh}
 .h100{height: 100%}
-.minh700{min-height:700}
 .h90{height: 90%}
 .h80{height: 80%}
 
@@ -68,6 +65,27 @@ a{
 .w100{width: 100%}
 .w90{width: 90%}
 .w80{width: 80%}
+
+
+
+::-webkit-scrollbar{
+  width: 15px;
+}
+
+::-webkit-scrollbar-track{
+  background: #f2f1f0;
+  border-radius: 15px;
+}
+
+::-webkit-scrollbar-thumb{
+  background: rgb(16, 7, 53);
+  border-radius: 15px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+  background: rgb(255, 1, 119);
+}
+
 
 
 /* animation */
