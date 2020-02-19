@@ -1,29 +1,20 @@
 <template>
     <div
-    class="transparent ma-0 pa-0 ltr w100 ">
-                <div class="d-flex justify-center"
-                >
-                <v-avatar
-                size="250">
-                    <v-img
-                    class="float-illus"
-                    src="../assets/contact.png">
-
-                    </v-img>
-                </v-avatar>
-                </div>
+    class="transparent ma-0 pa-0 mt-12  w100 d-flex justify-center align-center">
                 <v-card
+                v-resize="onResize"
+
                 tile
-                flat
-                class="mx-5"
+                falt
+                class=" transparent mx-5 mb-n12 "
                 >
 
-                <v-list-item class="back">
+                <v-list-item class="">
 
-                <v-list-item-content >
+                <v-list-item-content>
                 <!-- <v-list-item-title class="display-1 text-center pt-5">Contact</v-list-item-title> -->
                 <v-list-item-subtitle
-                class="pb-12  indigo--text">
+                class="pb-12 pt-5 white--text">
 
                     <div 
                     v-for="i in 2" :key="i"
@@ -84,6 +75,12 @@ export default {
 
     methods:{
         //
+    },
+
+
+    mounted () {
+      this.onResize(); // this function is mixin thats indicate the viewport
+      this.getWH();
     },
 }
 </script>

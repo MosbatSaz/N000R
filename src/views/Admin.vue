@@ -50,10 +50,10 @@
       <div
       class="w100 d-flex mx  justify-center ma-0  pa-0 mt-5">
         <v-btn
-        class="indigo darken-3 lighten-1 elevation-24 white--text headline text-capitalize"
+        class="pink elevation-24 white--text headline text-capitalize"
         width="200"
         height="50">
-                   sign in
+        sign up
         </v-btn>
       </div> 
 
@@ -71,7 +71,7 @@
           size="75"
           tile>
             <v-img
-            src="../assets/noor-colorful-min.png">
+            src="../assets/noor-logo-white.png">
             </v-img>
           </v-avatar>
           </v-btn>
@@ -84,12 +84,10 @@
           width="75"
           class=" ml-12 transparent title white--text">
           <v-avatar
-          tile
           size="75"
-          color=""
-          >
-            <v-img 
-            src="../assets/MosbatSaz +saz-overlay-min.png">
+          tile>
+            <v-img
+            src="../assets/MosbatSaz +saz-overlay-11.png">
             </v-img>
           </v-avatar>
           </v-btn>
@@ -121,7 +119,7 @@ export default {
 <style scoped>
 
 .gradiant{
-  background-image: linear-gradient(to bottom,#ffffff, #e22c78);
+  background-image: linear-gradient(to bottom,#ec407a, #141b69);
 }
 
 

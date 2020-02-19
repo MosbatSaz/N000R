@@ -1,11 +1,7 @@
 <template>
-    <v-card
-    flat
-    class=" rtl ma-0 back pa-0 w100 d-flex justify-center align-center">
-    <v-card
-    max-width="500"
-    flat
-    class=" w80 back h100">
+    <div
+    class=" rtl ma-0 pa-0 h80 w100">
+
      <div
         class="float-illus d-flex justify-center ma-0 my-6 pa-0">
             <v-avatar
@@ -28,7 +24,7 @@
         >
             <template v-slot:label>
                 <div>
-                Tell Me Some Thing  <span class="pink--text font-weight-black"> : ) </span>
+                Tell Me What You Think About  <span class="pink--text font-weight-black"> : ) </span>
                 </div>
             </template>
         </v-textarea>
@@ -39,7 +35,7 @@
             <v-text-field
             append-icon="mdi-phone"
             class="darken-3  mx-6 white--text  text-capitalize"
-            max-width="300"
+            width="300"
             color="deep-purple darken-3"
             solo
             placeholder="enter your number"
@@ -50,15 +46,14 @@
         <div
         class="d-flex justify-center ma-0 mt-0 pa-0">
             <v-btn
-            class="op95 deep-purple w80 accent-3 elevation-16 white--text headline text-capitalize"
-            max-width="300"
+            class="op95 deep-purple  darken-3 elevation-16 white--text headline text-capitalize"
+            width="300"
 
             height="50">
             Submit
             </v-btn>
         </div> 
-        </v-card>
-    </v-card>
+    </div>
 </template>
 
 <script>

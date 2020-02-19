@@ -31,7 +31,7 @@
             >
             </v-img>
           </v-avatar>
-      </v-btn>
+          </v-btn>
 
 
         <!-- use in dev mode -->
@@ -54,6 +54,53 @@
       <!-- TEST  use this testing btn to toggle navigation drawer statement -->
       <!-- <v-btn  fixed icon height="80" width="80" class="pink white--text textFade" @click="switching()"> Toggle </v-btn> -->
 
+    <v-hover>
+        <template v-slot="{ hover }">
+          <v-fab-transition>
+          <v-btn
+          v-resize="mobile"
+          v-show="false"
+          class="mt-10"
+          :elevation="hover ? 12 : 5"
+          text
+          fixed
+          absolute
+          top
+          right
+          fab
+          @click="toggledrawer()"
+          :height="navH"
+          :width ="navH">
+          <v-avatar
+          class="white accent-3"
+            :size="navH-10">
+            <v-avatar
+              tile
+             class="white accent-3"
+            :size="navH-30">
+ 
+
+            
+            <!-- <v-icon
+            :size="navH-20"
+            color="back"
+            >mdi-menu</v-icon> -->
+
+            <v-img
+                src="../assets/menu.png"
+                alt="Noor"
+            >
+            </v-img>
+
+            
+            </v-avatar>
+           </v-avatar>
+          </v-btn>
+          </v-fab-transition>
+        </template>
+    </v-hover>
+  
+
 
       <v-speed-dial
       v-model="fab"
@@ -62,6 +109,8 @@
       top
       right
       :direction="direction"
+      :open-on-hover="hover"
+      :transition="transition"
     >
       <template v-slot:activator>
       <v-hover>
@@ -74,6 +123,7 @@
           :elevation="hover ? 12 : 5"
           text
           fab
+          @click="s = !s"
           :height="navH"
           :width ="navH">
           <v-avatar
@@ -110,19 +160,16 @@
         </template>
       </v-hover>
       </template>
-      
        <v-btn
-          v-for="(btm, index) in btms" :key="index"
+          v-for="(i, index) in 3" :key="index"
           v-resize="mobile"
           v-show="true"
-          @click="openDialog()"
           class=""
           :elevation="hover ? 12 : 5"
           text
           fab
           :height="navH-10"
           :width ="navH-10">
-          <router-link :to="btm">
           <v-avatar
           class="white accent-3"
             :size="navH-20">
@@ -145,14 +192,8 @@
             >
             </v-img>
             <v-img
-                v-else-if="index == 2"
-                src="../assets/faq.png"
-                alt="Noor"
-            >
-            </v-img>
-            <v-img
                 v-else
-                src="../assets/chat.png"
+                src="../assets/faq.png"
                 alt="Noor"
             >
             </v-img>
@@ -160,9 +201,7 @@
             
             </v-avatar>
            </v-avatar>
-           </router-link>
           </v-btn>  
-          
     </v-speed-dial>
 
 
@@ -307,7 +346,6 @@
 // import Contact from '../components/Contact'
 // import Faq from '../components/Faq'
 // import Comment from '../components/Comment'
-import { bus } from '../main'
 import Resize from '../mixins/resize'
 export default {
 
@@ -330,26 +368,53 @@ export default {
     logoH:120,
     fingerH:80,
     dev:false,
-    btmTarget:'',
     //fab options
     direction: 'bottom',
     fab: false,
+    fling: true,
+    hover: false,
+    tabs: null,
+    top: true,
+    right: true,
+    bottom: true,
+    left: false,
+    transition: 'slide-x-reverse-transition',
 
 
     fops:[
-      {title:'CEO',icon:'mdi-glasses',color:"orange "},
-      {title:'Contact',icon:'mdi-phone-classic',color:"deep-purple accent-3"},
-      {title:'FAQ',icon:'mdi-frequently-asked-questions',color:"pink"},
-    ], 
-    
-    btms:[
-      '/Ceo',
-      '/Contact',
-      '/Faq',
-      '/Comment'
-    ]
+    {title:'CEO',icon:'mdi-glasses',color:"orange "},
+    {title:'Contact',icon:'mdi-phone-classic',color:"deep-purple accent-3"},
+    {title:'FAQ',icon:'mdi-frequently-asked-questions',color:"pink"},
+    ],   
 
   }),
+
+  computed: {
+      activeFab () {
+        switch (this.tabs) {
+          case 'one': return { class: 'purple', icon: 'account_circle' }
+          case 'two': return { class: 'red', icon: 'edit' }
+          case 'three': return { class: 'green', icon: 'keyboard_arrow_up' }
+          default: return {}
+        }
+      },
+    },
+
+        watch: {
+      top (val) {
+        this.bottom = !val
+      },
+      right (val) {
+        this.left = !val
+      },
+      bottom (val) {
+        this.top = !val
+      },
+      left (val) {
+        this.right = !val
+      },
+    },
+
   //use updated lifecycle hook to sync sign-btn (on the top right hand side)
   //with the show/hide state of drawer, notice if you dont use updated the btn will
   // desapear as you drag to close the drawer in the mobile viewport
@@ -360,11 +425,7 @@ export default {
   },
 
   methods:{
-
-    openDialog(){
-      bus.$emit('openDialog', true)
-    },
-
+    
     //this method use make the drawer vertically responsive
     mobile(){
     if(this.viewport == 'xs'){ //xs

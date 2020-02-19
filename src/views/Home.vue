@@ -27,10 +27,6 @@
       <!-- hero image -->
 
         <!-- hero image -->
-
-
-
-        
       <v-col 
       cols="12"
       class="back ma-0 pa-0 back">
@@ -52,18 +48,17 @@
 
 
                 <v-img
+                lazy-src="../assets/loading.png"
                 src="../assets/heros.png"
-                :class="`pa-0 ma-0 h100 w100 d-flex align-end ${viewport == 'xs' ? 'justify-center' : 'justify-end'}`">
-                  <div class="rtl text-center mr-12">
-                    <v-card
-                    flat
-                    class="display-1 font-weight-light transparent"
-                    :max-width="sectionH+100"
-                    >
-                    Courses Classes and Exam All Here       
-                    </v-card>
+                class="pa-0 ma-0 h100 w100 d-flex justify-end align-end">
+                  <div>
+                    Officia eiusmod eiusmod sunt irure. Sit id fugiat amet sunt ut qui elit labore aliqua adipisicing exercitation aute nostrud. Ea id irure in reprehenderit ex qui excepteur consectetur proident eu officia esse amet eu. Tempor cupidatat consectetur ullamco eiusmod consectetur commodo.
                   </div>
                 </v-img>
+
+            
+                
+         
 
              </v-card>  
           </v-row>
@@ -72,6 +67,9 @@
 
 
 
+
+
+    
       <!-- section cards use for loop-->
       
       <v-col
@@ -488,30 +486,27 @@
  
       <v-dialog
         v-model="dialog"
-        :fullscreen="viewport == 'xs'"
-        :overlay-opacity="opacity"
-        class="pa-0 ma-0 back op95 "
+        fullscreen
+        class="pa-0 ma-0 back "
       >
 
       <v-sheet
-      min-height="1000"
-      class="d-flex justify-end back" >
-        
+      class="py-10 d-flex justify-end back" >
         
         <v-btn
-          class="my-n6 mx-n3 hidden-xs-only elevation-8"
+          class="my-n6 mx-n3 hidden-xs-only"
           fab
           fixed
           absolute
           depressed
           color="pink"
           @click="dialog = !dialog"
-        ><router-link to="/"><v-icon size="30" color="white">mdi-arrow-right</v-icon></router-link></v-btn>
+        ><v-icon color="white">mdi-close</v-icon></v-btn>
         
 
         
         <v-btn
-          class="my-10 mx-n3 hidden-sm-and-up elevation-8"
+          class="my-10 mx-n3 hidden-sm-and-up"
           fab
           fixed
           absolute
@@ -519,8 +514,7 @@
           depressed
           color="pink"
           @click="dialog = !dialog"
-        ><router-link to="/"><v-icon size="30" color="white">mdi-arrow-right</v-icon></router-link></v-btn>
-        
+        ><v-icon color="white">mdi-close</v-icon></v-btn>
         
         <router-view class="rtl"></router-view>
         
@@ -539,8 +533,6 @@
       v-model="sheet" 
       >
       <v-sheet class="d-flex justify-center" :height="(viewport == 'xs') ? 600 : 500">
-        <v-img
-        src="../assets/illus/hero full.png">
         <v-btn
           class="my-6 hidden-xs-only"
           depressed
@@ -561,11 +553,8 @@
           @click="sheet = !sheet"
         ><v-icon color="white">mdi-close</v-icon></v-btn>
 
-      <router-link :to='btmRoute'>
         <router-view ></router-view>
-      </router-link>  
 
-      </v-img>
       </v-sheet>
     </v-bottom-sheet>
 
@@ -583,7 +572,6 @@
 // import Classes from '../components/Classes'
 // import Teachers from '../components/Teachers'
 // import Exam from '../components/Exam'
-import { bus } from '../main'
 import Resize from '../mixins/resize'
 
 export default {
@@ -612,7 +600,7 @@ export default {
     mapBP:12, 
     dev:false,
     isActive:false,
-    opacity:.8,
+    loading:true,
 
     sections:[
       {title:'Archive',img:'../assets/illus/undraw_Graduation_ktn0 (1).png', description:'this is a description', route:'/Archive'},
@@ -629,31 +617,25 @@ export default {
       {title:'Organizition',img:'../assets/Organ.png',color:'pink'},
     ],
 
-    icons:[
+   
+
+    icons: [
         'mdi-google-plus',
         'mdi-telegram',
         'mdi-instagram',
       ],
       
-
   }),
-
-    created(){
-      bus.$on('openDialog', (data) =>{
-        this.dialog = data;
-      })
-    },
-
-
     mounted () {
-      
-
-
       this.onResize(); // this function is mixin thats indicate the viewport
       this.mobile();  // this function makes the page responsive (horizontally)
+      this.loaded();
     },
  
     methods: {
+      loaded(){
+        this.loading = false;
+      },
       mobile(){
         if(this.viewport == 'xs'){ //xs
           this.heroH = (window.innerWidth)
@@ -698,7 +680,6 @@ export default {
   mixins:[Resize] // viewport indicator mixin
 }
 </script>
-
 <style scoped>
 
 .hero{

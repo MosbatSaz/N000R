@@ -90,7 +90,7 @@
                     <v-btn
                     class="mt-3 hidden-xs-only elevation-16 float-illus"
                     fab
-                    left
+                    right
                     absolute
                     depressed
                     color="pink"
@@ -100,9 +100,9 @@
                     </v-avatar></v-btn>
 
                     <v-btn
-                    class="mt-3 ml-12 hidden-xs-only "
+                    class="mt-3 mr-12 hidden-xs-only "
                     fab
-                    left
+                    right
                     text
                     absolute
                     depressed
@@ -115,7 +115,7 @@
                     <v-btn
                     class="mt-12 hidden-sm-and-up elevation-16 float-illus"
                     fab
-                    left
+                    right
                     absolute
                     depressed
                     color="pink"
@@ -125,9 +125,9 @@
                     </v-avatar></v-btn>
 
                     <v-btn
-                    class="mt-12 ml-12 hidden-sm-and-up"
+                    class="mt-12 mr-12 hidden-sm-and-up"
                     fab
-                    left
+                    right
                     text
                     absolute
                     depressed
@@ -189,40 +189,29 @@
 
   <div v-show="!news" class="back ma-0 pa-0 h100 w100">
     <div class="d-flex justify-center">
-
-
-                <div class="py-12 w100 d-flex justify-center">
-                <v-card
-                max-width="800"
-                class="h100 w90 elevation-16 ma-2"
-                
-                >
-                <v-list-item>
-                <v-avatar class="ml-3">
-                <v-img class="float-illus" src="../assets/noorino.png"></v-img>
-                </v-avatar>
-                <v-list-item-content>
-                <v-list-item-title class="headline">By Phone Number</v-list-item-title>
-                <v-list-item-subtitle>at date</v-list-item-subtitle>
-                </v-list-item-content>
-                </v-list-item>
-
-                <v-img
-                src="../assets/divider.png"
-                height="20"
-                 ></v-img>
-
-                <v-card-text>
-                Visit ten places on our planet that are undergoing the biggest changes today.Visit ten places on our planet that are undergoing the biggest changes today.
-                Visit ten places on our planet that are undergoing the biggest changes today.Visit ten places on our planet that are undergoing the biggest changes today.
-                Visit ten places on our planet that are undergoing the biggest changes today.Visit ten places on our planet that are undergoing the biggest changes today.
-                Visit ten places on our planet that are undergoing the biggest changes today.Visit ten places on our planet that are undergoing the biggest changes today.
-                Visit ten places on our planet that are undergoing the biggest changes today.Visit ten places on our planet that are undergoing the biggest changes today.
-                </v-card-text>
-                </v-card>
-                </div>
+      <v-avatar 
+      size="">
+        <v-img src=""></v-img>
+      </v-avatar>
     </div>
   </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
   <!-- Navigation -->
