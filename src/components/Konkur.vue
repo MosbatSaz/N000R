@@ -1,6 +1,6 @@
 <template>
     <div
-    class=" ltr d-flex justify-center w100 pa-0 ma-0 back">
+    class=" ltr d-flex justify-center w100 pa-0 ma-0 my-12  back">
     
         <!-- back card -->
         <v-card

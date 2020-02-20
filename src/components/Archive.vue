@@ -1,12 +1,12 @@
 <template>
 <v-card
 flat
-class="w100 h100 pa-0 ma-0 py-2 back d-flex justify-center align-center">
+class="w100 h100 pa-0 ma-0 my-12  back d-flex justify-center align-center">
   <v-card
   v-resize="setH"
   tile
   falt
-  class=" w80 h100 elevation-24"
+  class=" w80 h80 elevation-24"
   >
 
   <v-carousel 

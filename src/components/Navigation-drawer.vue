@@ -13,7 +13,7 @@
 
      <v-btn
           v-resize="mobile"
-          class="mt-8"
+          class="mt-10"
           text
           disabled
           fixed
@@ -62,7 +62,7 @@
       top
       right
       :direction="direction"
-    >
+       >
       <template v-slot:activator>
       <v-hover>
         <template v-slot="{ hover }">

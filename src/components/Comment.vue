@@ -20,14 +20,15 @@
 
 
         <v-textarea
-        v-model="bio"
-        
+        v-model="comment.comment"
+        flat
+        outlined
         color="back"
         class="mx-6"
         solo
         >
             <template v-slot:label>
-                <div>
+                <div class="rtl">
                 Tell Me Some Thing  <span class="pink--text font-weight-black"> : ) </span>
                 </div>
             </template>
@@ -37,6 +38,39 @@
         <div
         class="d-flex justify-center ma-0 mt-0 pa-0">
             <v-text-field
+            v-model="comment.firstName"
+            flat
+            outlined
+            class="darken-3  mx-6 white--text  text-capitalize"
+            max-width="300"
+            color="deep-purple darken-3"
+            solo
+            placeholder="First Name"
+            >
+            </v-text-field>
+        </div> 
+
+        <div
+        class="d-flex justify-center ma-0 mt-0 pa-0">
+            <v-text-field
+            v-model="comment.lastName"
+            flat
+            outlined
+            class="darken-3  mx-6 white--text  text-capitalize"
+            max-width="300"
+            color="deep-purple darken-3"
+            solo
+            placeholder="Last Name"
+            >
+            </v-text-field>
+        </div> 
+
+        <div
+        class="d-flex justify-center ma-0 mt-0 pa-0">
+            <v-text-field
+            v-model="comment.phoneNumber"
+            flat
+            outlined
             append-icon="mdi-phone"
             class="darken-3  mx-6 white--text  text-capitalize"
             max-width="300"
@@ -52,7 +86,7 @@
             <v-btn
             class="op95 deep-purple w80 accent-3 elevation-16 white--text headline text-capitalize"
             max-width="300"
-
+            @click="submit()"
             height="50">
             Submit
             </v-btn>
@@ -62,9 +96,34 @@
 </template>
 
 <script>
+import axios from 'axios';
 export default {
     data: () => ({
         bio: '',
-    })
+        comment:{
+
+            firstName:'',
+            lastName:'',
+            phoneNumber:null,
+            comment:''
+
+        },
+    }),
+
+    methods:{
+        submit(){
+            axios
+                .post('', this.comment)
+                .then(response => {
+                    response;
+                    this.comment.firstName = ''
+                    this.comment.lastName  = ''
+                    this.comment.phoneNumber = ''
+                    this.comment.comment = ''
+                })
+
+        }
+    }
+    
 }
 </script>

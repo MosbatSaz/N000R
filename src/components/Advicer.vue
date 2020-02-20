@@ -1,6 +1,6 @@
 <template>
     <div
-    class="  pa-0 ma-0  w100">
+    class="  pa-0 ma-0 my-12 w100">
         <div 
         class="text-center w100 display-3 mb-12">
           Advicor

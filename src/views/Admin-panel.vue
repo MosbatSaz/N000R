@@ -191,19 +191,19 @@
     <div class="d-flex justify-center">
 
 
-                <div class="py-12 w100 d-flex justify-center">
+                <div v-for="(comment, index) in comments" :key="index" class="py-12 w100 d-flex justify-center">
                 <v-card
                 max-width="800"
                 class="h100 w90 elevation-16 ma-2"
                 
                 >
                 <v-list-item>
-                <v-avatar class="ml-3">
-                <v-img class="float-illus" src="../assets/noorino.png"></v-img>
+                <v-avatar class="ml-3 float-illus">
+                <v-img src="../assets/noorino.png"></v-img>
                 </v-avatar>
                 <v-list-item-content>
-                <v-list-item-title class="headline">By Phone Number</v-list-item-title>
-                <v-list-item-subtitle>at date</v-list-item-subtitle>
+                <v-list-item-title class="headline">By {{ comment.firstName }} {{ comment.lastName }}</v-list-item-title>
+                <v-list-item-subtitle>Posted at {{comment.date}}</v-list-item-subtitle>
                 </v-list-item-content>
                 </v-list-item>
 
@@ -213,11 +213,7 @@
                  ></v-img>
 
                 <v-card-text>
-                Visit ten places on our planet that are undergoing the biggest changes today.Visit ten places on our planet that are undergoing the biggest changes today.
-                Visit ten places on our planet that are undergoing the biggest changes today.Visit ten places on our planet that are undergoing the biggest changes today.
-                Visit ten places on our planet that are undergoing the biggest changes today.Visit ten places on our planet that are undergoing the biggest changes today.
-                Visit ten places on our planet that are undergoing the biggest changes today.Visit ten places on our planet that are undergoing the biggest changes today.
-                Visit ten places on our planet that are undergoing the biggest changes today.Visit ten places on our planet that are undergoing the biggest changes today.
+                  {{comment.comment}}
                 </v-card-text>
                 </v-card>
                 </div>
@@ -227,127 +223,115 @@
 
   <!-- Navigation -->
 
-    <v-navigation-drawer
-      expand-on-hover
-      height="410"
-      app
+    <v-speed-dial
+      v-model="fab"
+      absolute
       fixed
-      permanent
+      top
       right
-      class="hidden-xs-only nav elevation-1 ltr"
-      width="200"
-    >
-    <div
-    class="d-flex justify-end align-center">
-      <span class="display-2 deep-purple--text text--darken-4 font-weight-thin">Noor</span>
-      <v-avatar
-      size="80"
-      class="ml-2"
-      >
-        <img src="../assets/noor-colorful.png">
-      </v-avatar>
-    </div>
+      :direction="direction"
+       >
+      <template v-slot:activator>
+      <v-hover>
+        <template v-slot="{ hover }">
+          <v-btn
+          v-model="fab"
+          v-resize="mobile"
+          v-show="true"
+          class="mb-n3"
+          :elevation="hover ? 12 : 5"
+          text
+          fab
+          :height="navH"
+          :width ="navH">
+          <v-avatar
+          class="white accent-3"
+            :size="navH-10">
+            <v-avatar
+              tile
+             class="white accent-3"
+            :size="navH-30">
+ 
 
-      <v-divider class="my-1"></v-divider>
+            
+            <v-img
+                v-if="fab"
+                src="../assets/more.png"
+                alt="Noor"
+            >
+            </v-img>
+            
+
+            
+            <v-img 
+                v-else
+                src="../assets/menu.png"
+                alt="Noor"
+            >
+            </v-img>
+            
+
+            
+            </v-avatar>
+           </v-avatar>
+          </v-btn>
+        </template>
+      </v-hover>
+      </template>
       
-    <div
-    v-for="(btn, index) in 4" :key="index"
-    class="d-flex  justify-end">      
        <v-btn
-          depressed
-          fab 
-          :ripple="false"
-          height="75"
-          width="200"
-          @click="btnFunction(index)"
-          class=" mr-3 transparent title white--text d-flex justify-end">
-
-          <div>
-          <span v-if="index == 0" class="deep-purple--text text--darken-4">News</span>
-          <span v-else-if="index == 1" class="deep-purple--text text--darken-4">Comment</span>
-          <span v-else-if="index == 2" class="deep-purple--text text--darken-4">More</span>
-          <span v-else class="deep-purple--text text--darken-4">Exit</span>
+          v-for="(tool, index) in 3" :key="index"
+          v-resize="mobile"
+          v-show="true"
+          @click="btnFunction()"
+          class=""
+          :elevation="hover ? 12 : 5"
+          text
+          fab
+          :height="navH-10"
+          :width ="navH-10">
+          <router-link :to="btm">
           <v-avatar
-          size="50"
-          class="ml-5"
-          tile
-          >
-
-
-            <v-img 
-            v-show="index == 0"
-            src="../assets/news.png">
-            </v-img>
-
+          class="white accent-3"
+            :size="navH-20">
+            <v-avatar
+              tile
+             class="white accent-3"
+            :size="navH-40">
+ 
 
             <v-img
-            v-show="index == 1"
-            src="../assets/comments.png">
+                v-if="index == 0"
+                src="../assets/ceo (1).png"
+                alt="Noor"
+            >
             </v-img>
-
-             <v-img
-             v-show="index == 2"
-            src="../assets/more.png">
-            </v-img>
-
             <v-img
-             v-show="index == 3"
-            src="../assets/logout.png">
+                v-else-if="index == 1"
+                src="../assets/contact.png"
+                alt="Noor"
+            >
+            </v-img>
+            <v-img
+                v-else-if="index == 2"
+                src="../assets/faq.png"
+                alt="Noor"
+            >
+            </v-img>
+            <v-img
+                v-else
+                src="../assets/chat.png"
+                alt="Noor"
+            >
             </v-img>
 
-          </v-avatar>
-          </div>
+            
+            </v-avatar>
+           </v-avatar>
+           </router-link>
+          </v-btn>  
           
-        </v-btn>
-    </div>
-
-
-    </v-navigation-drawer>
-
-
-  <v-bottom-navigation
-    fixed
-    bottom
-    :ripple="false"
-    height="70"
-    class="hidden-sm-and-up"
-  >
-        <v-btn
-          v-for="(btn, index) in 4" :key="index"
-          depressed
-          fab 
-          height="70"
-          width="70"
-          class=" transparent mx-2 title white--text">
-          <v-avatar
-          size="50"
-          tile
-          @click="btnFunction(index)">
-
-            <v-img 
-            v-show="index == 0"
-            src="../assets/news.png">
-            </v-img>
-
-            <v-img
-            v-show="index == 1"
-            src="../assets/comments.png">
-            </v-img>
-
-             <v-img
-             v-show="index == 2"
-            src="../assets/more.png">
-            </v-img>
-
-            <v-img
-             v-show="index == 3"
-            src="../assets/logout.png">
-            </v-img>
-
-          </v-avatar>
-        </v-btn>
-
-  </v-bottom-navigation>
+    </v-speed-dial>
 
 
 
@@ -411,6 +395,7 @@ export default {
     news:true,
     sheet:false,
     logout:false,
+
     posts:[
       {number:1,hidden:false},
       {number:2,hidden:false},
@@ -418,6 +403,16 @@ export default {
       {number:4,hidden:false},
       {number:5,hidden:false},
       {number:6,hidden:false},
+    ],
+
+    comments:[
+      {
+        firstName:'nobuddy',
+        lastName:'nobuddyian',
+        phoneNumber:'0930 000 0000',
+        comment:'Visit ten places on our planet that are undergoing the biggest changes today.Visit ten places on our planet that are undergoing the biggest changes today.Visit ten places on our planet that are undergoing the biggest changes today.Visit ten places on our planet that are undergoing the biggest changes today.',           
+        date:'4:42 PM 2/19/2020',
+      }
     ]
   }),
 

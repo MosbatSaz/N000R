@@ -176,7 +176,7 @@
 
               <v-col
               cols="12"
-              v-for="i in 3" :key="i">
+              v-for="(n, index) in news" :key="index">
                <v-card
                 max-width="1000"
                 class="mx-auto elevation-16"
@@ -186,18 +186,18 @@
                 <v-img src="../assets/noor-logo-layer-min.png"></v-img>
                 </v-avatar>
                 <v-list-item-content>
-                <v-list-item-title class="headline">Our Changing Planet</v-list-item-title>
+                <v-list-item-title class="headline">{{n.title}}</v-list-item-title>
                 <v-list-item-subtitle>by Noor</v-list-item-subtitle>
                 </v-list-item-content>
                 </v-list-item>
 
                 <v-img
-                src="../assets/illus/hero full-min.png"
+                :src="n.img"
                 height="300"
-                ></v-img>
+                >{{news}}</v-img>
 
                 <v-card-text >
-                Visit ten places on our planet that are undergoing the biggest changes today.
+                {{n.brief}}
                 </v-card-text>
 
 
@@ -214,7 +214,7 @@
                 <v-expansion-panel-content
                 class="back"
                 >
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                  {{n.text}}
                 </v-expansion-panel-content>
                 </v-expansion-panel>
                 </v-expansion-panels>
@@ -585,6 +585,7 @@
 // import Exam from '../components/Exam'
 import { bus } from '../main'
 import Resize from '../mixins/resize'
+import axios from 'axios'; 
 
 export default {
   name: 'home',
@@ -615,18 +616,18 @@ export default {
     opacity:.8,
 
     sections:[
-      {title:'Archive',img:'../assets/illus/undraw_Graduation_ktn0 (1).png', description:'this is a description', route:'/Archive'},
-      {title:'Advicor',img:'../assets/illus/undraw_Graduation_ktn0 (1).png', description:'this is a description', route:'/Advicer'},
-      {title:'Exam',img:'../assets/illus/undraw_Graduation_ktn0 (1).png', description:'this is a description', route:'/Exam'},
-      {title:'Konkur',img:'../assets/illus/undraw_Graduation_ktn0 (1).png', description:'this is a description', route:'/Konkur'},
-      {title:'Classes',img:'../assets/illus/undraw_Graduation_ktn0 (1).png', description:'this is a description', route:'/Classes'},
-      {title:'Teachers',img:'../assets/illus/undraw_Graduation_ktn0 (1).png', description:'this is a description', route:'/Teachers'},
+      {title:'Archive', route:'/Archive'},
+      {title:'Advicor', route:'/Advicer'},
+      {title:'Exam', route:'/Exam'},
+      {title:'Konkur', route:'/Konkur'},
+      {title:'Classes', route:'/Classes'},
+      {title:'Teachers', route:'/Teachers'},
     ],
 
     descriptions:[
-      {title:'Teachers',img:'../assets/Teacher-1.png',color:'orange'},
-      {title:'Parents',img:'../assets/parents.png',color:'indigo'},
-      {title:'Organizition',img:'../assets/Organ.png',color:'pink'},
+      {title:'Teachers'},
+      {title:'Parents'},
+      {title:'Organizition'},
     ],
 
     icons:[
@@ -635,25 +636,41 @@ export default {
         'mdi-instagram',
       ],
       
+      news: null,
 
+      // the news JASON should be like this
+        
+        // news:[
+        //   {
+        //   title:'Noor is Online',
+        //   img:'../assets/illus/hero full-min.png',
+        //   brief:'brief text place here',
+        //   text:'full text of the news will place here'
+        //   }
+        // ]
   }),
 
     created(){
       bus.$on('openDialog', (data) =>{
         this.dialog = data;
-      })
+      });
+      this.getNews();  //enable this line of code to get api
     },
 
 
     mounted () {
-      
-
-
       this.onResize(); // this function is mixin thats indicate the viewport
       this.mobile();  // this function makes the page responsive (horizontally)
     },
  
     methods: {
+
+      //get news from data base
+      getNews(){
+        axios
+          .get('https://jsonplaceholder.typicode.com/todos/1')       //place api here 
+          .then(response => (this.news = response))
+      },
       mobile(){
         if(this.viewport == 'xs'){ //xs
           this.heroH = (window.innerWidth)
