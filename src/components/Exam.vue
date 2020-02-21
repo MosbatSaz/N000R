@@ -3,7 +3,7 @@
     class=" pa-0 ma-0 my-12  w100 ">
         <div 
         class="text-center display-3">
-          Exam
+          آزمون
         </div>
 
         <!-- back card -->
@@ -44,9 +44,13 @@
                 height="">
                   <v-card-text
                   class="indigo--text text--darken-3 title">
-                    Ad exercitation elit laboris deserunt proident voluptate laboris ut consequat. Elit occaecat qui magna do. Ex qui elit eiusmod ut voluptate. Aute incididunt laboris enim ipsum ea laboris amet qui nulla.
-                    Ad culpa commodo minim in ut cillum excepteur id minim adipisicing. Voluptate nostrud labore deserunt dolore minim ipsum pariatur est. Fugiat ut duis voluptate ea Lorem elit. Enim proident dolor enim sint minim do voluptate eu irure occaecat aliqua.
-                    Ad culpa commodo minim in ut cillum excepteur id minim adipisicing. Voluptate nostrud labore deserunt dolore minim ipsum pariatur est. Fugiat ut duis voluptate ea Lorem elit. Enim proident dolor enim sint minim do voluptate eu irure occaecat aliqua.
+                   وب سایت نور اروند راه اندازی شد همه جا و در هر زمانی در دسترس شما
+                   وب سایت نور اروند راه اندازی شد همه جا و در هر زمانی در دسترس شما
+                   وب سایت نور اروند راه اندازی شد همه جا و در هر زمانی در دسترس شما
+                   وب سایت نور اروند راه اندازی شد همه جا و در هر زمانی در دسترس شما
+                   وب سایت نور اروند راه اندازی شد همه جا و در هر زمانی در دسترس شما
+                   وب سایت نور اروند راه اندازی شد همه جا و در هر زمانی در دسترس شما
+                   وب سایت نور اروند راه اندازی شد همه جا و در هر زمانی در دسترس شما
                   </v-card-text>
                 </v-card>
               </v-card>
@@ -121,7 +125,7 @@
                     :href="exam.readMore">
                         <v-btn
                         class="indigo back--text text--lighten-1 ml-3 darken-3">
-                            read more
+                            بیشتر
                         </v-btn>
                     </a>
                 </v-card-actions>
@@ -141,9 +145,9 @@ export default {
 
   data: () => ({
       exams:[
-        {title:'Gaj',description:'Duis nisi exercitation esse commodo eu esse adipisicing ut mollit amet. Pariatur veniam pariatur et qui quis aliqua mollit irure laboris minim minim tempor. Consectetur laborum esse ullamco ea magna aute et et excepteur laboris ea. Nisi sint aliqua officia consectetur incididunt sunt voluptate aliqua in.',logo:'../assets/gaj-log.png',readMore:"http://azmoon.gaj.ir/"},
-        {title:'Maz',description:'Duis nisi exercitation esse commodo eu esse adipisicing ut mollit amet. Pariatur veniam pariatur et qui quis aliqua mollit irure laboris minim minim tempor. Consectetur laborum esse ullamco ea magna aute et et excepteur laboris ea. Nisi sint aliqua officia consectetur incididunt sunt voluptate aliqua in.',logo:'../assets/maz-logo.png',readMore:"https://biomaze.ir/"},
-        {title:'Sanjesh',description:'Duis nisi exercitation esse commodo eu esse adipisicing ut mollit amet. Pariatur veniam pariatur et qui quis aliqua mollit irure laboris minim minim tempor. Consectetur laborum esse ullamco ea magna aute et et excepteur laboris ea. Nisi sint aliqua officia consectetur incididunt sunt voluptate aliqua in.',logo:'../assets/sanjesh.png',readMore:"http://92.242.195.129/sanjeshserv_regsarasari/"},
+        {title:'گاج',description:'وب سایت نور اروند راه اندازی شد همه جا و در هر زمانی در دسترس شماوب سایت نور اروند راه اندازی شد همه جا و در هر زمانی در دسترس شما',readMore:"http://azmoon.gaj.ir/"},
+        {title:'ماز',description:'وب سایت نور اروند راه اندازی شد همه جا و در هر زمانی در دسترس شماوب سایت نور اروند راه اندازی شد همه جا و در هر زمانی در دسترس شما',logo:'../assets/maz-logo.png',readMore:"https://biomaze.ir/"},
+        {title:'سنجش',description:'وب سایت نور اروند راه اندازی شد همه جا و در هر زمانی در دسترس شماوب سایت نور اروند راه اندازی شد همه جا و در هر زمانی در دسترس شما',logo:'../assets/sanjesh.png',readMore:"http://92.242.195.129/sanjeshserv_regsarasari/"},
 
       ]
   }),

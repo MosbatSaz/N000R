@@ -3,7 +3,7 @@
     class="  pa-0 ma-0 my-12 w100">
         <div 
         class="text-center w100 display-3 mb-12">
-          Advicor
+          مشاوره
         </div>
 
         <!-- back card -->
@@ -44,9 +44,11 @@
                 height="">
                   <v-card-text
                   class="indigo--text text--darken-3 title">
-                    Ad exercitation elit laboris deserunt proident voluptate laboris ut consequat. Elit occaecat qui magna do. Ex qui elit eiusmod ut voluptate. Aute incididunt laboris enim ipsum ea laboris amet qui nulla.
-                    Ad culpa commodo minim in ut cillum excepteur id minim adipisicing. Voluptate nostrud labore deserunt dolore minim ipsum pariatur est. Fugiat ut duis voluptate ea Lorem elit. Enim proident dolor enim sint minim do voluptate eu irure occaecat aliqua.
-                    Ad culpa commodo minim in ut cillum excepteur id minim adipisicing. Voluptate nostrud labore deserunt dolore minim ipsum pariatur est. Fugiat ut duis voluptate ea Lorem elit. Enim proident dolor enim sint minim do voluptate eu irure occaecat aliqua.
+                    وب سایت نور اروند راه اندازی شد همه جا و در هر زمانی در دسترس شما
+                    وب سایت نور اروند راه اندازی شد همه جا و در هر زمانی در دسترس شما
+                    وب سایت نور اروند راه اندازی شد همه جا و در هر زمانی در دسترس شما
+                    وب سایت نور اروند راه اندازی شد همه جا و در هر زمانی در دسترس شما
+                    وب سایت نور اروند راه اندازی شد همه جا و در هر زمانی در دسترس شما
                   </v-card-text>
                 </v-card>
               </v-card>
@@ -58,7 +60,7 @@
         <v-divider class=" indigo mt-12"></v-divider>
         <div 
         class="text-center w100 display-3 my-12">
-          Noor Advicor
+          مشاور نور
         </div>
             <div
             class="d-flex justify-center mx-5">
@@ -73,15 +75,13 @@
                 </v-avatar>
                 <v-list-item-content>
                 <v-list-item-title class="headline"> Mr No Buddy</v-list-item-title>
-                <v-list-item-subtitle>Noor Advicor</v-list-item-subtitle>
+                <v-list-item-subtitle>مشاور نور</v-list-item-subtitle>
                 </v-list-item-content>
                 </v-list-item>
 
                 <v-card-text>
-                I am Mr No Buddy , im the noor arvand advicor ,
-                Visit ten places on our planet that are undergoing the biggest changes today.
-                Visit ten places on our planet that are undergoing the biggest changes today.
-                Visit ten places on our planet that are undergoing the biggest changes today.
+                    وب سایت نور اروند راه اندازی شد همه جا و در هر زمانی در دسترس شما
+                    وب سایت نور اروند راه اندازی شد همه جا و در هر زمانی در دسترس شما
                 </v-card-text>
 
 
@@ -94,12 +94,15 @@
                 class=""
                 >
                 <v-expansion-panel-header
-                class="title"><span><v-icon class="mr-2 mb-1" color="indigo">mdi-more</v-icon>More About Me</span></v-expansion-panel-header>
+                class="title"><span><v-icon class="mr-2 mb-1" color="indigo">mdi-more</v-icon>درباره ی من</span></v-expansion-panel-header>
                 <v-expansion-panel-content
                 >
                 
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    وب سایت نور اروند راه اندازی شد همه جا و در هر زمانی در دسترس شما
+                    وب سایت نور اروند راه اندازی شد همه جا و در هر زمانی در دسترس شما
+                    وب سایت نور اروند راه اندازی شد همه جا و در هر زمانی در دسترس شما
+                    وب سایت نور اروند راه اندازی شد همه جا و در هر زمانی در دسترس شما
+                    وب سایت نور اروند راه اندازی شد همه جا و در هر زمانی در دسترس شما
                 </v-expansion-panel-content>
                 </v-expansion-panel>
                 </v-expansion-panels>

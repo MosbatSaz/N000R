@@ -3,7 +3,7 @@
     class="  pa-0 ma-0 my-12  w100">
         <div 
         class="text-center w100 display-3 mb-12">
-          Teachers
+          اساتید
         </div>
 
         <!-- back card -->
@@ -44,9 +44,15 @@
                 height="">
                   <v-card-text
                   class="indigo--text text--darken-3 title">
-                    Ad exercitation elit laboris deserunt proident voluptate laboris ut consequat. Elit occaecat qui magna do. Ex qui elit eiusmod ut voluptate. Aute incididunt laboris enim ipsum ea laboris amet qui nulla.
-                    Ad culpa commodo minim in ut cillum excepteur id minim adipisicing. Voluptate nostrud labore deserunt dolore minim ipsum pariatur est. Fugiat ut duis voluptate ea Lorem elit. Enim proident dolor enim sint minim do voluptate eu irure occaecat aliqua.
-                    Ad culpa commodo minim in ut cillum excepteur id minim adipisicing. Voluptate nostrud labore deserunt dolore minim ipsum pariatur est. Fugiat ut duis voluptate ea Lorem elit. Enim proident dolor enim sint minim do voluptate eu irure occaecat aliqua.
+                    وب سایت نور اروند راه اندازی شد همه جا و در هر زمانی در دسترس شما
+                    وب سایت نور اروند راه اندازی شد همه جا و در هر زمانی در دسترس شما
+                    وب سایت نور اروند راه اندازی شد همه جا و در هر زمانی در دسترس شما
+                    وب سایت نور اروند راه اندازی شد همه جا و در هر زمانی در دسترس شما
+                    وب سایت نور اروند راه اندازی شد همه جا و در هر زمانی در دسترس شما                    وب سایت نور اروند راه اندازی شد همه جا و در هر زمانی در دسترس شما
+                    وب سایت نور اروند راه اندازی شد همه جا و در هر زمانی در دسترس شما
+                    وب سایت نور اروند راه اندازی شد همه جا و در هر زمانی در دسترس شما
+                    وب سایت نور اروند راه اندازی شد همه جا و در هر زمانی در دسترس شما
+                    وب سایت نور اروند راه اندازی شد همه جا و در هر زمانی در دسترس شما
                   </v-card-text>
                 </v-card>
               </v-card>
@@ -59,7 +65,7 @@
 
         <div 
         class="text-center w100 display-3 my-12">
-          Noor Teachers
+          اساتید نور
         </div>
 
             <div
@@ -75,7 +81,7 @@
                 <v-icon size="80" :color="teacher.color">mdi-school</v-icon>
                 </v-avatar>
                 <v-list-item-content>
-                <v-list-item-title class="headline">{{teacher.title}} Teachers</v-list-item-title>
+                <v-list-item-title class="headline"> اساتید {{teacher.title}} </v-list-item-title>
                 <v-list-item-subtitle></v-list-item-subtitle>
                 </v-list-item-content>
                 </v-list-item>
@@ -86,7 +92,11 @@
                 ></v-img>
 
                 <v-card-text>
-                Visit ten places on our planet that are undergoing the biggest changes today.
+                    وب سایت نور اروند راه اندازی شد همه جا و در هر زمانی در دسترس شما
+                    وب سایت نور اروند راه اندازی شد همه جا و در هر زمانی در دسترس شما
+                    وب سایت نور اروند راه اندازی شد همه جا و در هر زمانی در دسترس شما
+                    وب سایت نور اروند راه اندازی شد همه جا و در هر زمانی در دسترس شما
+                    وب سایت نور اروند راه اندازی شد همه جا و در هر زمانی در دسترس شما
                 </v-card-text>
 
 
@@ -99,7 +109,7 @@
                 class=""
                 >
                 <v-expansion-panel-header
-                class="headline"><span><v-icon class="mr-2 mb-1" :color="teacher.color">mdi-more</v-icon>Teachers</span></v-expansion-panel-header>
+                class="headline"><span><v-icon class="mr-2 mb-1" :color="teacher.color">mdi-more</v-icon>اساتید</span></v-expansion-panel-header>
                 <v-expansion-panel-content
                 >
 
@@ -112,15 +122,16 @@
                   </v-avatar>
                   <v-list-item-content>
                   <v-list-item-title class="headline"> Mr No Buddy</v-list-item-title>
-                  <v-list-item-subtitle>Noor {{teacher.title}} Teacher</v-list-item-subtitle>
+                  <v-list-item-subtitle>استاد {{teacher.title}} </v-list-item-subtitle>
                   </v-list-item-content>
                   </v-list-item>
 
                   <v-card-text>
-                  I am Mr No Buddy , im the noor arvand advicer ,
-                  Visit ten places on our planet that are undergoing the biggest changes today.
-                  Visit ten places on our planet that are undergoing the biggest changes today.
-                  Visit ten places on our planet that are undergoing the biggest changes today.
+                    وب سایت نور اروند راه اندازی شد همه جا و در هر زمانی در دسترس شما
+                    وب سایت نور اروند راه اندازی شد همه جا و در هر زمانی در دسترس شما
+                    وب سایت نور اروند راه اندازی شد همه جا و در هر زمانی در دسترس شما
+                    وب سایت نور اروند راه اندازی شد همه جا و در هر زمانی در دسترس شما
+                    وب سایت نور اروند راه اندازی شد همه جا و در هر زمانی در دسترس شما
                   </v-card-text>
                   <v-divider v-show="index+1 < teacher.number"></v-divider>
                 </div>
@@ -144,9 +155,9 @@ export default {
 
   data: () => ({
       teachers:[
-        {title:'Math',color:'orange',number:2},
-        {title:'Physics ',color:'indigo',number:3},
-        {title:'Chemistry',color:'pink',number:1},
+        {title:'ریاضی',color:'orange',number:2},
+        {title:'فیزیک ',color:'indigo',number:3},
+        {title:'شیمی',color:'pink',number:1},
 
       ]   
   }),

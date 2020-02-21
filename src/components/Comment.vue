@@ -29,7 +29,7 @@
         >
             <template v-slot:label>
                 <div class="rtl">
-                Tell Me Some Thing  <span class="pink--text font-weight-black"> : ) </span>
+                بیا صحبت کنیم  <span class="pink--text font-weight-black"> : ) </span>
                 </div>
             </template>
         </v-textarea>
@@ -45,7 +45,7 @@
             max-width="300"
             color="deep-purple darken-3"
             solo
-            placeholder="First Name"
+            placeholder="نام"
             >
             </v-text-field>
         </div> 
@@ -60,7 +60,7 @@
             max-width="300"
             color="deep-purple darken-3"
             solo
-            placeholder="Last Name"
+            placeholder="نام خانوادگی"
             >
             </v-text-field>
         </div> 
@@ -76,7 +76,8 @@
             max-width="300"
             color="deep-purple darken-3"
             solo
-            placeholder="enter your number"
+            type="number"
+            placeholder="شماره همراه"
             >
             </v-text-field>
         </div> 

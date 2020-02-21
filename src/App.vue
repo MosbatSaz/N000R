@@ -27,6 +27,26 @@ export default {
 </script>
 <style>
 
+
+/* @font-face {
+  font-family: 'BYekan';
+  src: url('./css/Font/BYekan.svg#BYekan') format('svg'),
+       url('./css/Font/BYekan.ttf') format('truetype'),
+       url('./css/Font/BYekan.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Yekan';
+  src: url('./css/Font/Yekan.eot');
+  src: url('./css/Font/Yekan.eot?#iefix') format('embedded-opentype'),
+       url('./css/Font/Yekan.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+} */
+
+
 /* use sass in this section to make everything smarter */
 .rtl{
   direction: rtl;
@@ -40,7 +60,11 @@ export default {
 /* font */
 .v-application {
    /* font-family: 'Lexend Deca', sans-serif; */
-    /* font-family: 'BYekan', serif; */
+    /* font-family: 'Yekan', sans-serif; */
+ }
+
+  body {
+   /* font-family: 'Yekan'; */
  }
 
 

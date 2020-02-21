@@ -16,14 +16,14 @@
           <v-col
           cols="12">
             <div class="d-block text-center display-3">
-              Konkur
+              کنکور
             </div>
           </v-col>
 
           <v-col
           cols="12">
             <div class="d-block text-center headline">
-              Everythind Starts With a Good Choice
+              همه چیز با یه انتخاب خوب شروع میشه
             </div>
           </v-col>
                  
@@ -55,7 +55,9 @@
               class="rtl elevation-24 orange lighten-3 float-illus">
                 <v-card-title class="headline">Lorem ipsum</v-card-title>
                 <v-card-text>
-                  Lorem ipsum dolor sit amet, no nam oblique veritus.
+                    وب سایت نور اروند راه اندازی شد همه جا و در هر زمانی در دسترس شما
+                    وب سایت نور اروند راه اندازی شد همه جا و در هر زمانی در دسترس شما
+                    وب سایت نور اروند راه اندازی شد همه جا و در هر زمانی در دسترس شما
                 </v-card-text>
               </v-card>
             </v-timeline-item>
@@ -65,7 +67,7 @@
           <v-col
           cols="12">
             <div class="d-block text-center display-3">
-              Success 
+              موفقیت 
             </div>
           </v-col>
           </v-row>

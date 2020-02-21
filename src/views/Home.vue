@@ -57,10 +57,10 @@
                   <div class="rtl text-center mr-12">
                     <v-card
                     flat
-                    class="display-1 font-weight-light transparent"
+                    :class="`${viewport =='xs' || viewport == 'sm' ? 'title font-weight-bold' : 'display-1'} mb-5 font-weight-light transparent `"
                     :max-width="sectionH+100"
                     >
-                    Courses Classes and Exam All Here       
+                      آموزشگاه علمی نور اروند با تکیه بر کادری مجرب تا قله ی موفقیت کنار شماست
                     </v-card>
                   </div>
                 </v-img>
@@ -108,8 +108,8 @@
                     cols="12"
                     class="pa-0 ma-0">
                       <div 
-                      class="text-center font-weight-black pa-0">
-                        <span >{{section.title}}</span>
+                      class="text-center font-weight-black pa-0 mb-n5">
+                        <span class="headline font-weight-bold grey--text text--darken-4" >{{section.title}}</span>
                       </div>
                     </v-col>
                     <v-col
@@ -167,7 +167,7 @@
                 <div class="text-center mb-4">
                   <span
                   class="display-1 font-weight-bold grey--text text--darken-3">
-                  News</span>
+                  تازه ها</span>
                 </div>
               </v-col>
 
@@ -187,16 +187,17 @@
                 </v-avatar>
                 <v-list-item-content>
                 <v-list-item-title class="headline">{{n.title}}</v-list-item-title>
-                <v-list-item-subtitle>by Noor</v-list-item-subtitle>
+                <v-list-item-subtitle>نور اروند در تاریخ  {{n.date}}</v-list-item-subtitle>
                 </v-list-item-content>
                 </v-list-item>
 
                 <v-img
-                :src="n.img"
+                contain
+                :src="required(n.img)"
                 height="300"
                 >{{news}}</v-img>
 
-                <v-card-text >
+                <v-card-text class="title">
                 {{n.brief}}
                 </v-card-text>
 
@@ -210,11 +211,11 @@
                 class=""
                 >
                 <v-expansion-panel-header
-                class="title"><span>More</span></v-expansion-panel-header>
+                class="title"><span>بیشتر</span></v-expansion-panel-header>
                 <v-expansion-panel-content
-                class="back"
+                class="back title pt-3"
                 >
-                  {{n.text}}
+                 {{n.text}}
                 </v-expansion-panel-content>
                 </v-expansion-panel>
                 </v-expansion-panels>
@@ -254,7 +255,7 @@
                 <div class="text-center mb-4">
                   <span
                   class="display-1 font-weight-bold grey--text text--darken-3">
-                  Noor For All</span>
+                  نور برای همه</span>
                 </div>
               </v-col>
 
@@ -302,16 +303,17 @@
 
                     <!-- header -->
                       <div
-                      class=" d-flex justify-center display-1 mb-5">
+                      class="font-weight-bold d-flex justify-center display-1 mb-5">
                         {{description.title}}
                       </div>
                     <!-- description -->
                       <div
                       class=" text-center ma-2">
-                        Ipsum dolor eiusmod excepteur nulla enim aute aute veniam aute nostrud.
-                        Veniam ea ullamco ut laboris pariatur in.
-                        Mollit deserunt id nisi mollit ad adipisicing irure esse pariatur et consequat.
-                        Ex pariatur tempor sint sit reprehenderit non dolor. Est labore sit aute reprehenderit.
+                        وب سایت نور اروند راه اندازی شد همه و در هر زمانی در دسترس شما
+                        وب سایت نور اروند راه اندازی شد همه و در هر زمانی در دسترس شما
+                        وب سایت نور اروند راه اندازی شد همه و در هر زمانی در دسترس شما
+                        وب سایت نور اروند راه اندازی شد همه و در هر زمانی در دسترس شما
+                        وب سایت نور اروند راه اندازی شد همه و در هر زمانی در دسترس شما
                 
                       </div>
 
@@ -339,7 +341,7 @@
       class="text-center mb-8">
         <span
         class="display-1 font-weight-bold grey--text text--darken-3">
-        Our Medals</span>
+        افتخارات</span>
       </div>
       <v-row
       justify="center"
@@ -364,7 +366,7 @@
           <!-- title -->
           <div
           class="d-flex justify-center">
-            Title
+            مدال
           </div>
 
         </v-col>
@@ -616,18 +618,18 @@ export default {
     opacity:.8,
 
     sections:[
-      {title:'Archive', route:'/Archive'},
-      {title:'Advicor', route:'/Advicer'},
-      {title:'Exam', route:'/Exam'},
-      {title:'Konkur', route:'/Konkur'},
-      {title:'Classes', route:'/Classes'},
-      {title:'Teachers', route:'/Teachers'},
+      {title:'تصاویر', route:'/Archive'},
+      {title:'مشاوره', route:'/Advicer'},
+      {title:'آزمون', route:'/Exam'},
+      {title:'کنکور', route:'/Konkur'},
+      {title:'کلاس ها', route:'/Classes'},
+      {title:'اساتید', route:'/Teachers'},
     ],
 
     descriptions:[
-      {title:'Teachers'},
-      {title:'Parents'},
-      {title:'Organizition'},
+      {title:'اساتید'},
+      {title:'والدین'},
+      {title:'سازمان ها'},
     ],
 
     icons:[
@@ -642,10 +644,11 @@ export default {
         
         // news:[
         //   {
-        //   title:'Noor is Online',
+        //   title:'نور آنلاین شد',
         //   img:'../assets/illus/hero full-min.png',
-        //   brief:'brief text place here',
-        //   text:'full text of the news will place here'
+        //   date:''
+        //   brief:' وب سایت نور اروند راه اندازی شد همه جا و در هر زمانی در دسترس شما',
+        //   text:'وب سایت نور اروند راه اندازی شد همه جا و در هر زمانی در دسترس شماوب سایت نور اروند راه اندازی شد همه جا و در هر زمانی در دسترس شما وب سایت نور اروند راه اندازی شد همه جا و در هر زمانی در دسترس شما وب سایت نور اروند راه اندازی شد همه جا و در هر زمانی در دسترس شما'
         //   }
         // ]
   }),

@@ -32,8 +32,8 @@
                         <v-img src="../assets/noor-colorful-min.png"></v-img>
                         </v-avatar>
                         <v-list-item-content>
-                        <v-list-item-title class="headline">Mis Mir Hoseini</v-list-item-title>
-                        <v-list-item-subtitle>Noor CEO</v-list-item-subtitle>
+                        <v-list-item-title class="headline">خانم میرحسینی</v-list-item-title>
+                        <v-list-item-subtitle>مدیر نور اروند</v-list-item-subtitle>
                         </v-list-item-content>
                         </v-list-item>
 
@@ -112,8 +112,8 @@ export default {
         {icon:'mdi-telegram',color:'indigo',text:'@ t.me'},
         ],
         tabs:[
-            {title:'Me',icon:'mdi-talk',color:'purple'},
-            {title:'Info',icon:'mdi-info',color:'orange lighten-3'},
+            {title:'اهداف',icon:'mdi-talk',color:'purple'},
+            {title:' تماس',icon:'mdi-info',color:'orange lighten-3'},
         ]
     }),
 
